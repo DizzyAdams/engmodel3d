@@ -2,6 +2,8 @@
   display: grid;
   gap: 16px;
   grid-column: 1 / -1;
+  position: relative;
+  overflow: hidden;
 }
 
 .headerCopy {
@@ -19,6 +21,17 @@
   justify-content: flex-end;
   gap: 10px;
   align-items: center;
+}
+
+.workbench::before {
+  content: "";
+  position: absolute;
+  inset: auto -18% 62% auto;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 243, 255, 0.14), transparent 68%);
+  pointer-events: none;
 }
 
 .badgeMeta,
@@ -59,8 +72,8 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: 18px;
 }
 
 .column {
@@ -71,6 +84,13 @@
 .card {
   display: grid;
   gap: 14px;
+  padding: 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(159, 182, 255, 0.14);
+  background:
+    linear-gradient(180deg, rgba(12, 19, 34, 0.88), rgba(7, 11, 21, 0.9)),
+    rgba(255, 255, 255, 0.02);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
 }
 
 .cardHeader {
@@ -96,7 +116,9 @@
   padding: 14px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  background:
+    linear-gradient(180deg, rgba(124, 155, 255, 0.05), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.03);
 }
 
 .controlHeader,
@@ -148,12 +170,13 @@
 .diagram {
   position: relative;
   overflow: hidden;
-  min-height: 280px;
-  border-radius: 22px;
+  min-height: 320px;
+  border-radius: 24px;
   border: 1px solid rgba(124, 243, 255, 0.12);
   background:
     radial-gradient(circle at 28% 28%, rgba(124, 243, 255, 0.15), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    linear-gradient(135deg, rgba(124, 155, 255, 0.12), rgba(7, 11, 21, 0.4));
 }
 
 .diagramGrid {
@@ -286,7 +309,9 @@
   padding: 14px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  background:
+    linear-gradient(180deg, rgba(124, 243, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.03);
 }
 
 .metricCard span {
@@ -322,7 +347,9 @@
   gap: 12px;
   padding: 14px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -350,7 +377,9 @@
   padding: 14px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  background:
+    linear-gradient(180deg, rgba(124, 155, 255, 0.05), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.03);
 }
 
 .exportSummary strong,
@@ -473,6 +502,14 @@
   align-content: center;
 }
 
+.headerCopy p {
+  max-width: 74ch;
+}
+
+.workbench .button {
+  min-height: 44px;
+}
+
 @media (max-width: 1080px) {
   .layout,
   .exportGrid,
@@ -480,6 +517,10 @@
   .metricsGrid,
   .controlsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .workbench::before {
+    inset: auto -32% 70% auto;
   }
 }
 
@@ -499,5 +540,9 @@
 
   .number {
     width: 100%;
+  }
+
+  .workbench {
+    gap: 12px;
   }
 }
