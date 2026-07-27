@@ -19,10 +19,19 @@ export function AppShell({ title, eyebrow, subtitle, children }: AppShellProps) 
           <a className="topbar-chip" href="/">
             Dashboard
           </a>
+          <a className="topbar-chip" href="/#intake">
+            Brief intake
+          </a>
+          <a className="topbar-chip" href="/projects/cantilever-bracket#project-preview">
+            Live workbench
+          </a>
           <a className="topbar-chip" href="/roadmap">
             MVP roadmap
           </a>
-          <span className="topbar-chip topbar-chip--accent">Human review enabled</span>
+          <a className="topbar-chip topbar-chip--accent" href="#pilot">
+            Request pilot
+          </a>
+          <span className="topbar-chip">Human review enabled</span>
         </div>
       </header>
 

@@ -1,3 +1,5 @@
+import { BriefIntakePanel } from "./brief-intake-panel";
+
 type DashboardData = {
   stats: Array<{ label: string; value: string }>;
   kpis: Array<{ label: string; value: string; delta: string }>;
@@ -48,11 +50,11 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
             </div>
           </div>
           <div className="hero-actions">
-            <a className="button button--primary" href="/projects/cantilever-bracket">
-              Open example project
+            <a className="button button--primary" href="#intake">
+              Start brief intake
             </a>
-            <a className="button button--ghost" href="#projects">
-              Browse projects
+            <a className="button button--ghost" href="#offer">
+              View commercial offer
             </a>
           </div>
         </div>
@@ -64,6 +66,181 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
               <strong>{stat.value}</strong>
             </div>
           ))}
+        </div>
+      </section>
+
+      <BriefIntakePanel exportTargets={data.exports} />
+
+      <section className="panel panel--stacked panel--wide" id="offer">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Commercial offer</p>
+            <h3>What we can sell first</h3>
+          </div>
+          <div className="status-pill status-pill--soft">Pilot ready</div>
+        </div>
+        <div className="feature-grid">
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>Brief-to-model pilot</strong>
+              <span>Core value</span>
+            </div>
+            <p>Turn a textual brief into a structured parametric proposal with visible assumptions and editable parameters.</p>
+          </article>
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>Validation gate</strong>
+              <span>Risk reducer</span>
+            </div>
+            <p>Run engineering checks before release so clients see pass, warn, and fail states before any export handoff.</p>
+          </article>
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>Export-ready delivery</strong>
+              <span>Buyer outcome</span>
+            </div>
+            <p>Package the result in STEP, STL, IFC, GLB, or script form with version history and a review trail.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="panel panel--stacked panel--wide" id="pilot">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Pilot package</p>
+            <h3>What the first paid engagement includes</h3>
+          </div>
+          <div className="status-pill status-pill--soft">Ready to scope</div>
+        </div>
+        <div className="pilot-grid">
+          <article className="pilot-card">
+            <span>Week 1</span>
+            <strong>Brief and constraints</strong>
+            <p>Lock the problem, acceptance criteria, output format, and engineering limits.</p>
+          </article>
+          <article className="pilot-card">
+            <span>Week 2</span>
+            <strong>Parametric prototype</strong>
+            <p>Generate the first editable model with visible rules and controlled parameters.</p>
+          </article>
+          <article className="pilot-card">
+            <span>Week 3</span>
+            <strong>Validation and export</strong>
+            <p>Run checks, package delivery files, and hand over a decision-ready revision history.</p>
+          </article>
+          <article className="pilot-card">
+            <span>Outcome</span>
+            <strong>Paid pilot with proof</strong>
+            <p>The customer gets a working artifact, not a slide deck or an unfinished concept.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="panel panel--stacked panel--wide">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Essential features</p>
+            <h3>Seven things the first customer actually buys</h3>
+          </div>
+          <div className="status-pill status-pill--soft">No fluff</div>
+        </div>
+        <div className="feature-grid feature-grid--sales">
+          <article className="feature-card feature-card--lead">
+            <div className="feature-card__top">
+              <strong>Brief intake</strong>
+              <span>1</span>
+            </div>
+            <p>Capture the requirement in plain language, templates, or controlled uploads with the same output structure.</p>
+          </article>
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>Parameter panel</strong>
+              <span>2</span>
+            </div>
+            <p>Expose only the variables that matter so the user can tune the model without breaking geometry.</p>
+          </article>
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>Constraint checks</strong>
+              <span>3</span>
+            </div>
+            <p>Validate thickness, clearance, stress, and rule violations before the model reaches a client review.</p>
+          </article>
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>3D preview</strong>
+              <span>4</span>
+            </div>
+            <p>Give the buyer a visible artifact early so decisions happen on shape and fit, not on promises.</p>
+          </article>
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>Version history</strong>
+              <span>5</span>
+            </div>
+            <p>Keep every revision, owner, and change summary so the handoff feels controlled instead of improvised.</p>
+          </article>
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>Export pack</strong>
+              <span>6</span>
+            </div>
+            <p>Ship STEP, STL, IFC, GLB, or script output as a normalized delivery package with clear file naming.</p>
+          </article>
+          <article className="feature-card">
+            <div className="feature-card__top">
+              <strong>Commercial handoff</strong>
+              <span>7</span>
+            </div>
+            <p>End with a ready-to-review summary, so the customer can approve, request changes, or buy the next iteration.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="panel panel--stacked panel--wide">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Conversion</p>
+            <h3>How the first customer should contact you</h3>
+          </div>
+          <div className="status-pill">Commercial ready</div>
+        </div>
+        <div className="detail-callout">
+          <div>
+            <p className="section-label">Call to action</p>
+            <strong>Offer a scoped pilot for mechanical parts first, then expand into BIM and reusable modules.</strong>
+          </div>
+          <p>
+            The product is strongest when it reduces iteration time, protects engineering rules, and delivers
+            exportable files with a visible review trail.
+          </p>
+        </div>
+      </section>
+
+      <section className="panel panel--stacked panel--wide">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Initial niche</p>
+            <h3>Best first market to sell into</h3>
+          </div>
+          <div className="status-pill status-pill--soft">Narrow focus</div>
+        </div>
+        <div className="comparison-grid">
+          <article className="comparison-card">
+            <span>Primary wedge</span>
+            <strong>Mechanical parts</strong>
+            <p>Fastest path to value because the workflow is easy to explain, validate, and export.</p>
+          </article>
+          <article className="comparison-card">
+            <span>Secondary wedge</span>
+            <strong>Architecture/BIM modules</strong>
+            <p>Good expansion path once IFC and metadata mapping are stable enough for real teams.</p>
+          </article>
+          <article className="comparison-card">
+            <span>Buyer language</span>
+            <strong>Reduce iteration time</strong>
+            <p>Sell time saved, fewer invalid revisions, and cleaner handoff to CAD or fabrication teams.</p>
+          </article>
         </div>
       </section>
 

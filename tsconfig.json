@@ -13,5 +13,5 @@
     "resolveJsonModule": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
-  "exclude": ["app", "dist", "node_modules"]
+  "exclude": ["app", "dist", "node_modules", "src/ui/project-workbench.tsx", "src/ui/engineering-model-viewer.tsx"]
 }

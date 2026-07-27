@@ -1,6 +1,6 @@
 import { AppShell } from "../../../src/ui/app-shell";
 import { AgentActivityPanel } from "../../../src/ui/agent-activity-panel";
-import { ModelPreviewPlaceholder } from "../../../src/ui/model-preview-placeholder";
+import { EngineeringModelViewer } from "../../../src/ui/engineering-model-viewer";
 import { getProjectById } from "../../../src/server/mock-data";
 
 type ProjectPageProps = {
@@ -318,7 +318,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        <ModelPreviewPlaceholder project={project} id="project-preview" />
+        <EngineeringModelViewer project={project} id="project-preview" />
         <AgentActivityPanel items={project.activity} />
       </div>
     </AppShell>

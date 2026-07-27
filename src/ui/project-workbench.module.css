@@ -1,0 +1,503 @@
+.workbench {
+  display: grid;
+  gap: 16px;
+  grid-column: 1 / -1;
+}
+
+.headerCopy {
+  display: grid;
+  gap: 4px;
+}
+
+.headerCopy h2 {
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+}
+
+.badgeMeta,
+.badgeLevel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.badgeMeta {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+}
+
+.badgePass {
+  background: rgba(120, 244, 185, 0.12);
+  color: var(--success);
+  border-color: rgba(120, 244, 185, 0.18);
+}
+
+.badgeWarn {
+  background: rgba(255, 211, 109, 0.14);
+  color: var(--warning);
+  border-color: rgba(255, 211, 109, 0.22);
+}
+
+.badgeFail {
+  background: rgba(255, 141, 155, 0.14);
+  color: var(--danger);
+  border-color: rgba(255, 141, 155, 0.22);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+  gap: 16px;
+}
+
+.column {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  display: grid;
+  gap: 14px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardHeader h3 {
+  margin: 0;
+}
+
+.controlsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.control {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.controlHeader,
+.controlFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.controlHeader span,
+.controlFooter span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.controlHeader strong {
+  font-size: 15px;
+}
+
+.range {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.number,
+.select {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(7, 11, 21, 0.72);
+  color: var(--text);
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.number {
+  width: 112px;
+  text-align: right;
+}
+
+.select {
+  width: 100%;
+}
+
+.diagramCard {
+  padding-bottom: 18px;
+}
+
+.diagram {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  border-radius: 22px;
+  border: 1px solid rgba(124, 243, 255, 0.12);
+  background:
+    radial-gradient(circle at 28% 28%, rgba(124, 243, 255, 0.15), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+}
+
+.diagramGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.88), transparent);
+  opacity: 0.35;
+}
+
+.diagramMount {
+  position: absolute;
+  left: 26px;
+  bottom: 48px;
+  width: 54px;
+  height: 148px;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(124, 155, 255, 0.6), rgba(7, 11, 21, 0.9)),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.diagramMount::before {
+  content: "";
+  position: absolute;
+  inset: 12px 14px;
+  border-radius: 12px;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.14) 50%, rgba(255, 255, 255, 0.14) 75%, transparent 75%, transparent);
+  background-size: 18px 18px;
+  opacity: 0.45;
+}
+
+.diagramBeam {
+  position: absolute;
+  left: 72px;
+  bottom: 92px;
+  width: var(--beam-length);
+  height: var(--beam-thickness);
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(124, 243, 255, 0.24), rgba(124, 155, 255, 0.9) 45%, rgba(124, 243, 255, 0.82)),
+    rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 60px rgba(124, 155, 255, 0.2);
+}
+
+.diagramLoad {
+  position: absolute;
+  left: calc(72px + var(--beam-length) - 12px);
+  bottom: calc(92px + var(--beam-thickness) + 20px);
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  color: var(--accent);
+}
+
+.diagramLoad::before {
+  content: "";
+  width: 2px;
+  height: var(--load-height);
+  background: linear-gradient(180deg, rgba(124, 243, 255, 0.95), rgba(124, 155, 255, 0.12));
+}
+
+.diagramLoad::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-4px) rotate(45deg);
+}
+
+.diagramLoad span {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(7, 11, 21, 0.76);
+  border: 1px solid rgba(124, 243, 255, 0.12);
+  color: var(--text);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.diagramLabel,
+.diagramChip {
+  position: absolute;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 11, 21, 0.72);
+}
+
+.diagramLabel {
+  left: 18px;
+  top: 18px;
+}
+
+.diagramLabel strong,
+.diagramChip strong {
+  display: block;
+  font-size: 15px;
+}
+
+.diagramLabel span,
+.diagramChip span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.diagramChip {
+  right: 18px;
+  bottom: 18px;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metricCard {
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.metricCard span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.metricCard strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.metricCard small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.validationList {
+  display: grid;
+  gap: 10px;
+}
+
+.validationItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.validationItem strong {
+  display: block;
+  font-size: 15px;
+}
+
+.validationItem p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.exportGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 12px;
+}
+
+.exportSummary,
+.exportPlan,
+.receipt,
+.receiptEmpty {
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.exportSummary strong,
+.receipt strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.exportSummary p,
+.receipt p,
+.receiptEmpty p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.exportButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.exportPlan {
+  display: grid;
+  gap: 10px;
+}
+
+.planRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(7, 11, 21, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.planRow strong {
+  display: block;
+  font-size: 14px;
+}
+
+.planRow span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.planState {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.planStateOn {
+  color: var(--success);
+  background: rgba(120, 244, 185, 0.12);
+}
+
+.planStateOff {
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.receipt {
+  display: grid;
+  gap: 12px;
+}
+
+.receiptMeta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.receiptMeta div {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(7, 11, 21, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.receiptMeta span,
+.receiptEmpty span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.receiptMeta strong {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.codeBlock {
+  margin: 0;
+  padding: 14px;
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 11, 21, 0.72);
+  color: var(--accent);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.receiptEmpty {
+  min-height: 172px;
+  display: grid;
+  align-content: center;
+}
+
+@media (max-width: 1080px) {
+  .layout,
+  .exportGrid,
+  .receiptMeta,
+  .metricsGrid,
+  .controlsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .headerActions {
+    justify-content: flex-start;
+  }
+
+  .cardHeader,
+  .validationItem,
+  .planRow,
+  .controlHeader,
+  .controlFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .number {
+    width: 100%;
+  }
+}

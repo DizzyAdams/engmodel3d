@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Model3DEng",
-  description: "AI-assisted engineering platform for parametric design, validation, and export readiness.",
+  title: "Model3DEng | AI 3D engineering for commercial pilots",
+  description: "AI-assisted 3D engineering platform for parametric design, validation, export readiness, and pilot-friendly delivery.",
 };
 
 export default function RootLayout({

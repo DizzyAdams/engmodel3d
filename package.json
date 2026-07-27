@@ -6,9 +6,15 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "check": "tsc -p tsconfig.json --noEmit",
-    "start": "node dist/src/runtime/local-server.js"
+    "start": "node dist/src/runtime/local-server.js",
+    "vercel-build": "npm run build && node dist/src/runtime/export-static.js"
   },
   "devDependencies": {
+    "@types/node": "^26.1.2",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@types/three": "^0.185.1",
+    "three": "^0.185.1"
   }
 }
