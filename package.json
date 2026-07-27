@@ -1,0 +1,14 @@
+{
+  "name": "model3deng",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/src/runtime/local-server.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
