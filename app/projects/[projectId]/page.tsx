@@ -186,7 +186,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                 <div><span>Print time</span><strong>{project.engineering.printTime}</strong></div>
               </div>
             </article>
-            <article className="engineering-panel">
+            <article className="engineering-panel" id="validation">
               <p className="section-label">Validation risks</p>
               <div className="risk-list">
                 {project.risks.map((risk) => (
@@ -201,7 +201,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             </article>
           </div>
-          <article className="engineering-panel export-readiness">
+          <article className="engineering-panel export-readiness" id="export-readiness">
             <div className="panel__header">
               <div>
                 <p className="section-label">Export readiness</p>

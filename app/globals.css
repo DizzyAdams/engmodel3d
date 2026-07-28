@@ -1918,3 +1918,40 @@ body::before, body::after, .app-shell__field, .app-shell__backdrop { display: no
   .metric-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero-actions .button { width: 100%; text-align: center; }
 }
+
+.workflow-rail {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.8fr) minmax(0, 1.7fr) minmax(180px, 0.7fr);
+  gap: 18px;
+  align-items: center;
+  padding: 16px 18px;
+  background: #0d131b;
+}
+
+.workflow-rail__intro { display: grid; gap: 4px; }
+.workflow-rail__intro .section-label { margin-bottom: 2px; }
+.workflow-rail__intro h3 { font-size: 16px; }
+.workflow-rail__intro p:last-child { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.workflow-rail__steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
+.workflow-rail__step { position: relative; }
+.workflow-rail__step:not(:last-child)::after { content: ""; position: absolute; top: 18px; right: -4px; width: 8px; height: 1px; background: var(--panel-border); }
+.workflow-rail__step a { display: grid; gap: 3px; min-height: 62px; padding: 9px 8px; border: 1px solid transparent; border-radius: 8px; }
+.workflow-rail__step a:hover { border-color: var(--panel-border-strong); background: rgba(255, 255, 255, 0.04); }
+.workflow-rail__step span, .workflow-rail__next span { color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; letter-spacing: .08em; }
+.workflow-rail__step strong { font-size: 13px; }
+.workflow-rail__step small { color: var(--muted); font-size: 11px; }
+.workflow-rail__step--active a { border-color: rgba(114, 167, 255, 0.35); background: rgba(114, 167, 255, 0.09); }
+.workflow-rail__step--active span, .workflow-rail__step--active strong { color: var(--accent); }
+.workflow-rail__next { display: grid; gap: 5px; padding-left: 16px; border-left: 1px solid var(--panel-border); }
+.workflow-rail__next strong { font-size: 13px; }
+.workflow-rail__next .button { width: fit-content; padding: 8px 10px; font-size: 12px; }
+
+@media (max-width: 1080px) {
+  .workflow-rail { grid-template-columns: 1fr; }
+  .workflow-rail__next { padding-top: 12px; padding-left: 0; border-top: 1px solid var(--panel-border); border-left: 0; }
+}
+
+@media (max-width: 640px) {
+  .workflow-rail__steps { grid-template-columns: 1fr; }
+  .workflow-rail__step:not(:last-child)::after { top: auto; right: auto; bottom: -4px; left: 18px; width: 1px; height: 8px; }
+}

@@ -109,6 +109,28 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
         </div>
       </section>
 
+      <section className="workflow-rail panel" aria-labelledby="workflow-rail-title">
+        <div className="workflow-rail__intro">
+          <p className="section-label">Operating path</p>
+          <h3 id="workflow-rail-title">Five steps. One clear next action.</h3>
+          <p>Keep the engineering decision moving without losing the evidence behind it.</p>
+        </div>
+        <ol className="workflow-rail__steps">
+          <li className="workflow-rail__step workflow-rail__step--active">
+            <a href="#intake"><span>01</span><strong>Brief</strong><small>Define constraints</small></a>
+          </li>
+          <li className="workflow-rail__step"><a href="/projects/cantilever-bracket#project-preview"><span>02</span><strong>Model</strong><small>Inspect geometry</small></a></li>
+          <li className="workflow-rail__step"><a href="/projects/cantilever-bracket#validation"><span>03</span><strong>Checks</strong><small>Review risks</small></a></li>
+          <li className="workflow-rail__step"><a href="/projects/cantilever-bracket#project-versions"><span>04</span><strong>Review</strong><small>Compare revisions</small></a></li>
+          <li className="workflow-rail__step"><a href="/projects/cantilever-bracket#export-readiness"><span>05</span><strong>Export</strong><small>Prepare handoff</small></a></li>
+        </ol>
+        <div className="workflow-rail__next">
+          <span>Next action</span>
+          <strong>Start with the project brief</strong>
+          <a className="button button--primary" href="#intake">Open intake</a>
+        </div>
+      </section>
+
       <BriefIntakePanel exportTargets={data.exports} />
 
       <section className="panel panel--stacked panel--wide mission-bento">
