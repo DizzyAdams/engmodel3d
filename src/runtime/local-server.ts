@@ -294,7 +294,7 @@ async function handleApi(req: http.IncomingMessage, res: http.ServerResponse, ur
   return writeJson(res, 404, { ok: false, error: `Unknown API route: ${url.pathname}` });
 }
 
-async function handleRequest(req: http.IncomingMessage, res: http.ServerResponse) {
+export async function handleRequest(req: http.IncomingMessage, res: http.ServerResponse) {
   const url = new URL(req.url ?? "/", `http://${req.headers.host ?? "localhost"}`);
 
   if (url.pathname.startsWith("/api/")) {
@@ -334,6 +334,8 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(port, () => {
-  console.log(`Model3DEng local server running at http://localhost:${port}`);
-});
+if (!process.env.VERCEL) {
+  server.listen(port, () => {
+    console.log(`Model3DEng local server running at http://localhost:${port}`);
+  });
+}

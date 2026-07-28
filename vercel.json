@@ -1,4 +1,10 @@
 {
+  "version": 2,
+  "buildCommand": "pnpm run build && node dist/src/runtime/export-static.js",
   "outputDirectory": "public",
-  "buildCommand": "npm run vercel-build"
+  "functions": {
+    "api/[...path].js": {
+      "maxDuration": 60
+    }
+  }
 }
