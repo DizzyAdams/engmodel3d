@@ -1841,3 +1841,80 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Precision cockpit refresh: quiet structure, explicit hierarchy, engineering-first color. */
+:root {
+  --bg: #080b10;
+  --bg-glow: rgba(71, 132, 255, 0.08);
+  --panel: #11161e;
+  --panel-strong: #171e28;
+  --panel-border: rgba(194, 207, 226, 0.12);
+  --panel-border-strong: rgba(91, 151, 255, 0.45);
+  --text: #f3f6fb;
+  --muted: #9aa8bb;
+  --accent: #72a7ff;
+  --accent-strong: #3e7df0;
+  --success: #5fd49a;
+  --warning: #e9b866;
+  --danger: #e77d86;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+  --shadow-premium: 0 24px 70px rgba(0, 0, 0, 0.28);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --max-width: 1440px;
+}
+
+body { background: var(--bg); background-attachment: initial; }
+body::before, body::after, .app-shell__field, .app-shell__backdrop { display: none; }
+.app-shell { padding: 24px 28px 64px; }
+.app-shell__topbar { position: sticky; top: 16px; z-index: 5; align-items: center; margin-bottom: 28px; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--panel-border); background: rgba(17, 22, 30, 0.94); backdrop-filter: blur(14px); box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18); }
+.brand { gap: 4px; }
+.brand__eyebrow { color: var(--accent); font-size: 10px; letter-spacing: 0.12em; }
+.brand h1 { font-size: 24px; letter-spacing: -0.025em; }
+.brand p { max-width: 42ch; font-size: 12px; }
+.brand__signal-row { display: none; }
+.topbar-actions { gap: 4px; }
+.topbar-chip { padding: 8px 10px; border: 1px solid transparent; border-radius: 8px; background: transparent; color: var(--muted); font-size: 12px; backdrop-filter: none; }
+.topbar-chip:hover { transform: none; color: var(--text); background: rgba(255, 255, 255, 0.06); border-color: var(--panel-border); }
+.topbar-chip--accent { color: #06101d; background: var(--accent); border-color: var(--accent); font-weight: 700; }
+.topbar-chip--live { color: var(--success); background: transparent; border-color: rgba(95, 212, 154, 0.25); }
+.panel { border: 1px solid var(--panel-border); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); backdrop-filter: none; }
+.panel::before { display: none; }
+.panel--hero { background: linear-gradient(135deg, #151c27 0%, #10151d 58%, #0c1118 100%); }
+.section-label { color: var(--accent); font-size: 10px; letter-spacing: 0.1em; }
+.hero-orbit-grid { grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr); gap: 30px; }
+.hero-copy { gap: 18px; max-width: 760px; }
+.hero-copy h2 { max-width: 15ch; font-size: clamp(36px, 5.4vw, 72px); line-height: 0.98; letter-spacing: -0.055em; }
+.section-subtitle { max-width: 62ch; font-size: 16px; }
+.hero-orbit-card { min-height: 330px; border-radius: 12px; background: #0a0e14; border-color: var(--panel-border); }
+.hero-orbit-card::before, .hero-orbit-card::after { border-color: rgba(114, 167, 255, 0.16); }
+.hero-orbit-card__core { border-radius: 10px; background: #141b25; border-color: var(--panel-border); backdrop-filter: none; }
+.hero-orbit-card__core span, .hero-orbit-card__meta span { color: var(--muted); font-size: 10px; }
+.hero-actions { gap: 8px; }
+.button { border-radius: 8px; padding: 11px 14px; font-size: 13px; transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background 160ms cubic-bezier(0.23, 1, 0.32, 1), border-color 160ms cubic-bezier(0.23, 1, 0.32, 1); }
+.button:active { transform: scale(0.98); }
+.button--primary { color: #06101d; background: var(--accent); border-color: var(--accent); }
+.button--ghost { border-color: var(--panel-border); background: rgba(255, 255, 255, 0.03); }
+.metric-row { gap: 8px; }
+.metric-card { padding: 14px; border-radius: 10px; background: #0c1118; border: 1px solid var(--panel-border); }
+.metric-card span, .metric-card small { color: var(--muted); font-size: 11px; }
+.metric-card strong { font-variant-numeric: tabular-nums; font-size: 24px; letter-spacing: -0.03em; }
+.mission-bento, .comparison-grid, .feature-grid, .pilot-grid, .roadmap-grid { gap: 8px; }
+.mission-bento__lead, .mission-bento__card, .comparison-card, .feature-card, .pilot-card, .roadmap-card { border: 1px solid var(--panel-border); border-radius: 10px; background: #0d131b; }
+.mission-bento__card:hover, .comparison-card:hover, .feature-card:hover, .project-row:hover { border-color: var(--panel-border-strong); background: #121a25; }
+.status-pill, .tag-pill { border-radius: 6px; }
+
+@media (max-width: 900px) {
+  .app-shell__topbar { position: static; align-items: flex-start; flex-direction: column; }
+  .topbar-actions { justify-content: flex-start; }
+  .hero-orbit-grid, .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .app-shell { padding: 14px 12px 40px; }
+  .topbar-actions { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
+  .topbar-chip { flex: 0 0 auto; }
+  .hero-copy h2 { font-size: 42px; }
+  .metric-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-actions .button { width: 100%; text-align: center; }
+}

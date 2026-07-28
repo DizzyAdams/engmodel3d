@@ -41,24 +41,24 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
       <section className="panel panel--hero panel--feature">
         <div className="hero-orbit-grid">
           <div className="hero-copy">
-            <p className="section-label">Workspace overview · swarm mode</p>
-            <h2>A 14-agent realtime engineering cockpit that feels closer to a surreal war room than a static dashboard.</h2>
+            <p className="section-label">Workspace overview · project control</p>
+            <h2>From engineering brief to reviewed 3D model.</h2>
             <p className="section-subtitle">
-              Capture the brief, compare against premium references, orchestrate 14 specialists in parallel, and ship a governed export package.
-              Every surface should make the buyer feel that the system is alive, opinionated, and commercially ready.
+              Start with the constraint that matters, inspect the model as it changes, and keep validation close to the decision.
+              The workspace makes the next action obvious without hiding the engineering evidence.
             </p>
             <div className="presentation-strip">
               <div className="presentation-strip__card">
                 <span>Primary value</span>
-                <strong>Brief to reviewed model in one governed workflow</strong>
+                <strong>One flow from brief to reviewed model</strong>
               </div>
               <div className="presentation-strip__card">
                 <span>First sale</span>
-                <strong>Mechanical parts with clear validation and export</strong>
+                <strong>Mechanical parts with visible constraints</strong>
               </div>
               <div className="presentation-strip__card">
                 <span>Product posture</span>
-                <strong>Human reviewed, versioned, and export aware</strong>
+                <strong>Human review before export</strong>
               </div>
             </div>
             <div className="hero-actions">
