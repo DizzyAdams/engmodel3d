@@ -148,6 +148,8 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
                 value={form.projectName}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => updateField("projectName", event.target.value)}
                 placeholder="Cantilever bracket pilot"
+                required
+                aria-required="true"
               />
             </label>
 
@@ -261,6 +263,7 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
                     <label className={`brief-intake__toggle ${checked ? "brief-intake__toggle--active" : ""}`} key={target.format}>
                       <input
                         checked={checked}
+                        aria-label={`Include ${target.format} export`}
                         onChange={() => toggleExport(target.format)}
                         type="checkbox"
                       />

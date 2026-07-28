@@ -64,7 +64,16 @@ export function AgentSwarmPanel({
           <h3>{title}</h3>
           <p className="section-subtitle">{subtitle}</p>
         </div>
-        <div className="status-pill">{averageProgress}% synced</div>
+        <div
+          className="status-pill"
+          role="progressbar"
+          aria-label="Agent swarm synchronization"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={averageProgress}
+        >
+          {averageProgress}% synced
+        </div>
       </div>
 
       {focusAgent ? (
@@ -97,7 +106,14 @@ export function AgentSwarmPanel({
               <span>{focusAgent.output}</span>
               <span>{focusAgent.progress}</span>
             </div>
-            <div style={{ height: 10, borderRadius: 999, background: "rgba(255,255,255,0.06)", overflow: "hidden" }}>
+            <div
+              role="progressbar"
+              aria-label={`${focusAgent.name} progress`}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={getProgressValue(focusAgent.progress)}
+              style={{ height: 10, borderRadius: 999, background: "rgba(255,255,255,0.06)", overflow: "hidden" }}
+            >
               <div
                 style={{
                   width: `${getProgressValue(focusAgent.progress)}%`,

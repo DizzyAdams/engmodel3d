@@ -16,7 +16,7 @@ export function AppShell({ title, eyebrow, subtitle, children }: AppShellProps) 
         <div className="app-shell__scanlines" />
       </div>
       <div className="app-shell__backdrop" aria-hidden="true" />
-      <header className="app-shell__topbar">
+      <header className="app-shell__topbar" role="banner">
         <div className="brand">
           <div className="brand__eyebrow">{eyebrow}</div>
           <h1>{title}</h1>
@@ -27,7 +27,7 @@ export function AppShell({ title, eyebrow, subtitle, children }: AppShellProps) 
             <span className="brand__signal">Human review hard gate</span>
           </div>
         </div>
-        <div className="topbar-actions">
+        <nav className="topbar-actions" aria-label="Primary navigation">
           <a className="topbar-chip" href="/">
             Dashboard
           </a>
@@ -55,11 +55,11 @@ export function AppShell({ title, eyebrow, subtitle, children }: AppShellProps) 
           <a className="topbar-chip topbar-chip--accent" href="/#pilot">
             Request pilot
           </a>
-          <span className="topbar-chip topbar-chip--live">Human review enabled</span>
-        </div>
+          <span className="topbar-chip topbar-chip--live" role="status">Human review enabled</span>
+        </nav>
       </header>
 
-      <div className="app-shell__content">{children}</div>
+      <div className="app-shell__content" id="main-content">{children}</div>
     </main>
   );
 }
