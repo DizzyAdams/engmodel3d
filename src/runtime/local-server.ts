@@ -116,6 +116,9 @@ async function persistBrief(submission: BriefSubmission) {
 }
 
 async function readJsonBody(req: http.IncomingMessage) {
+  const providedBody = (req as http.IncomingMessage & { body?: unknown }).body;
+  if (providedBody && typeof providedBody === "object") return providedBody;
+  if (typeof providedBody === "string") return JSON.parse(providedBody);
   const chunks: Buffer[] = [];
   for await (const chunk of req) {
     chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
