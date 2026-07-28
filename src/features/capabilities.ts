@@ -1,9 +1,13 @@
 export const capabilities = [
   "prompt-to-parametric-model",
+  "reference-benchmarking",
   "project-versioning",
+  "multi-agent-swarm-control",
   "agent-task-orchestration",
+  "scenario-simulation",
+  "materials-and-cost-tracking",
   "geometry-validation",
-  "web-viewer-integration-ready",
+  "immersive-workbench-ui",
   "export-pipeline-ready",
 ] as const;
 

@@ -8,11 +8,17 @@ export type ProjectKind =
 export type AgentRole =
   | "intake"
   | "research"
+  | "benchmark"
+  | "product"
+  | "experience"
   | "architecture"
   | "cad"
-  | "frontend"
+  | "simulation"
+  | "materials"
+  | "manufacturing"
+  | "cost"
   | "validation"
-  | "product"
+  | "compliance"
   | "orchestrator";
 
 export type TaskStatus = "queued" | "running" | "blocked" | "done" | "failed";

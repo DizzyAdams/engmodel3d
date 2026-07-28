@@ -1,6 +1,8 @@
 import { AppShell } from "../../../src/ui/app-shell";
 import { AgentActivityPanel } from "../../../src/ui/agent-activity-panel";
+import { AgentSwarmPanel } from "../../../src/ui/agent-swarm-panel";
 import { ProjectWorkbench } from "../../../src/ui/project-workbench";
+import { ReferenceBenchmarkPanel } from "../../../src/ui/reference-benchmark-panel";
 import { getProjectById } from "../../../src/server/mock-data";
 
 type ProjectPageProps = {
@@ -37,6 +39,11 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
         <div className="cockpit-nav__copy">
           <p className="section-label">Cockpit navigation</p>
           <p className="section-subtitle">Segmented views for preview, analysis, and versions.</p>
+          <div className="cockpit-nav__signals">
+            <span className="cockpit-nav__signal">{project.status}</span>
+            <span className="cockpit-nav__signal">{project.confidence} confidence</span>
+            <span className="cockpit-nav__signal">{project.validationState}</span>
+          </div>
         </div>
         <nav className="cockpit-tabs" aria-label="Project cockpit views">
           <a className="cockpit-tab cockpit-tab--active" href="#project-preview" aria-current="page">
@@ -44,6 +51,12 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
           </a>
           <a className="cockpit-tab" href="#project-analysis">
             Analysis
+          </a>
+          <a className="cockpit-tab" href="#project-swarm">
+            Swarm
+          </a>
+          <a className="cockpit-tab" href="#project-scenarios">
+            Scenarios
           </a>
           <a className="cockpit-tab" href="#project-versions">
             Versions
@@ -107,6 +120,58 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             ))}
           </div>
+          <div className="metric-row metric-row--compact">
+            {project.liveSignals.map((signal) => (
+              <div className="metric-card" key={signal.label}>
+                <span>{signal.label}</span>
+                <strong>{signal.value}</strong>
+                <small>
+                  {signal.trend} · {signal.detail}
+                </small>
+              </div>
+            ))}
+          </div>
+          <div id="project-swarm">
+            <AgentSwarmPanel
+              items={project.agentSwarm}
+              title="Project-specific realtime swarm"
+              subtitle="Fourteen specialist lanes stay mapped to geometry, validation, commercial framing, and release gates for this workspace."
+            />
+          </div>
+          <ReferenceBenchmarkPanel
+            references={project.referenceBenchmarks}
+            commandItems={project.missionQueue}
+            title="Reference-driven feature pressure"
+          />
+          <article className="engineering-panel" id="project-scenarios">
+            <div className="panel__header">
+              <div>
+                <p className="section-label">Scenario board</p>
+                <h3>What the next surreal wave would change</h3>
+                <p className="section-subtitle">Live what-if comparisons that keep the product commercial, not just visually impressive.</p>
+              </div>
+              <div className="status-pill status-pill--soft">Decision theater</div>
+            </div>
+            <div className="comparison-grid">
+              {project.scenarioBoard.map((scenario) => (
+                <article className="comparison-card" key={scenario.name}>
+                  <span>{scenario.status}</span>
+                  <strong>{scenario.name}</strong>
+                  <p>{scenario.detail}</p>
+                  <div className="comparison-summary comparison-summary--compact">
+                    <div className="comparison-summary__chip">
+                      <span>Delta</span>
+                      <strong>{scenario.delta}</strong>
+                    </div>
+                    <div className="comparison-summary__chip">
+                      <span>Outcome</span>
+                      <strong>{scenario.outcome}</strong>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </article>
           <div className="engineering-grid">
             <article className="engineering-panel">
               <p className="section-label">Engineering summary</p>
@@ -316,6 +381,26 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               ))}
             </div>
           </div>
+          <article className="engineering-panel">
+            <div className="panel__header">
+              <div>
+                <p className="section-label">Scenario board</p>
+                <h3>What the active swarm is testing now</h3>
+              </div>
+              <div className="status-pill status-pill--soft">Live comparison</div>
+            </div>
+            <div className="comparison-grid">
+              {project.scenarioBoard.map((scenario) => (
+                <article className="comparison-card" key={scenario.name}>
+                  <span>{scenario.status}</span>
+                  <strong>{scenario.name}</strong>
+                  <p>{scenario.delta}</p>
+                  <p>{scenario.outcome}</p>
+                  <small>{scenario.detail}</small>
+                </article>
+              ))}
+            </div>
+          </article>
         </section>
 
         <ProjectWorkbench project={project} id="project-preview" />

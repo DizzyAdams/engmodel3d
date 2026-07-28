@@ -1,4 +1,6 @@
 import { BriefIntakePanel } from "./brief-intake-panel";
+import { AgentSwarmPanel } from "./agent-swarm-panel";
+import { ReferenceBenchmarkPanel } from "./reference-benchmark-panel";
 
 type DashboardData = {
   stats: Array<{ label: string; value: string }>;
@@ -10,6 +12,15 @@ type DashboardData = {
   capabilities: Array<{ name: string; status: string; detail: string }>;
   roadmap: Array<{ phase: string; title: string; detail: string }>;
   comparisonTheme: Array<{ label: string; value: string; detail: string }>;
+  swarmMetrics: Array<{ label: string; value: string }>;
+  agentRoster: Array<{ name: string; role: string; status: string; focus: string; progress: string; eta: string; output: string; intensity: string }>;
+  benchmarkReferences: Array<{ name: string; category: string; adopted: string; score: string; note: string }>;
+  executionTracks: Array<{ lane: string; title: string; owner: string; status: string; detail: string }>;
+  sectors: Array<{ name: string; buyer: string; pain: string; win: string; formats: string }>;
+  workflow: Array<{ stage: string; title: string; owner: string; outcome: string; signal: string }>;
+  packages: Array<{ name: string; price: string; timeline: string; fit: string; deliverables: string[]; outcome: string }>;
+  trustSignals: Array<{ label: string; value: string; detail: string }>;
+  caseStudies: Array<{ name: string; impact: string; summary: string; buyer: string }>;
   projects: Array<{
     id: string;
     name: string;
@@ -28,34 +39,63 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
   return (
     <div className="dashboard-stack">
       <section className="panel panel--hero panel--feature">
-        <div className="hero-copy">
-          <p className="section-label">Workspace overview · v1.2</p>
-          <h2>Brief, generate, validate, review, export.</h2>
-          <p className="section-subtitle">
-            The first version of the product should feel like an engineering cockpit: clear project state,
-            fast model inspection, and visible agent coordination.
-          </p>
-          <div className="presentation-strip">
-            <div className="presentation-strip__card">
-              <span>Investor story</span>
-              <strong>AI + CAD + validation in one traceable workflow</strong>
+        <div className="hero-orbit-grid">
+          <div className="hero-copy">
+            <p className="section-label">Workspace overview · swarm mode</p>
+            <h2>A 14-agent realtime engineering cockpit that feels closer to a surreal war room than a static dashboard.</h2>
+            <p className="section-subtitle">
+              Capture the brief, compare against premium references, orchestrate 14 specialists in parallel, and ship a governed export package.
+              Every surface should make the buyer feel that the system is alive, opinionated, and commercially ready.
+            </p>
+            <div className="presentation-strip">
+              <div className="presentation-strip__card">
+                <span>Primary value</span>
+                <strong>Brief to reviewed model in one governed workflow</strong>
+              </div>
+              <div className="presentation-strip__card">
+                <span>First sale</span>
+                <strong>Mechanical parts with clear validation and export</strong>
+              </div>
+              <div className="presentation-strip__card">
+                <span>Product posture</span>
+                <strong>Human reviewed, versioned, and export aware</strong>
+              </div>
             </div>
-            <div className="presentation-strip__card">
-              <span>MVP target</span>
-              <strong>3 hours to a polished, enterprise-ready cockpit baseline</strong>
-            </div>
-            <div className="presentation-strip__card">
-              <span>Release posture</span>
-              <strong>Human reviewed, export aware, version controlled</strong>
+            <div className="hero-actions">
+              <a className="button button--primary" href="#intake">
+                Start brief intake
+              </a>
+              <a className="button button--ghost" href="/projects/cantilever-bracket#project-preview">
+                Open live workbench
+              </a>
+              <a className="button button--ghost" href="/mission-control">
+                Open mission control
+              </a>
             </div>
           </div>
-          <div className="hero-actions">
-            <a className="button button--primary" href="#intake">
-              Start brief intake
-            </a>
-            <a className="button button--ghost" href="#offer">
-              View commercial offer
-            </a>
+
+          <div className="hero-orbit-card">
+            <div className="hero-orbit-card__shell">
+              <div className="hero-orbit-card__core">
+                <span>Realtime command pulse</span>
+                <strong>{data.agentRoster[0]?.name ?? "Orchestrator"}</strong>
+                <p>{data.agentRoster[0]?.focus ?? "Sequencing geometry, QA, export, and commercial proof."}</p>
+                <div className="hero-orbit-card__meta">
+                  <div>
+                    <span>Status</span>
+                    <strong>{data.agentRoster[0]?.status ?? "running"}</strong>
+                  </div>
+                  <div>
+                    <span>ETA</span>
+                    <strong>{data.agentRoster[0]?.eta ?? "live"}</strong>
+                  </div>
+                  <div>
+                    <span>Output</span>
+                    <strong>{data.agentRoster[0]?.output ?? "14-agent swarm online"}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -71,6 +111,80 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
 
       <BriefIntakePanel exportTargets={data.exports} />
 
+      <section className="panel panel--stacked panel--wide mission-bento">
+        <article className="mission-bento__lead">
+          <p className="section-label">Surreal thesis</p>
+          <h3>The product now behaves like a premium engineering command center</h3>
+          <p>
+            Swarm telemetry, reference pressure, export posture, and buyer-ready decisions now live in one interface instead of scattered across generic cards.
+          </p>
+        </article>
+        <article className="mission-bento__card">
+          <span>Realtime swarm</span>
+          <strong>14 agents visible</strong>
+          <p>Every lane is explicit enough for a buyer, operator, or reviewer to understand at a glance.</p>
+        </article>
+        <article className="mission-bento__card">
+          <span>Reference pressure</span>
+          <strong>Benchmarks are operational</strong>
+          <p>We are no longer showing inspiration. We are showing what gets built because of each premium reference.</p>
+        </article>
+        <article className="mission-bento__card">
+          <span>Commercial close</span>
+          <strong>Pilot CTA stays near proof</strong>
+          <p>The surreal layer sits next to buyer proof, so the interface sells instead of just looking expensive.</p>
+        </article>
+      </section>
+
+      <AgentSwarmPanel items={data.agentRoster} />
+
+      <ReferenceBenchmarkPanel references={data.benchmarkReferences} commandItems={data.executionTracks} />
+
+      <section className="panel panel--stacked panel--wide" id="solutions">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Target buyers</p>
+            <h3>Who this platform is already strong enough to sell to</h3>
+          </div>
+          <a className="status-pill" href="/solutions">
+            Open solutions page
+          </a>
+        </div>
+        <div className="comparison-grid">
+          {data.sectors.map((sector) => (
+            <article className="comparison-card" key={sector.name}>
+              <span>{sector.buyer}</span>
+              <strong>{sector.name}</strong>
+              <p>{sector.pain}</p>
+              <p>{sector.win}</p>
+              <small>{sector.formats}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel panel--stacked panel--wide" id="workflow">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Delivery workflow</p>
+            <h3>The path from buyer brief to governed export handoff</h3>
+          </div>
+          <a className="status-pill" href="/workflow">
+            Open workflow page
+          </a>
+        </div>
+        <div className="roadmap-grid">
+          {data.workflow.map((step) => (
+            <article className="roadmap-card" key={step.stage}>
+              <span>{step.stage}</span>
+              <strong>{step.title}</strong>
+              <p>{step.outcome}</p>
+              <small>{step.owner} · {step.signal}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="panel panel--stacked panel--wide" id="offer">
         <div className="panel__header">
           <div>
@@ -85,14 +199,14 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
               <strong>Brief-to-model pilot</strong>
               <span>Core value</span>
             </div>
-            <p>Turn a textual brief into a structured parametric proposal with visible assumptions and editable parameters.</p>
+            <p>Turn a written brief into a structured parametric proposal with visible assumptions and editable parameters.</p>
           </article>
           <article className="feature-card">
             <div className="feature-card__top">
               <strong>Validation gate</strong>
               <span>Risk reducer</span>
             </div>
-            <p>Run engineering checks before release so clients see pass, warn, and fail states before any export handoff.</p>
+            <p>Run engineering checks before release so clients see pass, warn, and fail states before export handoff.</p>
           </article>
           <article className="feature-card">
             <div className="feature-card__top">
@@ -136,11 +250,72 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
         </div>
       </section>
 
+      <section className="panel panel--stacked panel--wide" id="packages">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Commercial packages</p>
+            <h3>Three clear ways to buy the product</h3>
+          </div>
+          <a className="status-pill" href="/packages">
+            Open packages page
+          </a>
+        </div>
+        <div className="feature-grid">
+          {data.packages.map((pkg) => (
+            <article className="feature-card" key={pkg.name}>
+              <div className="feature-card__top">
+                <strong>{pkg.name}</strong>
+                <span>{pkg.price}</span>
+              </div>
+              <p>{pkg.fit}</p>
+              <p>{pkg.timeline}</p>
+              <div className="tag-row">
+                {pkg.deliverables.map((item) => (
+                  <span className="tag-pill" key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <p>{pkg.outcome}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel panel--stacked panel--wide">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Executive proof</p>
+            <h3>Signals that make important engineering buyers trust the product</h3>
+          </div>
+          <div className="status-pill status-pill--soft">Buyer-safe</div>
+        </div>
+        <div className="metric-row">
+          {data.trustSignals.map((signal) => (
+            <div className="metric-card" key={signal.label}>
+              <span>{signal.label}</span>
+              <strong>{signal.value}</strong>
+              <small>{signal.detail}</small>
+            </div>
+          ))}
+        </div>
+        <div className="comparison-grid">
+          {data.caseStudies.map((study) => (
+            <article className="comparison-card" key={study.name}>
+              <span>{study.buyer}</span>
+              <strong>{study.name}</strong>
+              <p>{study.summary}</p>
+              <small>{study.impact}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="panel panel--stacked panel--wide">
         <div className="panel__header">
           <div>
             <p className="section-label">Essential features</p>
-            <h3>Seven things the first customer actually buys</h3>
+            <h3>Seven things the first customer buys</h3>
           </div>
           <div className="status-pill status-pill--soft">No fluff</div>
         </div>

@@ -60,10 +60,20 @@ export class Orchestrator {
     });
 
     const steps: AgentStep[] = [
+      { role: "intake", title: "Normalizar briefing e restricoes" },
       { role: "research", title: "Mapeamento de referencias" },
+      { role: "benchmark", title: "Comparar com referencias principais" },
+      { role: "product", title: "Traduzir gaps em proposta de valor" },
+      { role: "experience", title: "Comprimir o fluxo em cockpit operacional" },
       { role: "architecture", title: "Definir arquitetura do produto" },
       { role: "cad", title: "Gerar geometria paramétrica" },
+      { role: "simulation", title: "Rodar cenarios de carga e delta" },
+      { role: "materials", title: "Ajustar material e tolerancias" },
+      { role: "manufacturing", title: "Preparar fabricacao e handoff" },
+      { role: "cost", title: "Estimar impacto comercial" },
       { role: "validation", title: "Validar geometria e exportacao" },
+      { role: "compliance", title: "Fechar auditoria de release" },
+      { role: "orchestrator", title: "Consolidar decisao final" },
     ];
 
     const tasks = steps.map((step) =>

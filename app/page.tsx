@@ -8,8 +8,8 @@ export default function HomePage() {
   return (
     <AppShell
       title="Model3DEng"
-      eyebrow="AI-assisted 3D engineering workspace"
-      subtitle="Brief a part, inspect the generated model, and keep humans in the loop before anything ships. Built to sell the first pilot: fast scope, clear validation, export-ready output."
+      eyebrow="Surreal AI-assisted 3D engineering workspace"
+      subtitle="Brief a part, pressure-test it against a live swarm, and turn the result into a cinematic engineering cockpit with export-ready proof before anything ships."
     >
       <DashboardScreen data={data} />
     </AppShell>

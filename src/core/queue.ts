@@ -1,5 +1,6 @@
 import { createId, createTimestamp } from "./id.js";
 import type { AgentTask, AgentTaskInput, TaskStatus } from "../types/domain.js";
+import { agentEventHub } from "../runtime/agent-events.js";
 
 export class TaskQueue {
   private readonly tasks = new Map<string, AgentTask>();
@@ -21,6 +22,7 @@ export class TaskQueue {
 
     this.tasks.set(task.id, task);
     this.order.push(task.id);
+    agentEventHub.publishTask("task.queued", task);
     return task;
   }
 
@@ -31,6 +33,7 @@ export class TaskQueue {
     task.status = status;
     task.updatedAt = createTimestamp();
     if (output !== undefined) task.output = output;
+    agentEventHub.publishTask(status === "done" ? "task.done" : status === "failed" ? "task.failed" : status === "running" ? "task.running" : "task.queued", task, { output });
     return task;
   }
 
@@ -43,6 +46,7 @@ export class TaskQueue {
 
     task.status = "running";
     task.updatedAt = createTimestamp();
+    agentEventHub.publishTask("task.running", task);
     return task;
   }
 
@@ -58,6 +62,7 @@ export class TaskQueue {
     task.status = "failed";
     task.error = error;
     task.updatedAt = createTimestamp();
+    agentEventHub.publishTask("task.failed", task, { error });
     return task;
   }
 
