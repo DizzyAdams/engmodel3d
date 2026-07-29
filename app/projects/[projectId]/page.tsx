@@ -2,6 +2,7 @@ import { AppShell } from "../../../src/ui/app-shell";
 import { AgentActivityPanel } from "../../../src/ui/agent-activity-panel";
 import { AgentSwarmPanel } from "../../../src/ui/agent-swarm-panel";
 import { ProjectWorkbench } from "../../../src/ui/project-workbench";
+import { ProjectGallery } from "../../../src/ui/project-gallery";
 import { ReferenceBenchmarkPanel } from "../../../src/ui/reference-benchmark-panel";
 import { getProjectById } from "../../../src/server/mock-data";
 
@@ -143,35 +144,6 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
             commandItems={project.missionQueue}
             title="Reference-driven feature pressure"
           />
-          <article className="engineering-panel" id="project-scenarios">
-            <div className="panel__header">
-              <div>
-                <p className="section-label">Scenario board</p>
-                <h3>What the next surreal wave would change</h3>
-                <p className="section-subtitle">Live what-if comparisons that keep the product commercial, not just visually impressive.</p>
-              </div>
-              <div className="status-pill status-pill--soft">Decision theater</div>
-            </div>
-            <div className="comparison-grid">
-              {project.scenarioBoard.map((scenario) => (
-                <article className="comparison-card" key={scenario.name}>
-                  <span>{scenario.status}</span>
-                  <strong>{scenario.name}</strong>
-                  <p>{scenario.detail}</p>
-                  <div className="comparison-summary comparison-summary--compact">
-                    <div className="comparison-summary__chip">
-                      <span>Delta</span>
-                      <strong>{scenario.delta}</strong>
-                    </div>
-                    <div className="comparison-summary__chip">
-                      <span>Outcome</span>
-                      <strong>{scenario.outcome}</strong>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </article>
           <div className="engineering-grid">
             <article className="engineering-panel">
               <p className="section-label">Engineering summary</p>
@@ -403,6 +375,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
           </article>
         </section>
 
+        <ProjectGallery project={project} />
         <ProjectWorkbench project={project} id="project-preview" />
         <AgentActivityPanel items={project.activity} />
       </div>

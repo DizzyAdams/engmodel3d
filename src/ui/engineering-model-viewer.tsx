@@ -26,6 +26,8 @@ import {
   type ExtrudeGeometryOptions,
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter.js";
+import { STLExporter } from "three/examples/jsm/exporters/STLExporter.js";
 
 import type { ProjectRecord } from "../server/mock-data";
 
@@ -108,32 +110,20 @@ function addCircularHole(shape: Shape, x: number, y: number, radius: number) {
   shape.holes.push(hole);
 }
 
-function makeBracketGeometry(parameters: ViewerParameters) {
+function makeBuildingGeometry(parameters: ViewerParameters) {
   const baseLength = parameters.baseLength * MM_TO_SCENE;
   const legHeight = parameters.legHeight * MM_TO_SCENE;
   const depth = parameters.depth * MM_TO_SCENE;
   const webThickness = parameters.webThickness * MM_TO_SCENE;
-  const holeRadius = clamp((parameters.webThickness * 0.28) * MM_TO_SCENE, 0.03, webThickness * 0.38);
   const chamfer = clamp(parameters.chamfer * MM_TO_SCENE, 0, Math.min(depth, webThickness) * 0.22);
 
   const body = new Shape();
   body.moveTo(0, 0);
   body.lineTo(baseLength, 0);
-  body.lineTo(baseLength, webThickness);
-  body.lineTo(webThickness, webThickness);
-  body.lineTo(webThickness, legHeight);
-  body.lineTo(0, legHeight);
+  body.lineTo(baseLength, legHeight * 0.82);
+  body.lineTo(baseLength * 0.5, legHeight);
+  body.lineTo(0, legHeight * 0.82);
   body.closePath();
-
-  const minHoleInset = holeRadius + webThickness * 0.35;
-  const baseHalfSpacing = clamp((parameters.holeSpacing * 0.5) * MM_TO_SCENE, minHoleInset, baseLength * 0.5 - minHoleInset);
-  const baseCenter = baseLength * 0.5;
-  const baseHoleY = webThickness * 0.5;
-  addCircularHole(body, clamp(baseCenter - baseHalfSpacing, minHoleInset, baseLength - minHoleInset), baseHoleY, holeRadius);
-  addCircularHole(body, clamp(baseCenter + baseHalfSpacing, minHoleInset, baseLength - minHoleInset), baseHoleY, holeRadius);
-
-  const legHoleY = clamp(legHeight * 0.7, webThickness + minHoleInset, legHeight - minHoleInset);
-  addCircularHole(body, webThickness * 0.5, legHoleY, holeRadius);
 
   const extrudeOptions: ExtrudeGeometryOptions = {
     depth,
@@ -160,6 +150,16 @@ function disposeGeometry(geometry: Mesh["geometry"] | LineSegments["geometry"] |
   if (geometry && "dispose" in geometry) {
     geometry.dispose();
   }
+}
+
+function downloadBlob(filename: string, blob: Blob) {
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  anchor.rel = "noopener";
+  anchor.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 function RangeControl({ label, value, min, max, step, unit, onChange }: RangeControlProps) {
@@ -215,6 +215,47 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
       holePitchMm: params.holeSpacing,
     };
   }, [params]);
+
+  const downloadStl = () => {
+    const mesh = bodyMeshRef.current;
+    if (!mesh) return;
+    const data = new STLExporter().parse(mesh, { binary: true });
+    downloadBlob(`${project.id}-${project.lastRevision}.stl`, new Blob([data], { type: "model/stl" }));
+  };
+
+  const downloadGlb = () => {
+    const model = modelRef.current;
+    if (!model) return;
+    new GLTFExporter().parse(
+      model,
+      (result) => {
+        const binary = result instanceof ArrayBuffer;
+        const payload = binary ? result : JSON.stringify(result);
+        downloadBlob(
+          `${project.id}-${project.lastRevision}.glb`,
+          new Blob([payload], { type: binary ? "model/gltf-binary" : "application/json" }),
+        );
+      },
+      () => setStatus("error"),
+      { binary: true },
+    );
+  };
+
+  const downloadEngineeringJson = () => {
+    const snapshot = {
+      schema: "model3deng.engineering-viewer.snapshot",
+      schemaVersion: 1,
+      generatedAt: new Date().toISOString(),
+      limitation: "STEP remains pending until a CAD kernel or server-side STEP exporter is connected.",
+      project: { id: project.id, name: project.name, revision: project.lastRevision },
+      parameters: params,
+      summary,
+    };
+    downloadBlob(
+      `${project.id}-${project.lastRevision}.engineering.json`,
+      new Blob([JSON.stringify(snapshot, null, 2)], { type: "application/json;charset=utf-8" }),
+    );
+  };
 
   useEffect(() => {
     if (!hostRef.current) {
@@ -286,7 +327,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
         opacity: 0.85,
       });
 
-      const bodyMesh = new Mesh(makeBracketGeometry(params), bodyMaterial);
+      const bodyMesh = new Mesh(makeBuildingGeometry(params), bodyMaterial);
       bodyMesh.castShadow = false;
       bodyMesh.receiveShadow = false;
       const edgeMesh = new LineSegments(new EdgesGeometry(bodyMesh.geometry), edgeMaterial);
@@ -408,7 +449,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
     }
 
     try {
-      const nextGeometry = makeBracketGeometry(params);
+      const nextGeometry = makeBuildingGeometry(params);
       disposeGeometry(bodyMesh.geometry);
       disposeGeometry(edgeMesh.geometry);
       bodyMesh.geometry = nextGeometry;
@@ -440,7 +481,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
           <p className="section-label">Model preview</p>
           <h2>Interactive engineering viewer</h2>
           <p className="section-subtitle">
-            Orbit the solid, change the bracket dimensions, and watch the geometry rebuild in real time.
+            Orbit the building massing, change the project dimensions, and watch the 3D model rebuild in real time.
           </p>
         </div>
         <div className="status-pill status-pill--soft">{statusLabel}</div>
@@ -475,7 +516,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
             >
               {status === "unsupported"
                 ? "This browser cannot create a WebGL context. The rest of the project page still works, but the 3D preview falls back to static information."
-                : "The 3D scene is starting up."}
+                : "The 3D scene reported an error. Reload the page or use the engineering state JSON export while the visual preview is unavailable."}
             </div>
           ) : null}
           <div
@@ -498,7 +539,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
               <strong style={summaryValueStyle}>{summary.aspectRatio.toFixed(2)}:1</strong>
             </div>
             <div style={summaryCardStyle}>
-              <span style={summaryLabelStyle}>Hole pitch</span>
+              <span style={summaryLabelStyle}>Model depth</span>
               <strong style={summaryValueStyle}>{summary.holePitchMm} mm</strong>
             </div>
             <div style={summaryCardStyle}>
@@ -515,7 +556,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
         <article className="engineering-panel" style={{ display: "grid", gap: 14 }}>
           <div style={{ display: "grid", gap: 14 }}>
             <RangeControl
-              label="Base length"
+              label="Building width"
               value={params.baseLength}
               min={160}
               max={360}
@@ -524,7 +565,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
               onChange={(next) => setParams((current) => ({ ...current, baseLength: next }))}
             />
             <RangeControl
-              label="Leg height"
+              label="Building height"
               value={params.legHeight}
               min={60}
               max={220}
@@ -533,7 +574,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
               onChange={(next) => setParams((current) => ({ ...current, legHeight: next }))}
             />
             <RangeControl
-              label="Section depth"
+              label="Building depth"
               value={params.depth}
               min={16}
               max={40}
@@ -542,7 +583,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
               onChange={(next) => setParams((current) => ({ ...current, depth: next }))}
             />
             <RangeControl
-              label="Wall thickness"
+              label="Roof profile"
               value={params.webThickness}
               min={18}
               max={48}
@@ -551,7 +592,7 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
               onChange={(next) => setParams((current) => ({ ...current, webThickness: next }))}
             />
             <RangeControl
-              label="Hole pitch"
+              label="Facade rhythm"
               value={params.holeSpacing}
               min={48}
               max={Math.max(64, params.baseLength - 48)}
@@ -622,6 +663,22 @@ export function EngineeringModelViewer({ project, id }: EngineeringModelViewerPr
               <span style={summaryLabelStyle}>Validation state</span>
               <strong style={summaryValueStyle}>{project.validationState}</strong>
             </div>
+          </div>
+          <div style={{ display: "grid", gap: 8 }}>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <button className="button button--primary" type="button" onClick={downloadStl} disabled={status !== "ready"}>
+                Download STL
+              </button>
+              <button className="button button--ghost" type="button" onClick={downloadGlb} disabled={status !== "ready"}>
+                Download GLB
+              </button>
+              <button className="button button--ghost" type="button" onClick={downloadEngineeringJson}>
+                Download JSON
+              </button>
+            </div>
+            <small style={{ color: "var(--muted)", lineHeight: 1.5 }}>
+              STL and GLB are generated from the live mesh. STEP remains a governed handoff item until a CAD kernel is connected.
+            </small>
           </div>
         </article>
       </div>

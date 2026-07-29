@@ -1,0 +1,2051 @@
+# Model3DEng — backlog de 2.000 micro-sprints
+Status: execução incremental; cada item só pode ser marcado como concluído após evidência no código e no runtime.
+Regra: 20 frentes × 100 micro-sprints. Não são 2.000 commits obrigatórios; são unidades rastreáveis de mudança.
+
+## Critério de aceite global
+- fluxo tem estado de loading, sucesso, erro e vazio quando aplicável;
+- ação primária tem efeito observável;
+- rota/href tem destino real;
+- React e renderer estático não divergem;
+- `npm run check`, `npm run build` e export estático passam;
+- produção é sondada por HTTP após deploy.
+
+## 01-foundation — tokens, tipografia e primitives
+- [ ] 01-foundation-001: inventariar o item 001 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-002: definir contrato o item 002 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-003: simplificar o item 003 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-004: refatorar o item 004 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-005: compor o item 005 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-006: validar o item 006 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-007: documentar o item 007 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-008: instrumentar o item 008 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-009: testar o item 009 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-010: publicar o item 010 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-011: inventariar o item 011 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-012: definir contrato o item 012 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-013: simplificar o item 013 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-014: refatorar o item 014 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-015: compor o item 015 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-016: validar o item 016 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-017: documentar o item 017 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-018: instrumentar o item 018 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-019: testar o item 019 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-020: publicar o item 020 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-021: inventariar o item 021 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-022: definir contrato o item 022 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-023: simplificar o item 023 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-024: refatorar o item 024 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-025: compor o item 025 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-026: validar o item 026 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-027: documentar o item 027 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-028: instrumentar o item 028 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-029: testar o item 029 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-030: publicar o item 030 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-031: inventariar o item 031 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-032: definir contrato o item 032 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-033: simplificar o item 033 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-034: refatorar o item 034 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-035: compor o item 035 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-036: validar o item 036 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-037: documentar o item 037 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-038: instrumentar o item 038 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-039: testar o item 039 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-040: publicar o item 040 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-041: inventariar o item 041 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-042: definir contrato o item 042 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-043: simplificar o item 043 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-044: refatorar o item 044 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-045: compor o item 045 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-046: validar o item 046 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-047: documentar o item 047 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-048: instrumentar o item 048 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-049: testar o item 049 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-050: publicar o item 050 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-051: inventariar o item 051 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-052: definir contrato o item 052 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-053: simplificar o item 053 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-054: refatorar o item 054 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-055: compor o item 055 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-056: validar o item 056 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-057: documentar o item 057 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-058: instrumentar o item 058 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-059: testar o item 059 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-060: publicar o item 060 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-061: inventariar o item 061 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-062: definir contrato o item 062 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-063: simplificar o item 063 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-064: refatorar o item 064 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-065: compor o item 065 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-066: validar o item 066 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-067: documentar o item 067 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-068: instrumentar o item 068 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-069: testar o item 069 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-070: publicar o item 070 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-071: inventariar o item 071 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-072: definir contrato o item 072 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-073: simplificar o item 073 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-074: refatorar o item 074 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-075: compor o item 075 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-076: validar o item 076 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-077: documentar o item 077 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-078: instrumentar o item 078 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-079: testar o item 079 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-080: publicar o item 080 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-081: inventariar o item 081 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-082: definir contrato o item 082 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-083: simplificar o item 083 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-084: refatorar o item 084 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-085: compor o item 085 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-086: validar o item 086 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-087: documentar o item 087 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-088: instrumentar o item 088 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-089: testar o item 089 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-090: publicar o item 090 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-091: inventariar o item 091 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-092: definir contrato o item 092 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-093: simplificar o item 093 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-094: refatorar o item 094 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-095: compor o item 095 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-096: validar o item 096 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-097: documentar o item 097 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-098: instrumentar o item 098 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-099: testar o item 099 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+- [ ] 01-foundation-100: publicar o item 100 de tokens, tipografia e primitives; registrar evidência e impacto no fluxo.
+
+## 02-shell — app shell, navegação e wayfinding
+- [ ] 02-shell-001: inventariar o item 001 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-002: definir contrato o item 002 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-003: simplificar o item 003 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-004: refatorar o item 004 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-005: compor o item 005 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-006: validar o item 006 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-007: documentar o item 007 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-008: instrumentar o item 008 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-009: testar o item 009 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-010: publicar o item 010 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-011: inventariar o item 011 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-012: definir contrato o item 012 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-013: simplificar o item 013 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-014: refatorar o item 014 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-015: compor o item 015 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-016: validar o item 016 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-017: documentar o item 017 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-018: instrumentar o item 018 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-019: testar o item 019 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-020: publicar o item 020 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-021: inventariar o item 021 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-022: definir contrato o item 022 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-023: simplificar o item 023 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-024: refatorar o item 024 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-025: compor o item 025 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-026: validar o item 026 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-027: documentar o item 027 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-028: instrumentar o item 028 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-029: testar o item 029 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-030: publicar o item 030 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-031: inventariar o item 031 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-032: definir contrato o item 032 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-033: simplificar o item 033 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-034: refatorar o item 034 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-035: compor o item 035 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-036: validar o item 036 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-037: documentar o item 037 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-038: instrumentar o item 038 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-039: testar o item 039 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-040: publicar o item 040 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-041: inventariar o item 041 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-042: definir contrato o item 042 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-043: simplificar o item 043 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-044: refatorar o item 044 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-045: compor o item 045 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-046: validar o item 046 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-047: documentar o item 047 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-048: instrumentar o item 048 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-049: testar o item 049 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-050: publicar o item 050 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-051: inventariar o item 051 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-052: definir contrato o item 052 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-053: simplificar o item 053 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-054: refatorar o item 054 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-055: compor o item 055 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-056: validar o item 056 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-057: documentar o item 057 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-058: instrumentar o item 058 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-059: testar o item 059 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-060: publicar o item 060 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-061: inventariar o item 061 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-062: definir contrato o item 062 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-063: simplificar o item 063 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-064: refatorar o item 064 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-065: compor o item 065 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-066: validar o item 066 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-067: documentar o item 067 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-068: instrumentar o item 068 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-069: testar o item 069 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-070: publicar o item 070 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-071: inventariar o item 071 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-072: definir contrato o item 072 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-073: simplificar o item 073 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-074: refatorar o item 074 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-075: compor o item 075 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-076: validar o item 076 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-077: documentar o item 077 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-078: instrumentar o item 078 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-079: testar o item 079 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-080: publicar o item 080 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-081: inventariar o item 081 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-082: definir contrato o item 082 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-083: simplificar o item 083 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-084: refatorar o item 084 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-085: compor o item 085 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-086: validar o item 086 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-087: documentar o item 087 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-088: instrumentar o item 088 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-089: testar o item 089 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-090: publicar o item 090 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-091: inventariar o item 091 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-092: definir contrato o item 092 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-093: simplificar o item 093 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-094: refatorar o item 094 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-095: compor o item 095 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-096: validar o item 096 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-097: documentar o item 097 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-098: instrumentar o item 098 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-099: testar o item 099 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+- [ ] 02-shell-100: publicar o item 100 de app shell, navegação e wayfinding; registrar evidência e impacto no fluxo.
+
+## 03-home — homepage e primeiro contato
+- [ ] 03-home-001: inventariar o item 001 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-002: definir contrato o item 002 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-003: simplificar o item 003 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-004: refatorar o item 004 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-005: compor o item 005 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-006: validar o item 006 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-007: documentar o item 007 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-008: instrumentar o item 008 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-009: testar o item 009 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-010: publicar o item 010 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-011: inventariar o item 011 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-012: definir contrato o item 012 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-013: simplificar o item 013 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-014: refatorar o item 014 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-015: compor o item 015 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-016: validar o item 016 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-017: documentar o item 017 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-018: instrumentar o item 018 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-019: testar o item 019 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-020: publicar o item 020 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-021: inventariar o item 021 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-022: definir contrato o item 022 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-023: simplificar o item 023 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-024: refatorar o item 024 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-025: compor o item 025 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-026: validar o item 026 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-027: documentar o item 027 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-028: instrumentar o item 028 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-029: testar o item 029 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-030: publicar o item 030 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-031: inventariar o item 031 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-032: definir contrato o item 032 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-033: simplificar o item 033 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-034: refatorar o item 034 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-035: compor o item 035 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-036: validar o item 036 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-037: documentar o item 037 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-038: instrumentar o item 038 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-039: testar o item 039 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-040: publicar o item 040 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-041: inventariar o item 041 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-042: definir contrato o item 042 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-043: simplificar o item 043 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-044: refatorar o item 044 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-045: compor o item 045 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-046: validar o item 046 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-047: documentar o item 047 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-048: instrumentar o item 048 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-049: testar o item 049 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-050: publicar o item 050 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-051: inventariar o item 051 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-052: definir contrato o item 052 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-053: simplificar o item 053 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-054: refatorar o item 054 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-055: compor o item 055 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-056: validar o item 056 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-057: documentar o item 057 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-058: instrumentar o item 058 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-059: testar o item 059 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-060: publicar o item 060 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-061: inventariar o item 061 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-062: definir contrato o item 062 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-063: simplificar o item 063 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-064: refatorar o item 064 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-065: compor o item 065 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-066: validar o item 066 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-067: documentar o item 067 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-068: instrumentar o item 068 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-069: testar o item 069 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-070: publicar o item 070 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-071: inventariar o item 071 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-072: definir contrato o item 072 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-073: simplificar o item 073 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-074: refatorar o item 074 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-075: compor o item 075 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-076: validar o item 076 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-077: documentar o item 077 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-078: instrumentar o item 078 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-079: testar o item 079 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-080: publicar o item 080 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-081: inventariar o item 081 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-082: definir contrato o item 082 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-083: simplificar o item 083 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-084: refatorar o item 084 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-085: compor o item 085 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-086: validar o item 086 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-087: documentar o item 087 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-088: instrumentar o item 088 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-089: testar o item 089 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-090: publicar o item 090 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-091: inventariar o item 091 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-092: definir contrato o item 092 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-093: simplificar o item 093 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-094: refatorar o item 094 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-095: compor o item 095 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-096: validar o item 096 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-097: documentar o item 097 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-098: instrumentar o item 098 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-099: testar o item 099 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+- [ ] 03-home-100: publicar o item 100 de homepage e primeiro contato; registrar evidência e impacto no fluxo.
+
+## 04-intake — brief intake e formulários
+- [ ] 04-intake-001: inventariar o item 001 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-002: definir contrato o item 002 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-003: simplificar o item 003 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-004: refatorar o item 004 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-005: compor o item 005 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-006: validar o item 006 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-007: documentar o item 007 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-008: instrumentar o item 008 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-009: testar o item 009 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-010: publicar o item 010 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-011: inventariar o item 011 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-012: definir contrato o item 012 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-013: simplificar o item 013 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-014: refatorar o item 014 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-015: compor o item 015 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-016: validar o item 016 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-017: documentar o item 017 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-018: instrumentar o item 018 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-019: testar o item 019 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-020: publicar o item 020 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-021: inventariar o item 021 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-022: definir contrato o item 022 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-023: simplificar o item 023 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-024: refatorar o item 024 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-025: compor o item 025 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-026: validar o item 026 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-027: documentar o item 027 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-028: instrumentar o item 028 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-029: testar o item 029 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-030: publicar o item 030 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-031: inventariar o item 031 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-032: definir contrato o item 032 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-033: simplificar o item 033 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-034: refatorar o item 034 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-035: compor o item 035 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-036: validar o item 036 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-037: documentar o item 037 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-038: instrumentar o item 038 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-039: testar o item 039 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-040: publicar o item 040 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-041: inventariar o item 041 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-042: definir contrato o item 042 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-043: simplificar o item 043 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-044: refatorar o item 044 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-045: compor o item 045 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-046: validar o item 046 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-047: documentar o item 047 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-048: instrumentar o item 048 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-049: testar o item 049 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-050: publicar o item 050 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-051: inventariar o item 051 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-052: definir contrato o item 052 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-053: simplificar o item 053 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-054: refatorar o item 054 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-055: compor o item 055 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-056: validar o item 056 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-057: documentar o item 057 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-058: instrumentar o item 058 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-059: testar o item 059 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-060: publicar o item 060 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-061: inventariar o item 061 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-062: definir contrato o item 062 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-063: simplificar o item 063 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-064: refatorar o item 064 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-065: compor o item 065 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-066: validar o item 066 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-067: documentar o item 067 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-068: instrumentar o item 068 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-069: testar o item 069 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-070: publicar o item 070 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-071: inventariar o item 071 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-072: definir contrato o item 072 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-073: simplificar o item 073 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-074: refatorar o item 074 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-075: compor o item 075 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-076: validar o item 076 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-077: documentar o item 077 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-078: instrumentar o item 078 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-079: testar o item 079 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-080: publicar o item 080 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-081: inventariar o item 081 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-082: definir contrato o item 082 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-083: simplificar o item 083 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-084: refatorar o item 084 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-085: compor o item 085 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-086: validar o item 086 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-087: documentar o item 087 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-088: instrumentar o item 088 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-089: testar o item 089 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-090: publicar o item 090 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-091: inventariar o item 091 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-092: definir contrato o item 092 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-093: simplificar o item 093 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-094: refatorar o item 094 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-095: compor o item 095 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-096: validar o item 096 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-097: documentar o item 097 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-098: instrumentar o item 098 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-099: testar o item 099 de brief intake e formulários; registrar evidência e impacto no fluxo.
+- [ ] 04-intake-100: publicar o item 100 de brief intake e formulários; registrar evidência e impacto no fluxo.
+
+## 05-workbench — cockpit 3D e controles
+- [ ] 05-workbench-001: inventariar o item 001 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-002: definir contrato o item 002 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-003: simplificar o item 003 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-004: refatorar o item 004 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-005: compor o item 005 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-006: validar o item 006 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-007: documentar o item 007 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-008: instrumentar o item 008 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-009: testar o item 009 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-010: publicar o item 010 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-011: inventariar o item 011 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-012: definir contrato o item 012 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-013: simplificar o item 013 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-014: refatorar o item 014 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-015: compor o item 015 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-016: validar o item 016 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-017: documentar o item 017 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-018: instrumentar o item 018 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-019: testar o item 019 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-020: publicar o item 020 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-021: inventariar o item 021 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-022: definir contrato o item 022 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-023: simplificar o item 023 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-024: refatorar o item 024 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-025: compor o item 025 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-026: validar o item 026 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-027: documentar o item 027 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-028: instrumentar o item 028 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-029: testar o item 029 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-030: publicar o item 030 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-031: inventariar o item 031 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-032: definir contrato o item 032 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-033: simplificar o item 033 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-034: refatorar o item 034 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-035: compor o item 035 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-036: validar o item 036 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-037: documentar o item 037 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-038: instrumentar o item 038 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-039: testar o item 039 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-040: publicar o item 040 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-041: inventariar o item 041 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-042: definir contrato o item 042 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-043: simplificar o item 043 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-044: refatorar o item 044 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-045: compor o item 045 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-046: validar o item 046 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-047: documentar o item 047 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-048: instrumentar o item 048 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-049: testar o item 049 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-050: publicar o item 050 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-051: inventariar o item 051 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-052: definir contrato o item 052 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-053: simplificar o item 053 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-054: refatorar o item 054 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-055: compor o item 055 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-056: validar o item 056 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-057: documentar o item 057 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-058: instrumentar o item 058 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-059: testar o item 059 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-060: publicar o item 060 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-061: inventariar o item 061 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-062: definir contrato o item 062 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-063: simplificar o item 063 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-064: refatorar o item 064 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-065: compor o item 065 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-066: validar o item 066 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-067: documentar o item 067 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-068: instrumentar o item 068 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-069: testar o item 069 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-070: publicar o item 070 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-071: inventariar o item 071 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-072: definir contrato o item 072 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-073: simplificar o item 073 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-074: refatorar o item 074 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-075: compor o item 075 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-076: validar o item 076 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-077: documentar o item 077 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-078: instrumentar o item 078 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-079: testar o item 079 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-080: publicar o item 080 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-081: inventariar o item 081 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-082: definir contrato o item 082 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-083: simplificar o item 083 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-084: refatorar o item 084 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-085: compor o item 085 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-086: validar o item 086 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-087: documentar o item 087 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-088: instrumentar o item 088 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-089: testar o item 089 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-090: publicar o item 090 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-091: inventariar o item 091 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-092: definir contrato o item 092 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-093: simplificar o item 093 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-094: refatorar o item 094 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-095: compor o item 095 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-096: validar o item 096 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-097: documentar o item 097 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-098: instrumentar o item 098 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-099: testar o item 099 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+- [ ] 05-workbench-100: publicar o item 100 de cockpit 3D e controles; registrar evidência e impacto no fluxo.
+
+## 06-validation — checks, riscos e explicabilidade
+- [ ] 06-validation-001: inventariar o item 001 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-002: definir contrato o item 002 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-003: simplificar o item 003 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-004: refatorar o item 004 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-005: compor o item 005 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-006: validar o item 006 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-007: documentar o item 007 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-008: instrumentar o item 008 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-009: testar o item 009 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-010: publicar o item 010 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-011: inventariar o item 011 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-012: definir contrato o item 012 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-013: simplificar o item 013 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-014: refatorar o item 014 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-015: compor o item 015 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-016: validar o item 016 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-017: documentar o item 017 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-018: instrumentar o item 018 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-019: testar o item 019 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-020: publicar o item 020 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-021: inventariar o item 021 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-022: definir contrato o item 022 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-023: simplificar o item 023 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-024: refatorar o item 024 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-025: compor o item 025 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-026: validar o item 026 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-027: documentar o item 027 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-028: instrumentar o item 028 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-029: testar o item 029 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-030: publicar o item 030 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-031: inventariar o item 031 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-032: definir contrato o item 032 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-033: simplificar o item 033 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-034: refatorar o item 034 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-035: compor o item 035 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-036: validar o item 036 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-037: documentar o item 037 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-038: instrumentar o item 038 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-039: testar o item 039 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-040: publicar o item 040 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-041: inventariar o item 041 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-042: definir contrato o item 042 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-043: simplificar o item 043 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-044: refatorar o item 044 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-045: compor o item 045 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-046: validar o item 046 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-047: documentar o item 047 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-048: instrumentar o item 048 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-049: testar o item 049 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-050: publicar o item 050 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-051: inventariar o item 051 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-052: definir contrato o item 052 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-053: simplificar o item 053 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-054: refatorar o item 054 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-055: compor o item 055 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-056: validar o item 056 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-057: documentar o item 057 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-058: instrumentar o item 058 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-059: testar o item 059 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-060: publicar o item 060 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-061: inventariar o item 061 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-062: definir contrato o item 062 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-063: simplificar o item 063 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-064: refatorar o item 064 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-065: compor o item 065 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-066: validar o item 066 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-067: documentar o item 067 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-068: instrumentar o item 068 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-069: testar o item 069 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-070: publicar o item 070 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-071: inventariar o item 071 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-072: definir contrato o item 072 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-073: simplificar o item 073 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-074: refatorar o item 074 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-075: compor o item 075 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-076: validar o item 076 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-077: documentar o item 077 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-078: instrumentar o item 078 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-079: testar o item 079 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-080: publicar o item 080 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-081: inventariar o item 081 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-082: definir contrato o item 082 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-083: simplificar o item 083 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-084: refatorar o item 084 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-085: compor o item 085 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-086: validar o item 086 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-087: documentar o item 087 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-088: instrumentar o item 088 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-089: testar o item 089 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-090: publicar o item 090 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-091: inventariar o item 091 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-092: definir contrato o item 092 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-093: simplificar o item 093 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-094: refatorar o item 094 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-095: compor o item 095 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-096: validar o item 096 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-097: documentar o item 097 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-098: instrumentar o item 098 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-099: testar o item 099 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+- [ ] 06-validation-100: publicar o item 100 de checks, riscos e explicabilidade; registrar evidência e impacto no fluxo.
+
+## 07-revisions — revisões, comparação e aprovação
+- [ ] 07-revisions-001: inventariar o item 001 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-002: definir contrato o item 002 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-003: simplificar o item 003 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-004: refatorar o item 004 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-005: compor o item 005 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-006: validar o item 006 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-007: documentar o item 007 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-008: instrumentar o item 008 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-009: testar o item 009 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-010: publicar o item 010 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-011: inventariar o item 011 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-012: definir contrato o item 012 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-013: simplificar o item 013 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-014: refatorar o item 014 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-015: compor o item 015 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-016: validar o item 016 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-017: documentar o item 017 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-018: instrumentar o item 018 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-019: testar o item 019 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-020: publicar o item 020 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-021: inventariar o item 021 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-022: definir contrato o item 022 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-023: simplificar o item 023 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-024: refatorar o item 024 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-025: compor o item 025 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-026: validar o item 026 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-027: documentar o item 027 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-028: instrumentar o item 028 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-029: testar o item 029 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-030: publicar o item 030 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-031: inventariar o item 031 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-032: definir contrato o item 032 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-033: simplificar o item 033 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-034: refatorar o item 034 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-035: compor o item 035 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-036: validar o item 036 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-037: documentar o item 037 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-038: instrumentar o item 038 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-039: testar o item 039 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-040: publicar o item 040 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-041: inventariar o item 041 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-042: definir contrato o item 042 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-043: simplificar o item 043 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-044: refatorar o item 044 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-045: compor o item 045 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-046: validar o item 046 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-047: documentar o item 047 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-048: instrumentar o item 048 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-049: testar o item 049 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-050: publicar o item 050 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-051: inventariar o item 051 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-052: definir contrato o item 052 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-053: simplificar o item 053 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-054: refatorar o item 054 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-055: compor o item 055 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-056: validar o item 056 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-057: documentar o item 057 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-058: instrumentar o item 058 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-059: testar o item 059 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-060: publicar o item 060 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-061: inventariar o item 061 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-062: definir contrato o item 062 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-063: simplificar o item 063 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-064: refatorar o item 064 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-065: compor o item 065 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-066: validar o item 066 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-067: documentar o item 067 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-068: instrumentar o item 068 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-069: testar o item 069 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-070: publicar o item 070 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-071: inventariar o item 071 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-072: definir contrato o item 072 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-073: simplificar o item 073 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-074: refatorar o item 074 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-075: compor o item 075 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-076: validar o item 076 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-077: documentar o item 077 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-078: instrumentar o item 078 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-079: testar o item 079 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-080: publicar o item 080 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-081: inventariar o item 081 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-082: definir contrato o item 082 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-083: simplificar o item 083 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-084: refatorar o item 084 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-085: compor o item 085 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-086: validar o item 086 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-087: documentar o item 087 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-088: instrumentar o item 088 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-089: testar o item 089 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-090: publicar o item 090 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-091: inventariar o item 091 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-092: definir contrato o item 092 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-093: simplificar o item 093 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-094: refatorar o item 094 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-095: compor o item 095 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-096: validar o item 096 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-097: documentar o item 097 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-098: instrumentar o item 098 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-099: testar o item 099 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+- [ ] 07-revisions-100: publicar o item 100 de revisões, comparação e aprovação; registrar evidência e impacto no fluxo.
+
+## 08-exports — export readiness e handoff
+- [ ] 08-exports-001: inventariar o item 001 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-002: definir contrato o item 002 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-003: simplificar o item 003 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-004: refatorar o item 004 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-005: compor o item 005 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-006: validar o item 006 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-007: documentar o item 007 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-008: instrumentar o item 008 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-009: testar o item 009 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-010: publicar o item 010 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-011: inventariar o item 011 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-012: definir contrato o item 012 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-013: simplificar o item 013 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-014: refatorar o item 014 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-015: compor o item 015 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-016: validar o item 016 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-017: documentar o item 017 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-018: instrumentar o item 018 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-019: testar o item 019 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-020: publicar o item 020 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-021: inventariar o item 021 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-022: definir contrato o item 022 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-023: simplificar o item 023 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-024: refatorar o item 024 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-025: compor o item 025 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-026: validar o item 026 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-027: documentar o item 027 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-028: instrumentar o item 028 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-029: testar o item 029 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-030: publicar o item 030 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-031: inventariar o item 031 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-032: definir contrato o item 032 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-033: simplificar o item 033 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-034: refatorar o item 034 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-035: compor o item 035 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-036: validar o item 036 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-037: documentar o item 037 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-038: instrumentar o item 038 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-039: testar o item 039 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-040: publicar o item 040 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-041: inventariar o item 041 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-042: definir contrato o item 042 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-043: simplificar o item 043 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-044: refatorar o item 044 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-045: compor o item 045 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-046: validar o item 046 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-047: documentar o item 047 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-048: instrumentar o item 048 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-049: testar o item 049 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-050: publicar o item 050 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-051: inventariar o item 051 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-052: definir contrato o item 052 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-053: simplificar o item 053 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-054: refatorar o item 054 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-055: compor o item 055 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-056: validar o item 056 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-057: documentar o item 057 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-058: instrumentar o item 058 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-059: testar o item 059 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-060: publicar o item 060 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-061: inventariar o item 061 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-062: definir contrato o item 062 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-063: simplificar o item 063 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-064: refatorar o item 064 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-065: compor o item 065 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-066: validar o item 066 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-067: documentar o item 067 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-068: instrumentar o item 068 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-069: testar o item 069 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-070: publicar o item 070 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-071: inventariar o item 071 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-072: definir contrato o item 072 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-073: simplificar o item 073 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-074: refatorar o item 074 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-075: compor o item 075 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-076: validar o item 076 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-077: documentar o item 077 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-078: instrumentar o item 078 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-079: testar o item 079 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-080: publicar o item 080 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-081: inventariar o item 081 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-082: definir contrato o item 082 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-083: simplificar o item 083 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-084: refatorar o item 084 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-085: compor o item 085 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-086: validar o item 086 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-087: documentar o item 087 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-088: instrumentar o item 088 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-089: testar o item 089 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-090: publicar o item 090 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-091: inventariar o item 091 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-092: definir contrato o item 092 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-093: simplificar o item 093 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-094: refatorar o item 094 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-095: compor o item 095 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-096: validar o item 096 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-097: documentar o item 097 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-098: instrumentar o item 098 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-099: testar o item 099 de export readiness e handoff; registrar evidência e impacto no fluxo.
+- [ ] 08-exports-100: publicar o item 100 de export readiness e handoff; registrar evidência e impacto no fluxo.
+
+## 09-mission — mission control e eventos
+- [ ] 09-mission-001: inventariar o item 001 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-002: definir contrato o item 002 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-003: simplificar o item 003 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-004: refatorar o item 004 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-005: compor o item 005 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-006: validar o item 006 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-007: documentar o item 007 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-008: instrumentar o item 008 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-009: testar o item 009 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-010: publicar o item 010 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-011: inventariar o item 011 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-012: definir contrato o item 012 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-013: simplificar o item 013 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-014: refatorar o item 014 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-015: compor o item 015 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-016: validar o item 016 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-017: documentar o item 017 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-018: instrumentar o item 018 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-019: testar o item 019 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-020: publicar o item 020 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-021: inventariar o item 021 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-022: definir contrato o item 022 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-023: simplificar o item 023 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-024: refatorar o item 024 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-025: compor o item 025 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-026: validar o item 026 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-027: documentar o item 027 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-028: instrumentar o item 028 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-029: testar o item 029 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-030: publicar o item 030 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-031: inventariar o item 031 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-032: definir contrato o item 032 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-033: simplificar o item 033 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-034: refatorar o item 034 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-035: compor o item 035 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-036: validar o item 036 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-037: documentar o item 037 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-038: instrumentar o item 038 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-039: testar o item 039 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-040: publicar o item 040 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-041: inventariar o item 041 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-042: definir contrato o item 042 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-043: simplificar o item 043 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-044: refatorar o item 044 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-045: compor o item 045 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-046: validar o item 046 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-047: documentar o item 047 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-048: instrumentar o item 048 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-049: testar o item 049 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-050: publicar o item 050 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-051: inventariar o item 051 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-052: definir contrato o item 052 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-053: simplificar o item 053 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-054: refatorar o item 054 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-055: compor o item 055 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-056: validar o item 056 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-057: documentar o item 057 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-058: instrumentar o item 058 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-059: testar o item 059 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-060: publicar o item 060 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-061: inventariar o item 061 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-062: definir contrato o item 062 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-063: simplificar o item 063 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-064: refatorar o item 064 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-065: compor o item 065 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-066: validar o item 066 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-067: documentar o item 067 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-068: instrumentar o item 068 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-069: testar o item 069 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-070: publicar o item 070 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-071: inventariar o item 071 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-072: definir contrato o item 072 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-073: simplificar o item 073 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-074: refatorar o item 074 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-075: compor o item 075 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-076: validar o item 076 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-077: documentar o item 077 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-078: instrumentar o item 078 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-079: testar o item 079 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-080: publicar o item 080 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-081: inventariar o item 081 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-082: definir contrato o item 082 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-083: simplificar o item 083 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-084: refatorar o item 084 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-085: compor o item 085 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-086: validar o item 086 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-087: documentar o item 087 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-088: instrumentar o item 088 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-089: testar o item 089 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-090: publicar o item 090 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-091: inventariar o item 091 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-092: definir contrato o item 092 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-093: simplificar o item 093 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-094: refatorar o item 094 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-095: compor o item 095 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-096: validar o item 096 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-097: documentar o item 097 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-098: instrumentar o item 098 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-099: testar o item 099 de mission control e eventos; registrar evidência e impacto no fluxo.
+- [ ] 09-mission-100: publicar o item 100 de mission control e eventos; registrar evidência e impacto no fluxo.
+
+## 10-agents — roster, tarefas e telemetria
+- [ ] 10-agents-001: inventariar o item 001 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-002: definir contrato o item 002 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-003: simplificar o item 003 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-004: refatorar o item 004 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-005: compor o item 005 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-006: validar o item 006 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-007: documentar o item 007 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-008: instrumentar o item 008 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-009: testar o item 009 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-010: publicar o item 010 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-011: inventariar o item 011 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-012: definir contrato o item 012 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-013: simplificar o item 013 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-014: refatorar o item 014 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-015: compor o item 015 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-016: validar o item 016 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-017: documentar o item 017 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-018: instrumentar o item 018 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-019: testar o item 019 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-020: publicar o item 020 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-021: inventariar o item 021 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-022: definir contrato o item 022 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-023: simplificar o item 023 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-024: refatorar o item 024 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-025: compor o item 025 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-026: validar o item 026 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-027: documentar o item 027 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-028: instrumentar o item 028 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-029: testar o item 029 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-030: publicar o item 030 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-031: inventariar o item 031 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-032: definir contrato o item 032 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-033: simplificar o item 033 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-034: refatorar o item 034 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-035: compor o item 035 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-036: validar o item 036 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-037: documentar o item 037 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-038: instrumentar o item 038 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-039: testar o item 039 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-040: publicar o item 040 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-041: inventariar o item 041 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-042: definir contrato o item 042 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-043: simplificar o item 043 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-044: refatorar o item 044 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-045: compor o item 045 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-046: validar o item 046 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-047: documentar o item 047 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-048: instrumentar o item 048 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-049: testar o item 049 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-050: publicar o item 050 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-051: inventariar o item 051 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-052: definir contrato o item 052 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-053: simplificar o item 053 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-054: refatorar o item 054 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-055: compor o item 055 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-056: validar o item 056 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-057: documentar o item 057 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-058: instrumentar o item 058 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-059: testar o item 059 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-060: publicar o item 060 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-061: inventariar o item 061 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-062: definir contrato o item 062 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-063: simplificar o item 063 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-064: refatorar o item 064 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-065: compor o item 065 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-066: validar o item 066 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-067: documentar o item 067 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-068: instrumentar o item 068 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-069: testar o item 069 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-070: publicar o item 070 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-071: inventariar o item 071 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-072: definir contrato o item 072 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-073: simplificar o item 073 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-074: refatorar o item 074 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-075: compor o item 075 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-076: validar o item 076 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-077: documentar o item 077 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-078: instrumentar o item 078 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-079: testar o item 079 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-080: publicar o item 080 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-081: inventariar o item 081 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-082: definir contrato o item 082 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-083: simplificar o item 083 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-084: refatorar o item 084 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-085: compor o item 085 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-086: validar o item 086 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-087: documentar o item 087 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-088: instrumentar o item 088 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-089: testar o item 089 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-090: publicar o item 090 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-091: inventariar o item 091 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-092: definir contrato o item 092 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-093: simplificar o item 093 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-094: refatorar o item 094 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-095: compor o item 095 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-096: validar o item 096 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-097: documentar o item 097 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-098: instrumentar o item 098 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-099: testar o item 099 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+- [ ] 10-agents-100: publicar o item 100 de roster, tarefas e telemetria; registrar evidência e impacto no fluxo.
+
+## 11-solutions — setores, compradores e casos
+- [ ] 11-solutions-001: inventariar o item 001 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-002: definir contrato o item 002 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-003: simplificar o item 003 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-004: refatorar o item 004 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-005: compor o item 005 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-006: validar o item 006 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-007: documentar o item 007 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-008: instrumentar o item 008 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-009: testar o item 009 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-010: publicar o item 010 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-011: inventariar o item 011 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-012: definir contrato o item 012 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-013: simplificar o item 013 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-014: refatorar o item 014 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-015: compor o item 015 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-016: validar o item 016 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-017: documentar o item 017 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-018: instrumentar o item 018 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-019: testar o item 019 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-020: publicar o item 020 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-021: inventariar o item 021 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-022: definir contrato o item 022 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-023: simplificar o item 023 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-024: refatorar o item 024 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-025: compor o item 025 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-026: validar o item 026 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-027: documentar o item 027 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-028: instrumentar o item 028 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-029: testar o item 029 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-030: publicar o item 030 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-031: inventariar o item 031 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-032: definir contrato o item 032 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-033: simplificar o item 033 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-034: refatorar o item 034 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-035: compor o item 035 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-036: validar o item 036 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-037: documentar o item 037 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-038: instrumentar o item 038 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-039: testar o item 039 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-040: publicar o item 040 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-041: inventariar o item 041 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-042: definir contrato o item 042 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-043: simplificar o item 043 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-044: refatorar o item 044 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-045: compor o item 045 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-046: validar o item 046 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-047: documentar o item 047 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-048: instrumentar o item 048 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-049: testar o item 049 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-050: publicar o item 050 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-051: inventariar o item 051 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-052: definir contrato o item 052 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-053: simplificar o item 053 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-054: refatorar o item 054 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-055: compor o item 055 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-056: validar o item 056 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-057: documentar o item 057 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-058: instrumentar o item 058 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-059: testar o item 059 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-060: publicar o item 060 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-061: inventariar o item 061 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-062: definir contrato o item 062 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-063: simplificar o item 063 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-064: refatorar o item 064 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-065: compor o item 065 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-066: validar o item 066 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-067: documentar o item 067 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-068: instrumentar o item 068 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-069: testar o item 069 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-070: publicar o item 070 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-071: inventariar o item 071 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-072: definir contrato o item 072 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-073: simplificar o item 073 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-074: refatorar o item 074 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-075: compor o item 075 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-076: validar o item 076 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-077: documentar o item 077 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-078: instrumentar o item 078 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-079: testar o item 079 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-080: publicar o item 080 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-081: inventariar o item 081 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-082: definir contrato o item 082 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-083: simplificar o item 083 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-084: refatorar o item 084 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-085: compor o item 085 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-086: validar o item 086 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-087: documentar o item 087 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-088: instrumentar o item 088 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-089: testar o item 089 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-090: publicar o item 090 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-091: inventariar o item 091 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-092: definir contrato o item 092 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-093: simplificar o item 093 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-094: refatorar o item 094 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-095: compor o item 095 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-096: validar o item 096 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-097: documentar o item 097 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-098: instrumentar o item 098 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-099: testar o item 099 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+- [ ] 11-solutions-100: publicar o item 100 de setores, compradores e casos; registrar evidência e impacto no fluxo.
+
+## 12-packages — pricing, packaging e conversão
+- [ ] 12-packages-001: inventariar o item 001 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-002: definir contrato o item 002 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-003: simplificar o item 003 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-004: refatorar o item 004 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-005: compor o item 005 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-006: validar o item 006 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-007: documentar o item 007 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-008: instrumentar o item 008 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-009: testar o item 009 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-010: publicar o item 010 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-011: inventariar o item 011 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-012: definir contrato o item 012 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-013: simplificar o item 013 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-014: refatorar o item 014 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-015: compor o item 015 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-016: validar o item 016 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-017: documentar o item 017 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-018: instrumentar o item 018 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-019: testar o item 019 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-020: publicar o item 020 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-021: inventariar o item 021 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-022: definir contrato o item 022 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-023: simplificar o item 023 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-024: refatorar o item 024 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-025: compor o item 025 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-026: validar o item 026 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-027: documentar o item 027 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-028: instrumentar o item 028 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-029: testar o item 029 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-030: publicar o item 030 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-031: inventariar o item 031 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-032: definir contrato o item 032 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-033: simplificar o item 033 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-034: refatorar o item 034 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-035: compor o item 035 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-036: validar o item 036 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-037: documentar o item 037 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-038: instrumentar o item 038 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-039: testar o item 039 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-040: publicar o item 040 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-041: inventariar o item 041 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-042: definir contrato o item 042 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-043: simplificar o item 043 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-044: refatorar o item 044 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-045: compor o item 045 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-046: validar o item 046 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-047: documentar o item 047 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-048: instrumentar o item 048 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-049: testar o item 049 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-050: publicar o item 050 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-051: inventariar o item 051 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-052: definir contrato o item 052 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-053: simplificar o item 053 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-054: refatorar o item 054 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-055: compor o item 055 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-056: validar o item 056 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-057: documentar o item 057 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-058: instrumentar o item 058 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-059: testar o item 059 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-060: publicar o item 060 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-061: inventariar o item 061 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-062: definir contrato o item 062 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-063: simplificar o item 063 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-064: refatorar o item 064 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-065: compor o item 065 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-066: validar o item 066 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-067: documentar o item 067 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-068: instrumentar o item 068 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-069: testar o item 069 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-070: publicar o item 070 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-071: inventariar o item 071 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-072: definir contrato o item 072 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-073: simplificar o item 073 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-074: refatorar o item 074 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-075: compor o item 075 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-076: validar o item 076 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-077: documentar o item 077 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-078: instrumentar o item 078 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-079: testar o item 079 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-080: publicar o item 080 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-081: inventariar o item 081 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-082: definir contrato o item 082 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-083: simplificar o item 083 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-084: refatorar o item 084 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-085: compor o item 085 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-086: validar o item 086 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-087: documentar o item 087 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-088: instrumentar o item 088 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-089: testar o item 089 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-090: publicar o item 090 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-091: inventariar o item 091 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-092: definir contrato o item 092 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-093: simplificar o item 093 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-094: refatorar o item 094 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-095: compor o item 095 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-096: validar o item 096 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-097: documentar o item 097 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-098: instrumentar o item 098 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-099: testar o item 099 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+- [ ] 12-packages-100: publicar o item 100 de pricing, packaging e conversão; registrar evidência e impacto no fluxo.
+
+## 13-roadmap — roadmap e transparência de execução
+- [ ] 13-roadmap-001: inventariar o item 001 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-002: definir contrato o item 002 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-003: simplificar o item 003 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-004: refatorar o item 004 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-005: compor o item 005 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-006: validar o item 006 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-007: documentar o item 007 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-008: instrumentar o item 008 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-009: testar o item 009 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-010: publicar o item 010 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-011: inventariar o item 011 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-012: definir contrato o item 012 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-013: simplificar o item 013 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-014: refatorar o item 014 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-015: compor o item 015 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-016: validar o item 016 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-017: documentar o item 017 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-018: instrumentar o item 018 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-019: testar o item 019 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-020: publicar o item 020 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-021: inventariar o item 021 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-022: definir contrato o item 022 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-023: simplificar o item 023 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-024: refatorar o item 024 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-025: compor o item 025 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-026: validar o item 026 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-027: documentar o item 027 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-028: instrumentar o item 028 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-029: testar o item 029 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-030: publicar o item 030 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-031: inventariar o item 031 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-032: definir contrato o item 032 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-033: simplificar o item 033 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-034: refatorar o item 034 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-035: compor o item 035 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-036: validar o item 036 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-037: documentar o item 037 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-038: instrumentar o item 038 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-039: testar o item 039 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-040: publicar o item 040 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-041: inventariar o item 041 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-042: definir contrato o item 042 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-043: simplificar o item 043 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-044: refatorar o item 044 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-045: compor o item 045 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-046: validar o item 046 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-047: documentar o item 047 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-048: instrumentar o item 048 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-049: testar o item 049 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-050: publicar o item 050 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-051: inventariar o item 051 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-052: definir contrato o item 052 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-053: simplificar o item 053 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-054: refatorar o item 054 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-055: compor o item 055 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-056: validar o item 056 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-057: documentar o item 057 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-058: instrumentar o item 058 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-059: testar o item 059 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-060: publicar o item 060 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-061: inventariar o item 061 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-062: definir contrato o item 062 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-063: simplificar o item 063 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-064: refatorar o item 064 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-065: compor o item 065 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-066: validar o item 066 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-067: documentar o item 067 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-068: instrumentar o item 068 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-069: testar o item 069 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-070: publicar o item 070 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-071: inventariar o item 071 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-072: definir contrato o item 072 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-073: simplificar o item 073 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-074: refatorar o item 074 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-075: compor o item 075 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-076: validar o item 076 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-077: documentar o item 077 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-078: instrumentar o item 078 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-079: testar o item 079 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-080: publicar o item 080 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-081: inventariar o item 081 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-082: definir contrato o item 082 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-083: simplificar o item 083 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-084: refatorar o item 084 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-085: compor o item 085 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-086: validar o item 086 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-087: documentar o item 087 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-088: instrumentar o item 088 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-089: testar o item 089 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-090: publicar o item 090 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-091: inventariar o item 091 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-092: definir contrato o item 092 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-093: simplificar o item 093 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-094: refatorar o item 094 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-095: compor o item 095 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-096: validar o item 096 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-097: documentar o item 097 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-098: instrumentar o item 098 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-099: testar o item 099 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+- [ ] 13-roadmap-100: publicar o item 100 de roadmap e transparência de execução; registrar evidência e impacto no fluxo.
+
+## 14-static-parity — renderer estático e paridade SSR
+- [ ] 14-static-parity-001: inventariar o item 001 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-002: definir contrato o item 002 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-003: simplificar o item 003 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-004: refatorar o item 004 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-005: compor o item 005 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-006: validar o item 006 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-007: documentar o item 007 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-008: instrumentar o item 008 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-009: testar o item 009 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-010: publicar o item 010 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-011: inventariar o item 011 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-012: definir contrato o item 012 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-013: simplificar o item 013 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-014: refatorar o item 014 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-015: compor o item 015 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-016: validar o item 016 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-017: documentar o item 017 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-018: instrumentar o item 018 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-019: testar o item 019 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-020: publicar o item 020 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-021: inventariar o item 021 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-022: definir contrato o item 022 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-023: simplificar o item 023 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-024: refatorar o item 024 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-025: compor o item 025 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-026: validar o item 026 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-027: documentar o item 027 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-028: instrumentar o item 028 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-029: testar o item 029 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-030: publicar o item 030 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-031: inventariar o item 031 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-032: definir contrato o item 032 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-033: simplificar o item 033 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-034: refatorar o item 034 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-035: compor o item 035 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-036: validar o item 036 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-037: documentar o item 037 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-038: instrumentar o item 038 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-039: testar o item 039 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-040: publicar o item 040 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-041: inventariar o item 041 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-042: definir contrato o item 042 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-043: simplificar o item 043 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-044: refatorar o item 044 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-045: compor o item 045 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-046: validar o item 046 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-047: documentar o item 047 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-048: instrumentar o item 048 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-049: testar o item 049 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-050: publicar o item 050 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-051: inventariar o item 051 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-052: definir contrato o item 052 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-053: simplificar o item 053 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-054: refatorar o item 054 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-055: compor o item 055 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-056: validar o item 056 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-057: documentar o item 057 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-058: instrumentar o item 058 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-059: testar o item 059 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-060: publicar o item 060 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-061: inventariar o item 061 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-062: definir contrato o item 062 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-063: simplificar o item 063 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-064: refatorar o item 064 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-065: compor o item 065 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-066: validar o item 066 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-067: documentar o item 067 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-068: instrumentar o item 068 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-069: testar o item 069 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-070: publicar o item 070 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-071: inventariar o item 071 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-072: definir contrato o item 072 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-073: simplificar o item 073 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-074: refatorar o item 074 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-075: compor o item 075 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-076: validar o item 076 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-077: documentar o item 077 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-078: instrumentar o item 078 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-079: testar o item 079 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-080: publicar o item 080 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-081: inventariar o item 081 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-082: definir contrato o item 082 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-083: simplificar o item 083 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-084: refatorar o item 084 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-085: compor o item 085 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-086: validar o item 086 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-087: documentar o item 087 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-088: instrumentar o item 088 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-089: testar o item 089 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-090: publicar o item 090 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-091: inventariar o item 091 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-092: definir contrato o item 092 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-093: simplificar o item 093 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-094: refatorar o item 094 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-095: compor o item 095 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-096: validar o item 096 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-097: documentar o item 097 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-098: instrumentar o item 098 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-099: testar o item 099 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+- [ ] 14-static-parity-100: publicar o item 100 de renderer estático e paridade SSR; registrar evidência e impacto no fluxo.
+
+## 15-api — contratos HTTP e persistência
+- [ ] 15-api-001: inventariar o item 001 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-002: definir contrato o item 002 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-003: simplificar o item 003 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-004: refatorar o item 004 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-005: compor o item 005 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-006: validar o item 006 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-007: documentar o item 007 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-008: instrumentar o item 008 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-009: testar o item 009 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-010: publicar o item 010 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-011: inventariar o item 011 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-012: definir contrato o item 012 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-013: simplificar o item 013 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-014: refatorar o item 014 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-015: compor o item 015 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-016: validar o item 016 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-017: documentar o item 017 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-018: instrumentar o item 018 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-019: testar o item 019 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-020: publicar o item 020 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-021: inventariar o item 021 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-022: definir contrato o item 022 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-023: simplificar o item 023 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-024: refatorar o item 024 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-025: compor o item 025 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-026: validar o item 026 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-027: documentar o item 027 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-028: instrumentar o item 028 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-029: testar o item 029 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-030: publicar o item 030 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-031: inventariar o item 031 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-032: definir contrato o item 032 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-033: simplificar o item 033 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-034: refatorar o item 034 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-035: compor o item 035 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-036: validar o item 036 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-037: documentar o item 037 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-038: instrumentar o item 038 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-039: testar o item 039 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-040: publicar o item 040 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-041: inventariar o item 041 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-042: definir contrato o item 042 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-043: simplificar o item 043 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-044: refatorar o item 044 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-045: compor o item 045 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-046: validar o item 046 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-047: documentar o item 047 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-048: instrumentar o item 048 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-049: testar o item 049 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-050: publicar o item 050 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-051: inventariar o item 051 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-052: definir contrato o item 052 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-053: simplificar o item 053 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-054: refatorar o item 054 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-055: compor o item 055 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-056: validar o item 056 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-057: documentar o item 057 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-058: instrumentar o item 058 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-059: testar o item 059 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-060: publicar o item 060 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-061: inventariar o item 061 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-062: definir contrato o item 062 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-063: simplificar o item 063 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-064: refatorar o item 064 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-065: compor o item 065 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-066: validar o item 066 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-067: documentar o item 067 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-068: instrumentar o item 068 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-069: testar o item 069 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-070: publicar o item 070 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-071: inventariar o item 071 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-072: definir contrato o item 072 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-073: simplificar o item 073 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-074: refatorar o item 074 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-075: compor o item 075 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-076: validar o item 076 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-077: documentar o item 077 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-078: instrumentar o item 078 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-079: testar o item 079 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-080: publicar o item 080 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-081: inventariar o item 081 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-082: definir contrato o item 082 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-083: simplificar o item 083 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-084: refatorar o item 084 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-085: compor o item 085 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-086: validar o item 086 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-087: documentar o item 087 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-088: instrumentar o item 088 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-089: testar o item 089 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-090: publicar o item 090 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-091: inventariar o item 091 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-092: definir contrato o item 092 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-093: simplificar o item 093 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-094: refatorar o item 094 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-095: compor o item 095 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-096: validar o item 096 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-097: documentar o item 097 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-098: instrumentar o item 098 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-099: testar o item 099 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+- [ ] 15-api-100: publicar o item 100 de contratos HTTP e persistência; registrar evidência e impacto no fluxo.
+
+## 16-accessibility — WCAG, teclado e reduced motion
+- [ ] 16-accessibility-001: inventariar o item 001 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-002: definir contrato o item 002 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-003: simplificar o item 003 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-004: refatorar o item 004 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-005: compor o item 005 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-006: validar o item 006 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-007: documentar o item 007 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-008: instrumentar o item 008 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-009: testar o item 009 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-010: publicar o item 010 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-011: inventariar o item 011 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-012: definir contrato o item 012 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-013: simplificar o item 013 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-014: refatorar o item 014 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-015: compor o item 015 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-016: validar o item 016 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-017: documentar o item 017 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-018: instrumentar o item 018 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-019: testar o item 019 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-020: publicar o item 020 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-021: inventariar o item 021 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-022: definir contrato o item 022 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-023: simplificar o item 023 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-024: refatorar o item 024 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-025: compor o item 025 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-026: validar o item 026 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-027: documentar o item 027 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-028: instrumentar o item 028 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-029: testar o item 029 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-030: publicar o item 030 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-031: inventariar o item 031 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-032: definir contrato o item 032 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-033: simplificar o item 033 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-034: refatorar o item 034 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-035: compor o item 035 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-036: validar o item 036 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-037: documentar o item 037 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-038: instrumentar o item 038 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-039: testar o item 039 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-040: publicar o item 040 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-041: inventariar o item 041 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-042: definir contrato o item 042 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-043: simplificar o item 043 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-044: refatorar o item 044 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-045: compor o item 045 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-046: validar o item 046 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-047: documentar o item 047 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-048: instrumentar o item 048 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-049: testar o item 049 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-050: publicar o item 050 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-051: inventariar o item 051 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-052: definir contrato o item 052 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-053: simplificar o item 053 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-054: refatorar o item 054 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-055: compor o item 055 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-056: validar o item 056 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-057: documentar o item 057 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-058: instrumentar o item 058 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-059: testar o item 059 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-060: publicar o item 060 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-061: inventariar o item 061 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-062: definir contrato o item 062 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-063: simplificar o item 063 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-064: refatorar o item 064 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-065: compor o item 065 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-066: validar o item 066 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-067: documentar o item 067 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-068: instrumentar o item 068 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-069: testar o item 069 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-070: publicar o item 070 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-071: inventariar o item 071 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-072: definir contrato o item 072 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-073: simplificar o item 073 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-074: refatorar o item 074 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-075: compor o item 075 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-076: validar o item 076 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-077: documentar o item 077 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-078: instrumentar o item 078 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-079: testar o item 079 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-080: publicar o item 080 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-081: inventariar o item 081 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-082: definir contrato o item 082 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-083: simplificar o item 083 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-084: refatorar o item 084 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-085: compor o item 085 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-086: validar o item 086 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-087: documentar o item 087 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-088: instrumentar o item 088 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-089: testar o item 089 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-090: publicar o item 090 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-091: inventariar o item 091 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-092: definir contrato o item 092 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-093: simplificar o item 093 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-094: refatorar o item 094 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-095: compor o item 095 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-096: validar o item 096 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-097: documentar o item 097 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-098: instrumentar o item 098 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-099: testar o item 099 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+- [ ] 16-accessibility-100: publicar o item 100 de WCAG, teclado e reduced motion; registrar evidência e impacto no fluxo.
+
+## 17-responsive — mobile, tablet e viewport stability
+- [ ] 17-responsive-001: inventariar o item 001 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-002: definir contrato o item 002 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-003: simplificar o item 003 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-004: refatorar o item 004 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-005: compor o item 005 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-006: validar o item 006 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-007: documentar o item 007 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-008: instrumentar o item 008 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-009: testar o item 009 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-010: publicar o item 010 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-011: inventariar o item 011 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-012: definir contrato o item 012 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-013: simplificar o item 013 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-014: refatorar o item 014 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-015: compor o item 015 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-016: validar o item 016 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-017: documentar o item 017 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-018: instrumentar o item 018 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-019: testar o item 019 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-020: publicar o item 020 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-021: inventariar o item 021 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-022: definir contrato o item 022 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-023: simplificar o item 023 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-024: refatorar o item 024 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-025: compor o item 025 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-026: validar o item 026 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-027: documentar o item 027 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-028: instrumentar o item 028 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-029: testar o item 029 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-030: publicar o item 030 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-031: inventariar o item 031 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-032: definir contrato o item 032 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-033: simplificar o item 033 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-034: refatorar o item 034 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-035: compor o item 035 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-036: validar o item 036 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-037: documentar o item 037 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-038: instrumentar o item 038 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-039: testar o item 039 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-040: publicar o item 040 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-041: inventariar o item 041 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-042: definir contrato o item 042 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-043: simplificar o item 043 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-044: refatorar o item 044 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-045: compor o item 045 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-046: validar o item 046 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-047: documentar o item 047 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-048: instrumentar o item 048 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-049: testar o item 049 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-050: publicar o item 050 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-051: inventariar o item 051 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-052: definir contrato o item 052 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-053: simplificar o item 053 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-054: refatorar o item 054 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-055: compor o item 055 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-056: validar o item 056 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-057: documentar o item 057 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-058: instrumentar o item 058 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-059: testar o item 059 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-060: publicar o item 060 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-061: inventariar o item 061 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-062: definir contrato o item 062 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-063: simplificar o item 063 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-064: refatorar o item 064 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-065: compor o item 065 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-066: validar o item 066 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-067: documentar o item 067 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-068: instrumentar o item 068 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-069: testar o item 069 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-070: publicar o item 070 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-071: inventariar o item 071 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-072: definir contrato o item 072 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-073: simplificar o item 073 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-074: refatorar o item 074 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-075: compor o item 075 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-076: validar o item 076 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-077: documentar o item 077 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-078: instrumentar o item 078 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-079: testar o item 079 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-080: publicar o item 080 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-081: inventariar o item 081 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-082: definir contrato o item 082 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-083: simplificar o item 083 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-084: refatorar o item 084 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-085: compor o item 085 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-086: validar o item 086 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-087: documentar o item 087 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-088: instrumentar o item 088 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-089: testar o item 089 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-090: publicar o item 090 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-091: inventariar o item 091 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-092: definir contrato o item 092 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-093: simplificar o item 093 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-094: refatorar o item 094 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-095: compor o item 095 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-096: validar o item 096 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-097: documentar o item 097 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-098: instrumentar o item 098 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-099: testar o item 099 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+- [ ] 17-responsive-100: publicar o item 100 de mobile, tablet e viewport stability; registrar evidência e impacto no fluxo.
+
+## 18-performance — WebGL, bundle, CSS e runtime
+- [ ] 18-performance-001: inventariar o item 001 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-002: definir contrato o item 002 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-003: simplificar o item 003 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-004: refatorar o item 004 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-005: compor o item 005 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-006: validar o item 006 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-007: documentar o item 007 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-008: instrumentar o item 008 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-009: testar o item 009 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-010: publicar o item 010 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-011: inventariar o item 011 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-012: definir contrato o item 012 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-013: simplificar o item 013 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-014: refatorar o item 014 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-015: compor o item 015 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-016: validar o item 016 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-017: documentar o item 017 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-018: instrumentar o item 018 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-019: testar o item 019 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-020: publicar o item 020 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-021: inventariar o item 021 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-022: definir contrato o item 022 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-023: simplificar o item 023 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-024: refatorar o item 024 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-025: compor o item 025 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-026: validar o item 026 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-027: documentar o item 027 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-028: instrumentar o item 028 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-029: testar o item 029 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-030: publicar o item 030 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-031: inventariar o item 031 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-032: definir contrato o item 032 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-033: simplificar o item 033 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-034: refatorar o item 034 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-035: compor o item 035 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-036: validar o item 036 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-037: documentar o item 037 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-038: instrumentar o item 038 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-039: testar o item 039 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-040: publicar o item 040 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-041: inventariar o item 041 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-042: definir contrato o item 042 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-043: simplificar o item 043 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-044: refatorar o item 044 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-045: compor o item 045 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-046: validar o item 046 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-047: documentar o item 047 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-048: instrumentar o item 048 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-049: testar o item 049 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-050: publicar o item 050 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-051: inventariar o item 051 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-052: definir contrato o item 052 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-053: simplificar o item 053 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-054: refatorar o item 054 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-055: compor o item 055 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-056: validar o item 056 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-057: documentar o item 057 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-058: instrumentar o item 058 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-059: testar o item 059 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-060: publicar o item 060 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-061: inventariar o item 061 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-062: definir contrato o item 062 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-063: simplificar o item 063 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-064: refatorar o item 064 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-065: compor o item 065 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-066: validar o item 066 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-067: documentar o item 067 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-068: instrumentar o item 068 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-069: testar o item 069 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-070: publicar o item 070 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-071: inventariar o item 071 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-072: definir contrato o item 072 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-073: simplificar o item 073 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-074: refatorar o item 074 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-075: compor o item 075 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-076: validar o item 076 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-077: documentar o item 077 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-078: instrumentar o item 078 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-079: testar o item 079 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-080: publicar o item 080 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-081: inventariar o item 081 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-082: definir contrato o item 082 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-083: simplificar o item 083 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-084: refatorar o item 084 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-085: compor o item 085 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-086: validar o item 086 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-087: documentar o item 087 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-088: instrumentar o item 088 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-089: testar o item 089 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-090: publicar o item 090 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-091: inventariar o item 091 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-092: definir contrato o item 092 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-093: simplificar o item 093 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-094: refatorar o item 094 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-095: compor o item 095 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-096: validar o item 096 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-097: documentar o item 097 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-098: instrumentar o item 098 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-099: testar o item 099 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+- [ ] 18-performance-100: publicar o item 100 de WebGL, bundle, CSS e runtime; registrar evidência e impacto no fluxo.
+
+## 19-open-source — CAD kernel, formatos e integrações
+- [ ] 19-open-source-001: inventariar o item 001 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-002: definir contrato o item 002 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-003: simplificar o item 003 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-004: refatorar o item 004 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-005: compor o item 005 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-006: validar o item 006 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-007: documentar o item 007 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-008: instrumentar o item 008 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-009: testar o item 009 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-010: publicar o item 010 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-011: inventariar o item 011 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-012: definir contrato o item 012 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-013: simplificar o item 013 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-014: refatorar o item 014 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-015: compor o item 015 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-016: validar o item 016 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-017: documentar o item 017 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-018: instrumentar o item 018 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-019: testar o item 019 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-020: publicar o item 020 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-021: inventariar o item 021 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-022: definir contrato o item 022 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-023: simplificar o item 023 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-024: refatorar o item 024 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-025: compor o item 025 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-026: validar o item 026 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-027: documentar o item 027 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-028: instrumentar o item 028 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-029: testar o item 029 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-030: publicar o item 030 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-031: inventariar o item 031 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-032: definir contrato o item 032 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-033: simplificar o item 033 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-034: refatorar o item 034 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-035: compor o item 035 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-036: validar o item 036 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-037: documentar o item 037 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-038: instrumentar o item 038 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-039: testar o item 039 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-040: publicar o item 040 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-041: inventariar o item 041 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-042: definir contrato o item 042 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-043: simplificar o item 043 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-044: refatorar o item 044 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-045: compor o item 045 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-046: validar o item 046 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-047: documentar o item 047 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-048: instrumentar o item 048 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-049: testar o item 049 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-050: publicar o item 050 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-051: inventariar o item 051 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-052: definir contrato o item 052 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-053: simplificar o item 053 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-054: refatorar o item 054 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-055: compor o item 055 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-056: validar o item 056 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-057: documentar o item 057 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-058: instrumentar o item 058 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-059: testar o item 059 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-060: publicar o item 060 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-061: inventariar o item 061 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-062: definir contrato o item 062 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-063: simplificar o item 063 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-064: refatorar o item 064 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-065: compor o item 065 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-066: validar o item 066 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-067: documentar o item 067 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-068: instrumentar o item 068 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-069: testar o item 069 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-070: publicar o item 070 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-071: inventariar o item 071 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-072: definir contrato o item 072 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-073: simplificar o item 073 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-074: refatorar o item 074 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-075: compor o item 075 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-076: validar o item 076 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-077: documentar o item 077 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-078: instrumentar o item 078 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-079: testar o item 079 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-080: publicar o item 080 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-081: inventariar o item 081 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-082: definir contrato o item 082 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-083: simplificar o item 083 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-084: refatorar o item 084 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-085: compor o item 085 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-086: validar o item 086 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-087: documentar o item 087 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-088: instrumentar o item 088 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-089: testar o item 089 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-090: publicar o item 090 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-091: inventariar o item 091 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-092: definir contrato o item 092 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-093: simplificar o item 093 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-094: refatorar o item 094 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-095: compor o item 095 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-096: validar o item 096 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-097: documentar o item 097 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-098: instrumentar o item 098 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-099: testar o item 099 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+- [ ] 19-open-source-100: publicar o item 100 de CAD kernel, formatos e integrações; registrar evidência e impacto no fluxo.
+
+## 20-release — observabilidade, QA e deploy
+- [ ] 20-release-001: inventariar o item 001 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-002: definir contrato o item 002 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-003: simplificar o item 003 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-004: refatorar o item 004 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-005: compor o item 005 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-006: validar o item 006 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-007: documentar o item 007 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-008: instrumentar o item 008 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-009: testar o item 009 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-010: publicar o item 010 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-011: inventariar o item 011 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-012: definir contrato o item 012 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-013: simplificar o item 013 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-014: refatorar o item 014 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-015: compor o item 015 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-016: validar o item 016 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-017: documentar o item 017 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-018: instrumentar o item 018 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-019: testar o item 019 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-020: publicar o item 020 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-021: inventariar o item 021 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-022: definir contrato o item 022 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-023: simplificar o item 023 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-024: refatorar o item 024 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-025: compor o item 025 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-026: validar o item 026 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-027: documentar o item 027 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-028: instrumentar o item 028 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-029: testar o item 029 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-030: publicar o item 030 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-031: inventariar o item 031 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-032: definir contrato o item 032 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-033: simplificar o item 033 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-034: refatorar o item 034 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-035: compor o item 035 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-036: validar o item 036 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-037: documentar o item 037 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-038: instrumentar o item 038 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-039: testar o item 039 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-040: publicar o item 040 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-041: inventariar o item 041 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-042: definir contrato o item 042 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-043: simplificar o item 043 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-044: refatorar o item 044 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-045: compor o item 045 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-046: validar o item 046 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-047: documentar o item 047 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-048: instrumentar o item 048 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-049: testar o item 049 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-050: publicar o item 050 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-051: inventariar o item 051 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-052: definir contrato o item 052 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-053: simplificar o item 053 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-054: refatorar o item 054 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-055: compor o item 055 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-056: validar o item 056 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-057: documentar o item 057 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-058: instrumentar o item 058 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-059: testar o item 059 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-060: publicar o item 060 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-061: inventariar o item 061 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-062: definir contrato o item 062 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-063: simplificar o item 063 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-064: refatorar o item 064 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-065: compor o item 065 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-066: validar o item 066 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-067: documentar o item 067 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-068: instrumentar o item 068 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-069: testar o item 069 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-070: publicar o item 070 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-071: inventariar o item 071 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-072: definir contrato o item 072 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-073: simplificar o item 073 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-074: refatorar o item 074 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-075: compor o item 075 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-076: validar o item 076 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-077: documentar o item 077 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-078: instrumentar o item 078 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-079: testar o item 079 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-080: publicar o item 080 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-081: inventariar o item 081 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-082: definir contrato o item 082 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-083: simplificar o item 083 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-084: refatorar o item 084 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-085: compor o item 085 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-086: validar o item 086 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-087: documentar o item 087 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-088: instrumentar o item 088 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-089: testar o item 089 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-090: publicar o item 090 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-091: inventariar o item 091 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-092: definir contrato o item 092 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-093: simplificar o item 093 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-094: refatorar o item 094 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-095: compor o item 095 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-096: validar o item 096 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-097: documentar o item 097 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-098: instrumentar o item 098 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-099: testar o item 099 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.
+- [ ] 20-release-100: publicar o item 100 de observabilidade, QA e deploy; registrar evidência e impacto no fluxo.

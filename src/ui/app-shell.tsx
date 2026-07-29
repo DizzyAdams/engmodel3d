@@ -22,23 +22,32 @@ export function AppShell({ title, eyebrow, subtitle, children }: AppShellProps) 
           <h1>{title}</h1>
           <p>{subtitle}</p>
           <div className="brand__signal-row">
-            <span className="brand__signal">14-agent surreal swarm</span>
-            <span className="brand__signal">Governed export theater</span>
-            <span className="brand__signal">Human review hard gate</span>
+            <span className="brand__signal">Construction generation</span>
+            <span className="brand__signal">BIM/IFC delivery</span>
+            <span className="brand__signal">Sales-ready tours</span>
           </div>
         </div>
         <nav className="topbar-actions" aria-label="Primary navigation">
+          <a className="topbar-chip" href="/catalog">
+            Model catalog
+          </a>
           <a className="topbar-chip" href="/">
             Dashboard
           </a>
           <a className="topbar-chip" href="/mission-control">
             Mission control
           </a>
+          <a className="topbar-chip" href="/briefs">
+            Briefs salvos
+          </a>
           <a className="topbar-chip" href="/#intake">
             Brief intake
           </a>
-          <a className="topbar-chip" href="/projects/cantilever-bracket#project-preview">
-            Live workbench
+          <a className="topbar-chip" href="/#catalog">
+            Commercial cockpit
+          </a>
+          <a className="topbar-chip" href="/projects/casa-contemporanea#project-preview">
+            3D workbench
           </a>
           <a className="topbar-chip" href="/solutions">
             Solutions
@@ -55,7 +64,7 @@ export function AppShell({ title, eyebrow, subtitle, children }: AppShellProps) 
           <a className="topbar-chip topbar-chip--accent" href="/#pilot">
             Request pilot
           </a>
-          <span className="topbar-chip topbar-chip--live" role="status">Human review enabled</span>
+          <span className="topbar-chip topbar-chip--live" role="status">BIM review gate on</span>
         </nav>
       </header>
 

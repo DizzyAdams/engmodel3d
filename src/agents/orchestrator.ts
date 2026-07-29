@@ -32,6 +32,26 @@ export interface AgentStep {
   title: string;
 }
 
+function selectCadProfile(kind: ProjectSpec["kind"]): string {
+  switch (kind) {
+    case "mechanical":
+      return "bracket";
+    case "residential":
+      return "residential-building";
+    case "commercial-real-estate":
+      return "commercial-building";
+    case "multi-family":
+      return "multi-family-building";
+    case "architecture":
+      return "enclosure";
+    case "furniture":
+    case "product":
+    case "fabrication":
+    default:
+      return "plate";
+  }
+}
+
 export class Orchestrator {
   constructor(
     private readonly projects = new ProjectStore(),
@@ -43,14 +63,7 @@ export class Orchestrator {
 
   createPlan(request: ModelingRequest): OrchestrationResult {
     const project = this.projects.create(request.project);
-    const cadProfile =
-      project.kind === "mechanical"
-        ? "bracket"
-        : project.kind === "architecture"
-          ? "enclosure"
-          : project.kind === "furniture"
-            ? "plate"
-            : "plate";
+    const cadProfile = selectCadProfile(project.kind);
 
     const cadResult = runCadPipeline({
       project,
@@ -66,11 +79,23 @@ export class Orchestrator {
       { role: "product", title: "Traduzir gaps em proposta de valor" },
       { role: "experience", title: "Comprimir o fluxo em cockpit operacional" },
       { role: "architecture", title: "Definir arquitetura do produto" },
+      { role: "vision", title: "Extrair restrições de PNG, JPEG, plantas, fachadas e referências visuais" },
+      { role: "video-reconstruction", title: "Mapear vídeos, walkthroughs e drone em cenas reconstruíveis" },
+      { role: "survey-reconstruction", title: "Combinar mídia, escala e lacunas em plano de reconstrução 3D/BIM" },
+      { role: "site-planning", title: "Analisar implantação, acessos, recuos e envelope construtivo" },
+      { role: "zoning", title: "Checar parâmetros municipais, ocupação e riscos de aprovação" },
+      { role: "bim", title: "Preparar níveis, ambientes, áreas e metadados IFC" },
+      { role: "interior-design", title: "Gerar layout interno, acabamentos e staging comercial" },
+      { role: "rendering", title: "Planejar renders, tour 3D e pacote visual de vendas" },
+      { role: "real-estate-marketplace", title: "Empacotar empreendimento para construtora, corretor e imobiliária" },
       { role: "cad", title: "Gerar geometria paramétrica" },
+      { role: "cad-validation", title: "Validar CAD em kernel e contratos de exportacao" },
       { role: "simulation", title: "Rodar cenarios de carga e delta" },
       { role: "materials", title: "Ajustar material e tolerancias" },
       { role: "manufacturing", title: "Preparar fabricacao e handoff" },
       { role: "cost", title: "Estimar impacto comercial" },
+      { role: "quality", title: "Montar matriz de QA e criterios de aceite" },
+      { role: "marketplace", title: "Preparar pacote comercial, catálogo e distribuição global" },
       { role: "validation", title: "Validar geometria e exportacao" },
       { role: "compliance", title: "Fechar auditoria de release" },
       { role: "orchestrator", title: "Consolidar decisao final" },
@@ -158,6 +183,18 @@ export class Orchestrator {
               value !== null &&
               "metadata" in value &&
               typeof (value as { metadata?: Record<string, unknown> }).metadata?.projectId === "string",
+          },
+          {
+            code: "marketplace-lineage",
+            description: "Marketplace-ready models must preserve source lineage for licensing review.",
+            severity: "warning",
+            target: "project",
+            path: "project.tags",
+            validate: (value) =>
+              typeof value === "object" &&
+              value !== null &&
+              "project" in value &&
+              Array.isArray((value as { project?: { tags?: unknown } }).project?.tags),
           },
         ],
       },

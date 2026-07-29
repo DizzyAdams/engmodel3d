@@ -21,7 +21,7 @@ export default function WorkflowPage() {
                 reference pressure, generation, validation, human review, and release all stay in one visible chain.
               </p>
               <div className="hero-actions">
-                <a className="button button--primary" href="/projects/cantilever-bracket#project-preview">
+                <a className="button button--primary" href="/projects/casa-contemporanea#project-preview">
                   Open live cockpit
                 </a>
                 <a className="button button--ghost" href="/#pilot">

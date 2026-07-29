@@ -21,6 +21,27 @@ type DashboardData = {
   packages: Array<{ name: string; price: string; timeline: string; fit: string; deliverables: string[]; outcome: string }>;
   trustSignals: Array<{ label: string; value: string; detail: string }>;
   caseStudies: Array<{ name: string; impact: string; summary: string; buyer: string }>;
+  marketplaceListings: Array<{
+    name: string;
+    category: string;
+    price: string;
+    license: string;
+    qualityScore: string;
+    formats: string;
+    delivery: string;
+    signal: string;
+  }>;
+  marketplaceLanes: Array<{ name: string; count: string; owner: string; status: string; detail: string }>;
+  openSourceReferences: Array<{ name: string; domain: string; adoption: string; feature: string; risk: string }>;
+  multimodalInputModes: Array<{
+    name: string;
+    input: string;
+    output: string;
+    agent: string;
+    confidence: string;
+    detail: string;
+  }>;
+  generationWorkflow: Array<{ stage: string; title: string; input: string; output: string; gate: string }>;
   projects: Array<{
     id: string;
     name: string;
@@ -41,35 +62,35 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
       <section className="panel panel--hero panel--feature">
         <div className="hero-orbit-grid">
           <div className="hero-copy">
-            <p className="section-label">Workspace overview · project control</p>
-            <h2>From engineering brief to reviewed 3D model.</h2>
+            <p className="section-label">Construction generation · BIM · sales tours</p>
+            <h2>Generate complete 3D projects from a construction brief.</h2>
             <p className="section-subtitle">
-              Start with the constraint that matters, inspect the model as it changes, and keep validation close to the decision.
-              The workspace makes the next action obvious without hiding the engineering evidence.
+              Turn a house brief, tower study, commercial shell, or interior concept into a governed 3D model with BIM metadata,
+              approval checks, sales visuals, and export-ready delivery.
             </p>
             <div className="presentation-strip">
               <div className="presentation-strip__card">
-                <span>Primary value</span>
-                <strong>One flow from brief to reviewed model</strong>
+                <span>Construction generation</span>
+                <strong>Homes, towers, retail shells, interiors, and facades</strong>
               </div>
               <div className="presentation-strip__card">
-                <span>First sale</span>
-                <strong>Mechanical parts with visible constraints</strong>
+                <span>BIM confidence</span>
+                <strong>Areas, rooms, levels, IFC metadata, and checks</strong>
               </div>
               <div className="presentation-strip__card">
-                <span>Product posture</span>
-                <strong>Human review before export</strong>
+                <span>Sales output</span>
+                <strong>3D tour, renders, listing pack, and investor view</strong>
               </div>
             </div>
             <div className="hero-actions">
               <a className="button button--primary" href="#intake">
-                Start brief intake
+                Start construction brief
               </a>
-              <a className="button button--ghost" href="/projects/cantilever-bracket#project-preview">
-                Open live workbench
+              <a className="button button--ghost" href="/projects/casa-contemporanea#project-preview">
+                Open 3D project workbench
               </a>
               <a className="button button--ghost" href="/mission-control">
-                Open mission control
+                Open project control
               </a>
             </div>
           </div>
@@ -77,7 +98,7 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
           <div className="hero-orbit-card">
             <div className="hero-orbit-card__shell">
               <div className="hero-orbit-card__core">
-                <span>Realtime command pulse</span>
+                <span>Realtime project pulse</span>
                 <strong>{data.agentRoster[0]?.name ?? "Orchestrator"}</strong>
                 <p>{data.agentRoster[0]?.focus ?? "Sequencing geometry, QA, export, and commercial proof."}</p>
                 <div className="hero-orbit-card__meta">
@@ -109,6 +130,175 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
         </div>
       </section>
 
+      <section className="marketplace-showcase panel panel--stacked panel--wide" id="catalog">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Ready project demos</p>
+            <h3>Construction models with delivery pack, formats, and quality score</h3>
+          </div>
+          <div className="status-pill status-pill--soft">Sales-ready surface</div>
+        </div>
+        <div className="listing-grid">
+          {data.marketplaceListings.map((listing) => (
+            <article className="listing-card" key={listing.name}>
+              <div className="listing-card__preview" aria-hidden="true">
+                <div className="listing-card__model" />
+                <span>{listing.qualityScore}</span>
+              </div>
+              <div className="listing-card__body">
+                <div>
+                  <span className="listing-card__category">{listing.category}</span>
+                  <strong>{listing.name}</strong>
+                </div>
+                <p>{listing.signal}</p>
+                <div className="listing-card__meta">
+                  <span>{listing.price}</span>
+                  <span>{listing.license}</span>
+                  <span>{listing.delivery}</span>
+                </div>
+                <small>{listing.formats}</small>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="multimodal-board panel panel--stacked panel--wide" id="multimodal">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Prompt, PNG, JPEG, video, drone</p>
+            <h3>Every useful construction input becomes a structured 3D generation job</h3>
+          </div>
+          <div className="status-pill status-pill--soft">Multimodal pipeline</div>
+        </div>
+        <div className="multimodal-grid">
+          {data.multimodalInputModes.map((mode) => (
+            <article className="input-mode-card" key={mode.name}>
+              <div className="input-mode-card__top">
+                <span>{mode.input}</span>
+                <strong>{mode.confidence}</strong>
+              </div>
+              <h4>{mode.name}</h4>
+              <p>{mode.detail}</p>
+              <div className="input-mode-card__output">{mode.output}</div>
+              <small>{mode.agent}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="generation-flow panel panel--stacked panel--wide">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Generation workflow</p>
+            <h3>From raw media to BIM, tour, approval pack, and commercial delivery</h3>
+          </div>
+          <a className="status-pill" href="#intake">
+            Start intake
+          </a>
+        </div>
+        <div className="generation-flow__grid">
+          {data.generationWorkflow.map((step) => (
+            <article className="generation-step" key={step.stage}>
+              <span>{step.stage}</span>
+              <strong>{step.title}</strong>
+              <p>{step.input}</p>
+              <div>{step.output}</div>
+              <small>{step.gate}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="ops-board panel panel--stacked panel--wide">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Construction operating system</p>
+            <h3>Brief intake, BIM validation, visualization, and approval delivery</h3>
+          </div>
+          <a className="status-pill" href="/roadmap">
+            Roadmap
+          </a>
+        </div>
+        <div className="ops-board__grid">
+          {data.marketplaceLanes.map((lane) => (
+            <article className="ops-lane" key={lane.name}>
+              <div className="ops-lane__top">
+                <span>{lane.status}</span>
+                <strong>{lane.count}</strong>
+              </div>
+              <h4>{lane.name}</h4>
+              <p>{lane.detail}</p>
+              <small>{lane.owner}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="open-source-board panel panel--stacked panel--wide">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Open source leverage</p>
+            <h3>Open projects that make construction generation buildable instead of fake</h3>
+          </div>
+          <div className="status-pill status-pill--soft">Build, do not fake</div>
+        </div>
+        <div className="open-source-board__grid">
+          {data.openSourceReferences.map((reference) => (
+            <article className="reference-card" key={reference.name}>
+              <span>{reference.domain}</span>
+              <strong>{reference.name}</strong>
+              <p>{reference.adoption}</p>
+              <div className="reference-card__feature">{reference.feature}</div>
+              <small>{reference.risk}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="market-command panel panel--stacked panel--wide" id="market">
+        <div className="panel__header">
+          <div>
+            <p className="section-label">Project command</p>
+            <h3>Design generation, approval risk, and commercial readiness on one screen</h3>
+          </div>
+          <a className="status-pill" href="#projects">
+            View active projects
+          </a>
+        </div>
+        <div className="market-command__grid">
+          <article className="market-command__quote">
+            <span>Construction delivery lane</span>
+            <strong>Houses, towers, commercial shells and interiors move through one governed queue.</strong>
+            <p>
+              Each project carries area targets, visual style, BIM health, approval risk, campaign assets, and reviewer status before delivery.
+            </p>
+          </article>
+          <div className="market-command__metrics" aria-label="Marketplace operating metrics">
+            <div>
+              <span>Qualified demand</span>
+              <strong>{data.sectors.length} sectors</strong>
+              <small>Mapped to developers, brokers, architects, investors and builders</small>
+            </div>
+            <div>
+              <span>Delivery options</span>
+              <strong>{data.exports.length} formats</strong>
+              <small>IFC, GLB, plans, renders, schedules and review packs</small>
+            </div>
+            <div>
+              <span>Proof layer</span>
+              <strong>{data.trustSignals.length} signals</strong>
+              <small>BIM, approval, revision, tour and client signoff credibility</small>
+            </div>
+            <div>
+              <span>Live projects</span>
+              <strong>{data.projects.length} workspaces</strong>
+              <small>Inspectable construction concepts with status and area</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="workflow-rail panel" aria-labelledby="workflow-rail-title">
         <div className="workflow-rail__intro">
           <p className="section-label">Operating path</p>
@@ -119,10 +309,10 @@ export function DashboardScreen({ data }: DashboardScreenProps) {
           <li className="workflow-rail__step workflow-rail__step--active">
             <a href="#intake"><span>01</span><strong>Brief</strong><small>Define constraints</small></a>
           </li>
-          <li className="workflow-rail__step"><a href="/projects/cantilever-bracket#project-preview"><span>02</span><strong>Model</strong><small>Inspect geometry</small></a></li>
-          <li className="workflow-rail__step"><a href="/projects/cantilever-bracket#validation"><span>03</span><strong>Checks</strong><small>Review risks</small></a></li>
-          <li className="workflow-rail__step"><a href="/projects/cantilever-bracket#project-versions"><span>04</span><strong>Review</strong><small>Compare revisions</small></a></li>
-          <li className="workflow-rail__step"><a href="/projects/cantilever-bracket#export-readiness"><span>05</span><strong>Export</strong><small>Prepare handoff</small></a></li>
+          <li className="workflow-rail__step"><a href="/projects/casa-contemporanea#project-preview"><span>02</span><strong>Model</strong><small>Inspect geometry</small></a></li>
+          <li className="workflow-rail__step"><a href="/projects/casa-contemporanea#validation"><span>03</span><strong>Checks</strong><small>Review risks</small></a></li>
+          <li className="workflow-rail__step"><a href="/projects/casa-contemporanea#project-versions"><span>04</span><strong>Review</strong><small>Compare revisions</small></a></li>
+          <li className="workflow-rail__step"><a href="/projects/casa-contemporanea#export-readiness"><span>05</span><strong>Export</strong><small>Prepare handoff</small></a></li>
         </ol>
         <div className="workflow-rail__next">
           <span>Next action</span>

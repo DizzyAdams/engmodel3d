@@ -87,7 +87,86 @@ function htmlPage(title: string, body: string): string {
 }
 
 function nav() {
-  return `<div class="nav"><a href="/">Dashboard</a><a href="/projects/cantilever-bracket">Project</a><a href="/sprints">10 Sprints</a><a href="/briefs">Saved briefs</a><a href="/api/health">API health</a></div>`;
+  return `<div class="nav"><a href="/">Dashboard</a><a href="/catalog">Model catalog</a><a href="/projects/casa-contemporanea">Project</a><a href="/sprints">10 Sprints</a><a href="/briefs">Saved briefs</a><a href="/api/health">API health</a></div>`;
+}
+
+const h = (value: unknown): string =>
+  String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+
+async function renderCatalog() {
+  const { catalogListings } = await import("../server/model-catalog.js");
+
+  return site.page(
+    "3D Model Catalog",
+    `
+    <div class="panel">
+      <div class="row">
+        <div>
+          <div class="pill">Commercial marketplace</div>
+          <h1 style="margin-top:12px">3D model catalog</h1>
+          <p class="muted" style="margin-top:10px">Ready-to-buy construction 3D assets mapped to real buyer workflows.</p>
+        </div>
+        ${nav()}
+      </div>
+    </div>
+    <div class="grid cols-3">
+      ${catalogListings.map((item: { id: string; category: string; name: string; signal: string; formats: string; qualityScore: string }) => `<article class="card">
+        <div class="tiny">${h(item.category)}</div>
+        <h3>${h(item.name)}</h3>
+        <p class="muted">${h(item.signal)}</p>
+        <span class="tag">${h(item.formats)}</span>
+        <span class="status">${h(item.qualityScore)} quality</span>
+        <div style="margin-top:14px"><a class="btn" href="/catalog/${item.id}">Open package</a></div>
+      </article>`).join("")}
+    </div>
+    `,
+  );
+}
+
+async function renderCatalogDetail(id: string) {
+  const { catalogListings } = await import("../server/model-catalog.js");
+  const item = catalogListings.find((entry: { id: string }) => entry.id === id);
+  if (!item) {
+    return site.page("Not found", `<div class="panel"><h1>Catalog item not found</h1>${nav()}</div>`);
+  }
+
+  const packagesHtml = (item.launchPackages ?? []).map((pack: { startupPhase: string; packageName: string; fullDeliverables: string; launchPrice: string; eligibilityRequirement: string }) => `
+    <article class="card">
+      <div class="tiny">${h(pack.startupPhase)}</div>
+      <h3>${h(pack.packageName)}</h3>
+      <p class="muted">${h(pack.fullDeliverables)}</p>
+      <span class="tag">${h(pack.launchPrice)}</span>
+      <span class="status">${h(pack.eligibilityRequirement)}</span>
+      <div style="margin-top:10px"><a class="btn" href="https://tally.so/r/w2DBKa">Start project</a></div>
+    </article>
+  `).join("");
+
+  const proofs = item.integrationProof ?? [];
+  const proofHtml = proofs.length
+    ? proofs.map((proof: { type: string; experienceId: string; location: string; status: string }) => `
+        <article class="card">
+          <div class="tiny">${h(proof.type)} · outcome</div>
+          <strong>${h(proof.experienceId)}</strong>
+          <p class="muted">${h(proof.location)}</p>
+          <span class="status">${h(proof.status)}</span>
+        </article>
+      `).join("")
+    : `<p class="muted">No catalog cases registered yet.</p>`;
+
+  return site.page(
+    item.name,
+    `
+    <div class="panel"><div class="row"><div><div class="pill">${h(item.category)}</div><h1 style="margin-top:12px">${h(item.name)}</h1><p class="muted" style="margin-top:10px">${h(item.signal)}</p></div>${nav()}</div></div>
+    <div class="grid cols-4" style="margin-top:18px">${(item.rotationPreviewModels ?? []).map((preview: { rotationId: string; status: string; timing: string; modelType: string }) => `<article class="card"><div class="tiny">Preview · ${h(preview.rotationId)}</div><span class="status">${h(preview.status)}</span><p class="muted">${h(preview.timing)}</p><span class="tag">${h(preview.modelType)}</span></article>`).join("")}</div>
+    <div class="panel section"><h2>Launch packages</h2><div class="grid cols-3">${packagesHtml}</div></div>
+    <div class="panel section"><h2>Integration proof</h2><div class="grid cols-3">${proofHtml}</div></div>
+    `,
+  );
 }
 
 async function ensureBriefStore() {
@@ -308,8 +387,9 @@ export async function handleRequest(req: http.IncomingMessage, res: http.ServerR
   const isProjectRoute = url.pathname.startsWith("/projects/");
   const projectId = isProjectRoute ? url.pathname.split("/").filter(Boolean).pop() ?? "" : "";
   const project = projectId ? getProjectById(projectId) : undefined;
-  const html =
-    url.pathname === "/" ? site.dashboard(data) :
+  const html = await (url.pathname === "/" ? site.dashboard(data) :
+    url.pathname === "/catalog" ? renderCatalog() :
+    /^\/catalog\/[^/]+$/.test(url.pathname) ? renderCatalogDetail(url.pathname.split("/").filter(Boolean).pop() ?? "") :
     url.pathname === "/sprints" ? site.sprints(data, new SprintPlanner().createBacklog()) :
     url.pathname === "/briefs" ? site.briefs(await loadBriefs()) :
     url.pathname === "/mission-control" ? site.mission(data) :
@@ -319,9 +399,9 @@ export async function handleRequest(req: http.IncomingMessage, res: http.ServerR
     url.pathname === "/roadmap" ? site.roadmap(data) :
     isProjectRoute
       ? (project ? site.project(project) : site.notFound(url.pathname))
-      : site.notFound(url.pathname);
+      : site.notFound(url.pathname));
 
-  const known = url.pathname === "/" || ["/sprints","/briefs","/mission-control","/solutions","/workflow","/packages","/roadmap"].includes(url.pathname) || Boolean(project);
+  const known = ["/", "/catalog", "/sprints", "/briefs", "/mission-control", "/solutions", "/workflow", "/packages", "/roadmap"].includes(url.pathname) || Boolean(project) || url.pathname.startsWith("/catalog/");
   res.writeHead(known ? 200 : 404, { "Content-Type": "text/html; charset=utf-8" });
   res.end(html);
 }

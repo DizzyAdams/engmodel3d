@@ -29,7 +29,7 @@ export interface EngineeringWorkbenchExportState {
 export interface EngineeringExportFileEntry {
   filename: string;
   mimeType: string;
-  status: "ready" | "placeholder";
+  status: "ready" | "pending-kernel";
   description: string;
   contentPreview?: string;
 }
@@ -87,7 +87,7 @@ export interface EngineeringExportBundle {
 }
 
 const exportLimitation =
-  "This browser export preserves the engineering brief and model state, but it cannot synthesize true STEP, STL, or GLB geometry without a CAD kernel or server-side exporter.";
+  "This browser export generates STL and GLB from the live mesh. STEP remains pending until a CAD kernel or server-side STEP exporter is connected.";
 
 function createExportSlug(project: ProjectRecord): string {
   return project.id.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -159,24 +159,22 @@ export function buildEngineeringExportManifest(
       {
         filename: `${slug}.step`,
         mimeType: "application/step",
-        status: "placeholder",
-        description: "STEP placeholder entry for a downstream CAD exporter.",
+        status: "pending-kernel",
+        description: "STEP remains pending until a CAD kernel or server-side STEP exporter is connected.",
         contentPreview:
           "ISO-10303-21;\nHEADER;\n/* Placeholder only: browser build did not generate geometry */\nENDSEC;\nDATA;\nENDSEC;\nEND-ISO-10303-21;",
       },
       {
         filename: `${slug}.stl`,
         mimeType: "model/stl",
-        status: "placeholder",
-        description: "STL placeholder entry for additive-manufacturing review.",
-        contentPreview: "solid placeholder\nendsolid placeholder",
+        status: "ready",
+        description: "Generated from the live browser mesh for additive-manufacturing review.",
       },
       {
         filename: `${slug}.glb`,
         mimeType: "model/gltf-binary",
-        status: "placeholder",
-        description: "GLB placeholder entry for a browser or rendering pipeline.",
-        contentPreview: "Binary GLB payload not generated in-browser.",
+        status: "ready",
+        description: "Generated from the live browser mesh for a browser or rendering pipeline.",
       },
     ],
   };

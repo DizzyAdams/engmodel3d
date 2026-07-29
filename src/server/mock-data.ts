@@ -69,6 +69,50 @@ export type CaseStudyCard = {
   buyer: string;
 };
 
+export type MarketplaceListing = {
+  name: string;
+  category: string;
+  price: string;
+  license: string;
+  qualityScore: string;
+  formats: string;
+  delivery: string;
+  signal: string;
+};
+
+export type MarketplaceLane = {
+  name: string;
+  count: string;
+  owner: string;
+  status: string;
+  detail: string;
+};
+
+export type OpenSourceReference = {
+  name: string;
+  domain: string;
+  adoption: string;
+  feature: string;
+  risk: string;
+};
+
+export type MultimodalInputMode = {
+  name: string;
+  input: string;
+  output: string;
+  agent: string;
+  confidence: string;
+  detail: string;
+};
+
+export type GenerationWorkflow = {
+  stage: string;
+  title: string;
+  input: string;
+  output: string;
+  gate: string;
+};
+
 export type ScenarioCard = {
   name: string;
   delta: string;
@@ -334,6 +378,201 @@ const caseStudies: CaseStudyCard[] = [
     buyer: "Project engineer",
   },
 ];
+
+const marketplaceListings: MarketplaceListing[] = [
+  {
+    name: "Single-family concept house",
+    category: "Residential / sales launch",
+    price: "$1.2k-$4.8k",
+    license: "Developer project",
+    qualityScore: "97",
+    formats: "GLB, IFC, floor plans, render pack",
+    delivery: "3D tour + BIM handoff",
+    signal: "Fastest wedge: buyers understand houses instantly, and developers need visuals before construction.",
+  },
+  {
+    name: "Multi-family tower massing",
+    category: "Apartments / feasibility",
+    price: "$3.5k-$18k",
+    license: "Investor package",
+    qualityScore: "93",
+    formats: "IFC, GLB, area schedule, approval memo",
+    delivery: "Feasibility cockpit",
+    signal: "High-value path for land studies, unit mix, FAR/GFA, parking and investor approval.",
+  },
+  {
+    name: "Commercial retail shell",
+    category: "Commercial / leasing",
+    price: "$2.8k-$12k",
+    license: "Brokerage campaign",
+    qualityScore: "90",
+    formats: "GLB, leasing views, fit-out zones",
+    delivery: "Tenant-ready visuals",
+    signal: "Turns empty commercial space into a leasable product with fit-out options and walkthrough scenes.",
+  },
+  {
+    name: "Luxury interior staging pack",
+    category: "Interiors / marketing",
+    price: "$900-$6.5k",
+    license: "Agency campaign",
+    qualityScore: "92",
+    formats: "GLB, room scenes, finish schedule",
+    delivery: "Styled room variants",
+    signal: "Strong conversion layer for brokers, builders and interior studios selling before completion.",
+  },
+];
+
+const marketplaceLanes: MarketplaceLane[] = [
+  {
+    name: "Construction brief intake",
+    count: "43 active briefs",
+    owner: "Intake + Site Planning",
+    status: "triage",
+    detail: "Program, dimensions, floors, rooms, target audience, budget, style and delivery purpose enter one structured model brief.",
+  },
+  {
+    name: "BIM and approval validation",
+    count: "126 checks",
+    owner: "BIM + Zoning + QA",
+    status: "active",
+    detail: "Area schedules, levels, room data, IFC property sets and GLB preview health decide release readiness.",
+  },
+  {
+    name: "Sales visualization",
+    count: "38 campaigns",
+    owner: "Rendering + Sales",
+    status: "selling",
+    detail: "Each model becomes commercial media: 3D tour, render shots, room variants, broker notes and client-facing summaries.",
+  },
+  {
+    name: "Approval and delivery",
+    count: "17 handoffs",
+    owner: "BIM + Delivery",
+    status: "planned",
+    detail: "The platform prepares approval assumptions, client signoff, revision history and BIM/IFC export bundles.",
+  },
+];
+
+const openSourceReferences: OpenSourceReference[] = [
+  {
+    name: "Mercur + Medusa",
+    domain: "Marketplace commerce",
+    adoption: "Use marketplace primitives for property packages, agency storefronts, project orders and digital delivery.",
+    feature: "Developer portal, brokerage storefront, checkout, entitlements, downloads, refunds, commissions and admin queues.",
+    risk: "Do not treat a property concept like a generic digital download; approvals and revisions need project state.",
+  },
+  {
+    name: "Khronos glTF Validator",
+    domain: "3D asset QA",
+    adoption: "Validate GLB/glTF structure, buffers, accessors, animation data, and asset stats before listing.",
+    feature: "Automated preview gate and JSON validation report attached to each model version.",
+    risk: "Passing GLB validation does not prove CAD/manufacturing correctness.",
+  },
+  {
+    name: "FreeCAD + OpenCascade",
+    domain: "CAD kernel",
+    adoption: "Use server-side replay, repair, STEP export, topology checks, and deterministic model regeneration.",
+    feature: "Certified export lane for STEP, drawing packages, and repair recommendations.",
+    risk: "Kernel failures need quarantined jobs and visible fallback output.",
+  },
+  {
+    name: "CadQuery + IfcOpenShell",
+    domain: "Parametric CAD and BIM",
+    adoption: "Use parametric generation for massing rules and IfcOpenShell-style workflows for BIM metadata.",
+    feature: "Floor levels, units, rooms, area schedules, IFC property validation and buyer-specific derivatives.",
+    risk: "Different categories need different minimum validation contracts.",
+  },
+  {
+    name: "Three.js + glTF-Transform",
+    domain: "Web viewer and optimization",
+    adoption: "Use Three.js for the current viewer and glTF-Transform style optimization gates for web delivery.",
+    feature: "LOD, compressed textures, thumbnails, safe preview packages, dimensions, and inspection tools.",
+    risk: "Heavy models must not block mobile conversion or crash WebGL.",
+  },
+];
+
+const multimodalInputModes: MultimodalInputMode[] = [
+  {
+    name: "Prompt to property",
+    input: "Text brief",
+    output: "Massing, rooms, style, package scope",
+    agent: "Intake + Site Planning",
+    confidence: "High",
+    detail: "Best for new concepts: house, tower, store, facade, interiors or construction feasibility.",
+  },
+  {
+    name: "PNG/JPEG floor plan",
+    input: "Plan image or sketch",
+    output: "Rooms, walls, circulation and area assumptions",
+    agent: "Vision + BIM",
+    confidence: "Medium-high",
+    detail: "Extract room labels, dimensions when visible, openings and missing measurements for human confirmation.",
+  },
+  {
+    name: "Facade or moodboard images",
+    input: "Photos, renders, references",
+    output: "Style system, materials, facade language and render direction",
+    agent: "Vision + Rendering",
+    confidence: "High",
+    detail: "Turns reference images into architectural style, finish palette, lighting and sales visual direction.",
+  },
+  {
+    name: "Walkthrough video",
+    input: "Interior/exterior video",
+    output: "Scene sequence, camera path, room map and reconstruction tasks",
+    agent: "Video Reconstruction",
+    confidence: "Medium",
+    detail: "Samples frames, identifies spaces, recovers sequence and flags where scale is uncertain.",
+  },
+  {
+    name: "Drone footage",
+    input: "Aerial video/photos",
+    output: "Site context, terrain clues, access and construction constraints",
+    agent: "Survey Reconstruction",
+    confidence: "Medium",
+    detail: "Useful for construction sites, commercial buildings, rooftops and external as-built studies.",
+  },
+  {
+    name: "Existing listing media",
+    input: "Broker photos, video, plan PDF",
+    output: "Sales tour, upgraded listing pack and renovation concepts",
+    agent: "Marketplace + Interior Design",
+    confidence: "High",
+    detail: "Transforms weak listing media into interactive scenes, staged rooms and campaign-ready outputs.",
+  },
+];
+
+const generationWorkflow: GenerationWorkflow[] = [
+  {
+    stage: "01",
+    title: "Multimodal intake",
+    input: "Prompt, PNG, JPEG, video, drone footage, PDF or existing listing media",
+    output: "Structured construction brief with missing assumptions",
+    gate: "Input quality score",
+  },
+  {
+    stage: "02",
+    title: "Reconstruction and generation",
+    input: "Brief, detected geometry, visual style, lot constraints and references",
+    output: "3D massing, rooms, facade, interiors, site model and tour storyboard",
+    gate: "Scale and geometry confidence",
+  },
+  {
+    stage: "03",
+    title: "BIM and approval layer",
+    input: "Generated model, levels, areas, unit mix, zoning assumptions and material schedule",
+    output: "IFC/BIM package, area table, issue list and approval notes",
+    gate: "BIM/approval validation",
+  },
+  {
+    stage: "04",
+    title: "Sales delivery",
+    input: "Validated model, camera paths, interiors, renders and listing context",
+    output: "GLB tour, render pack, listing copy, investor summary and export bundle",
+    gate: "Human review signoff",
+  },
+];
+
 
 const cantileverReferenceBenchmarks: ReferenceBenchmark[] = [
   { name: "Onshape", category: "collaboration", adopted: "shared browser review posture", score: "92%", note: "Good target for comments, approvals, and version handoff." },
@@ -707,31 +946,114 @@ const projects: ProjectRecord[] = [
   },
 ];
 
+const constructionDemoProjects: ProjectRecord[] = [
+  {
+    ...projects[0],
+    id: "casa-contemporanea",
+    name: "Casa contemporanea | Estudo de venda",
+    category: "Residential construction",
+    summary: "Casa térrea parametrizada para validar volumetria, fachada, interiores e tour comercial antes da obra.",
+    status: "Ready for client review",
+    owner: "Construction studio",
+    exportTarget: "GLB + IFC + render pack",
+    dimensions: "12 x 30 m · 180 m² · 3 suites",
+    confidence: "94%",
+    validationState: "All visual checks passed",
+    generatedBy: "Construction swarm v2.4",
+    nextAction: "Approve facade variant B",
+    tags: ["residential", "sales", "bim", "tour"],
+  },
+  {
+    ...projects[1],
+    id: "torre-residencial",
+    name: "Torre residencial | Estudo de massa",
+    category: "Multi-family construction",
+    summary: "Torre residencial com pavimento tipo, unidades, areas comuns e pacote de viabilidade para incorporadora.",
+    status: "Feasibility review",
+    owner: "Development team",
+    exportTarget: "IFC + GLB + area schedule",
+    dimensions: "18 floors · 108 units · 9,840 m²",
+    confidence: "89%",
+    validationState: "3 review notes",
+    generatedBy: "Massing + BIM agents",
+    nextAction: "Compare unit mix alternatives",
+    tags: ["tower", "residential", "bim", "feasibility"],
+  },
+  {
+    ...projects[1],
+    id: "loja-esquina",
+    name: "Loja de esquina | Comercial",
+    category: "Commercial construction",
+    summary: "Shell comercial com vitrine, circulacao, areas tecnicas e tres opcoes de fit-out para locacao.",
+    status: "Sales package ready",
+    owner: "Commercial team",
+    exportTarget: "GLB + leasing views + IFC",
+    dimensions: "620 m² · 2 floors · 18 parking spaces",
+    confidence: "91%",
+    validationState: "Commercial release ready",
+    generatedBy: "Commercial + Rendering agents",
+    nextAction: "Publish broker tour",
+    tags: ["commercial", "leasing", "fit-out", "tour"],
+  },
+  {
+    ...projects[1],
+    id: "torre-comercial",
+    name: "Torre comercial | Estudo de massa",
+    category: "Commercial construction",
+    summary: "Torre comercial com pavimento tipo, areas comuns e pacote de viabilidade para locacao e venda.",
+    status: "Feasibility review",
+    owner: "Commercial team",
+    exportTarget: "IFC + GLB + area schedule",
+    dimensions: "14 floors · 64 units · 7,200 m²",
+    confidence: "90%",
+    validationState: "3 review notes",
+    generatedBy: "Massing + BIM agents",
+    nextAction: "Compare unit mix alternatives",
+    tags: ["commercial", "leasing", "bim", "feasibility"],
+  },
+  {
+    ...projects[1],
+    id: "apartamento-decorado",
+    name: "Apartamento decorado | Campaign",
+    category: "Interior visualization",
+    summary: "Unidade decorada com paletas, mobiliario, iluminacao e cenas prontas para corretores e imobiliarias.",
+    status: "Campaign ready",
+    owner: "Sales enablement",
+    exportTarget: "GLB + renders + room pack",
+    dimensions: "82 m² · 3 bedrooms · 2 bathrooms",
+    confidence: "96%",
+    validationState: "Approved for campaign",
+    generatedBy: "Interior + Rendering agents",
+    nextAction: "Share interactive tour",
+    tags: ["interior", "staging", "broker", "sales"],
+  },
+];
+
 export function getDashboardData() {
   return {
     stats: [
-      { label: "Projects in flight", value: "12" },
-      { label: "Validated exports", value: "28" },
-      { label: "Open agent tasks", value: "7" },
-      { label: "Rule checks", value: "146" },
-      { label: "Governed releases", value: "19" },
+      { label: "Construction portfolio", value: "84" },
+      { label: "Generated 3D models", value: "84" },
+      { label: "Active client briefs", value: "43" },
+      { label: "BIM/approval checks", value: "1,946" },
+      { label: "Sales-ready tours", value: "37" },
     ],
     kpis: [
-      { label: "Active models", value: "12", delta: "+3 this week" },
-      { label: "Validation pass rate", value: "93%", delta: "+4.1%" },
-      { label: "Estimated engineering hours saved", value: "148h", delta: "across 9 projects" },
-      { label: "Export readiness", value: "81%", delta: "STEP/IFC/GLB pipeline" },
+      { label: "Active construction concepts", value: "43", delta: "+11 this week" },
+      { label: "BIM validation pass rate", value: "91%", delta: "+4.1%" },
+      { label: "Estimated design hours saved", value: "420h", delta: "across 18 projects" },
+      { label: "Tour readiness", value: "86%", delta: "GLB/render/IFC pipeline" },
     ],
     calculations: [
-      { label: "Portfolio utilization", formula: "active projects / capacity", result: "12 / 18 = 66.7%" },
-      { label: "Average confidence", formula: "sum(confidence) / project count", result: "90.0%" },
-      { label: "Risk weighted backlog", formula: "high×3 + medium×2 + low×1", result: "11 points" },
+      { label: "Brief throughput", formula: "construction briefs / delivery capacity", result: "43 / 60 = 71.7%" },
+      { label: "Average release confidence", formula: "BIM + tour + approval signals", result: "90.0%" },
+      { label: "Approval risk backlog", formula: "approval×3 + BIM×2 + visual×1", result: "18 points" },
     ],
     engineeringSnapshot: [
-      { label: "Total mass under analysis", value: "84.24 kg" },
-      { label: "Open validation issues", value: "3" },
-      { label: "Highest stress region", value: "Bracket rib root" },
-      { label: "Most requested export", value: "STEP" },
+      { label: "Total modeled area", value: "128,400 m²" },
+      { label: "Open approval issues", value: "18" },
+      { label: "Highest risk constraint", value: "Setback / parking" },
+      { label: "Most requested export", value: "IFC + GLB" },
     ],
     governance: [
       {
@@ -770,10 +1092,19 @@ export function getDashboardData() {
       { index: 10, title: "Production hardening", goal: "Prepare the codebase for a real deployment path.", owner: "Platform" },
     ],
     capabilities: [
-      { name: "Prompt to parametric model", status: "active", detail: "Text brief becomes structured geometry parameters." },
-      { name: "Validation engine", status: "active", detail: "Rules, thresholds, and export checks before release." },
+      { name: "Prompt to construction model", status: "active", detail: "Text brief becomes dimensions, floors, rooms, unit mix, style and deliverable requirements." },
+      { name: "Floor plan to 3D", status: "building", detail: "Generate houses, towers and commercial shells from layout rules and buyer constraints." },
+      { name: "BIM/IFC intelligence", status: "building", detail: "Attach levels, rooms, areas, property sets and coordination metadata before export." },
+      { name: "Approval and constraints", status: "planned", detail: "Track dimensions, setbacks, parking, occupancy assumptions and approval risk." },
+      { name: "Virtual tours", status: "building", detail: "Generate GLB walkthroughs, camera paths, listing media and investor review views." },
+      { name: "Interior staging", status: "planned", detail: "Create furnished room variants, finish schedules and buyer-persona concepts." },
+      { name: "Validation engine", status: "active", detail: "Rules, thresholds, IFC metadata and preview checks before release." },
       { name: "Version history", status: "active", detail: "Track revisions, approvals, and delta from baseline." },
       { name: "3D preview", status: "active", detail: "Procedural WebGL viewer with orbit controls and STL/GLB/JSON downloads." },
+      { name: "Broker and agency delivery", status: "building", detail: "Catalog-ready model pages with formats, thumbnails, campaigns, and quality score." },
+      { name: "Client onboarding", status: "building", detail: "Brief intake, upload checks, review queues, approvals, and portfolio health." },
+      { name: "Agent adaptation credits", status: "planned", detail: "Buyers can request size, material, format, and metadata changes through governed agents." },
+      { name: "Global localization", status: "planned", detail: "Currency, language, license notes, regional policy, and support routing by market." },
       { name: "Engineer review", status: "ready", detail: "Human checkpoints before export or procurement." },
       { name: "Compliance policy", status: "active", detail: "Formal checks for brief quality, lineage, and export readiness." },
       { name: "Portfolio analytics", status: "building", detail: "Cost, risk, and throughput across projects." },
@@ -802,10 +1133,15 @@ export function getDashboardData() {
     packages: commercialPackages,
     trustSignals,
     caseStudies,
-    projects,
+    marketplaceListings,
+    marketplaceLanes,
+    openSourceReferences,
+    multimodalInputModes,
+    generationWorkflow,
+    projects: constructionDemoProjects,
   };
 }
 
 export function getProjectById(projectId: string) {
-  return projects.find((project) => project.id === projectId);
+  return constructionDemoProjects.find((project) => project.id === projectId) ?? projects.find((project) => project.id === projectId);
 }

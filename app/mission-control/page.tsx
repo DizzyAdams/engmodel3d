@@ -23,7 +23,7 @@ export default function MissionControlPage() {
                 and every export is tied to a visible release posture.
               </p>
               <div className="hero-actions">
-                <a className="button button--primary" href="/projects/cantilever-bracket#project-swarm">
+                <a className="button button--primary" href="/projects/casa-contemporanea#project-swarm">
                   Open project swarm
                 </a>
                 <a className="button button--ghost" href="/#pilot">

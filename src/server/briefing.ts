@@ -5,26 +5,35 @@ export type ExportTarget = {
 };
 
 export type ProjectType =
-  | "Mechanical part"
-  | "Architecture/BIM module"
-  | "Fixture"
-  | "Enclosure"
-  | "Custom assembly"
-  | "Structural frame"
-  | "MEP system"
-  | "Civil/infrastructure package";
+  | "Single-family house"
+  | "Multi-family building"
+  | "Commercial building"
+  | "Interior staging"
+  | "Renovation/as-built"
+  | "Mixed-use development"
+  | "Real-estate sales tour";
 
 export type UseCase =
-  | "Prototype"
+  | "Concept generation"
+  | "Feasibility study"
+  | "Sales launch"
+  | "Approval package"
+  | "BIM handoff"
+  | "Renovation planning"
   | "Client review"
-  | "Production handoff"
-  | "Reusable library asset"
   | "Construction coordination";
 
-export type SizeBand = "Pocket-sized" | "Desktop" | "Workbench" | "Room-scale";
+export type SizeBand = "Room/interior" | "House lot" | "Small building" | "Tower/development";
 export type TimelineBand = "Rush (1 week)" | "Standard (2-4 weeks)" | "Pilot (1-2 months)" | "Program (quarter+)";
 export type Priority = "Rush" | "Standard" | "High rigor";
 export type BudgetBand = "< $10k" | "$10k-$25k" | "$25k-$50k" | "$50k+";
+export type MediaKind = "Prompt" | "PNG/JPEG" | "Floor plan PDF" | "Video walkthrough" | "Drone footage" | "Reference images" | "Existing listing";
+
+export type MediaAsset = {
+  kind: MediaKind;
+  name: string;
+  detail: string;
+};
 
 export type BriefFormState = {
   projectName: string;
@@ -37,6 +46,7 @@ export type BriefFormState = {
   budgetBand: BudgetBand;
   notes: string;
   selectedExports: string[];
+  mediaAssets: MediaAsset[];
 };
 
 export type BriefAnalysis = {
@@ -50,6 +60,7 @@ export type BriefAnalysis = {
   estimatedPriceUsd: { low: number; high: number | null };
   marginRisk: "Low" | "Medium" | "High";
   riskPosture: string;
+  mediaPlan: string[];
   exportPresets: string[];
   recommendedSector: string;
   recommendedPackage: string;
@@ -81,52 +92,57 @@ export type BriefSubmission = {
 };
 
 export const projectTypeOptions: ProjectType[] = [
-  "Mechanical part",
-  "Architecture/BIM module",
-  "Fixture",
-  "Enclosure",
-  "Custom assembly",
-  "Structural frame",
-  "MEP system",
-  "Civil/infrastructure package",
+  "Single-family house",
+  "Multi-family building",
+  "Commercial building",
+  "Interior staging",
+  "Renovation/as-built",
+  "Mixed-use development",
+  "Real-estate sales tour",
 ];
 
 export const useCaseOptions: UseCase[] = [
-  "Prototype",
+  "Concept generation",
+  "Feasibility study",
+  "Sales launch",
+  "Approval package",
+  "BIM handoff",
+  "Renovation planning",
   "Client review",
-  "Production handoff",
-  "Reusable library asset",
   "Construction coordination",
 ];
 
-export const sizeBandOptions: SizeBand[] = ["Pocket-sized", "Desktop", "Workbench", "Room-scale"];
+export const sizeBandOptions: SizeBand[] = ["Room/interior", "House lot", "Small building", "Tower/development"];
 export const timelineOptions: TimelineBand[] = ["Rush (1 week)", "Standard (2-4 weeks)", "Pilot (1-2 months)", "Program (quarter+)"];
 export const priorityOptions: Priority[] = ["Rush", "Standard", "High rigor"];
 export const budgetOptions: BudgetBand[] = ["< $10k", "$10k-$25k", "$25k-$50k", "$50k+"];
+export const mediaKindOptions: MediaKind[] = ["Prompt", "PNG/JPEG", "Floor plan PDF", "Video walkthrough", "Drone footage", "Reference images", "Existing listing"];
 
 const scoreMap = {
   projectType: {
-    "Mechanical part": 2,
-    "Architecture/BIM module": 3,
-    Fixture: 2,
-    Enclosure: 3,
-    "Custom assembly": 4,
-    "Structural frame": 4,
-    "MEP system": 4,
-    "Civil/infrastructure package": 4,
+    "Single-family house": 2,
+    "Multi-family building": 4,
+    "Commercial building": 4,
+    "Interior staging": 2,
+    "Renovation/as-built": 4,
+    "Mixed-use development": 4,
+    "Real-estate sales tour": 3,
   },
   useCase: {
-    Prototype: 1,
+    "Concept generation": 1,
+    "Feasibility study": 3,
+    "Sales launch": 2,
+    "Approval package": 4,
+    "BIM handoff": 4,
+    "Renovation planning": 3,
     "Client review": 2,
-    "Production handoff": 3,
-    "Reusable library asset": 2,
     "Construction coordination": 3,
   },
   sizeBand: {
-    "Pocket-sized": 1,
-    Desktop: 2,
-    Workbench: 3,
-    "Room-scale": 4,
+    "Room/interior": 1,
+    "House lot": 2,
+    "Small building": 3,
+    "Tower/development": 4,
   },
   timeline: {
     "Rush (1 week)": 1,
@@ -148,25 +164,23 @@ const scoreMap = {
 } as const;
 
 const sectorMap: Record<ProjectType, string> = {
-  "Mechanical part": "Industrial equipment and fixtures",
-  "Architecture/BIM module": "BIM and modular construction",
-  Fixture: "Industrial equipment and fixtures",
-  Enclosure: "Industrial equipment and fixtures",
-  "Custom assembly": "Energy, utilities, and plant skids",
-  "Structural frame": "Structural and facade engineering",
-  "MEP system": "MEP coordination and prefabrication",
-  "Civil/infrastructure package": "Civil and infrastructure packages",
+  "Single-family house": "Residential developers and brokers",
+  "Multi-family building": "Multi-family feasibility and investor review",
+  "Commercial building": "Commercial leasing and retail development",
+  "Interior staging": "Interior studios and real-estate marketing",
+  "Renovation/as-built": "Renovation, retrofit and as-built reconstruction",
+  "Mixed-use development": "Developer feasibility and investor packaging",
+  "Real-estate sales tour": "Brokerage, sales launch and virtual showrooms",
 };
 
 const surrealDirectionMap: Record<ProjectType, string> = {
-  "Mechanical part": "Surreal precision metal artifact with luminous edge ribs, cinematic exploded-view logic, and studio-grade material realism.",
-  "Architecture/BIM module": "Surreal architectural assembly with crystalline layers, glowing metadata callouts, and premium spatial composition.",
-  Fixture: "Surreal industrial fixture with tactical clamps, floating datum annotations, and precise fabrication aura.",
-  Enclosure: "Surreal enclosure concept with translucent shells, controlled openings, and luxury technical detailing.",
-  "Custom assembly": "Surreal multi-part engineered system with articulated interfaces, premium exploded storytelling, and cinematic staging.",
-  "Structural frame": "Surreal structural skeleton with impossible-but-readable load paths, dramatic connection nodes, and premium engineering monumentality.",
-  "MEP system": "Surreal MEP routing composition with luminous service lines, clash-free sweeps, and hyper-legible coordination layers.",
-  "Civil/infrastructure package": "Surreal civil infrastructure scene with monumental joints, layered revision overlays, and cinematic construction clarity.",
+  "Single-family house": "Premium residential tour with sunlit facade, furnished social core, clear lot context, and sales-ready camera path.",
+  "Multi-family building": "Investor-grade tower massing with unit mix overlays, podium/parking logic, area schedule and night/day sales views.",
+  "Commercial building": "Tenant-ready commercial shell with storefront rhythm, signage zones, circulation, leasing views and fit-out variants.",
+  "Interior staging": "Styled interior scene with finish palettes, furnishing presets, lighting moods and buyer-persona variants.",
+  "Renovation/as-built": "Measured reconstruction view with existing/new deltas, uncertainty callouts, photo anchors and approval notes.",
+  "Mixed-use development": "Urban-scale concept with retail base, residential/commercial stack, public realm and investor storytelling.",
+  "Real-estate sales tour": "Interactive sales showroom with hotspots, unit options, renders, room scenes and broker handoff narrative.",
 };
 
 function priceForPackage(packageName: string) {
@@ -179,15 +193,26 @@ function priceForPackage(packageName: string) {
 
 function exportPresets(projectType: ProjectType): string[] {
   return {
-    "Mechanical part": ["manufacturing-core: STEP + STL", "review-pack: GLB + decision memo"],
-    "Architecture/BIM module": ["coordination-core: IFC + GLB", "metadata-pack: IFC + issue matrix"],
-    Fixture: ["manufacturing-core: STEP + STL", "shop-floor-pack: STEP + setup notes"],
-    Enclosure: ["fabrication-core: STEP + GLB", "review-pack: GLB + ingress notes"],
-    "Custom assembly": ["assembly-core: STEP + GLB", "handoff-pack: STEP + review package"],
-    "Structural frame": ["structural-core: STEP + IFC", "review-pack: GLB + issue matrix"],
-    "MEP system": ["coordination-core: IFC + GLB", "field-pack: IFC + coordination notes"],
-    "Civil/infrastructure package": ["infrastructure-core: STEP + IFC", "contractor-pack: IFC + issue matrix"],
+    "Single-family house": ["sales-core: GLB tour + render pack", "bim-core: IFC + floor plan + area schedule"],
+    "Multi-family building": ["feasibility-core: massing + unit mix + area schedule", "investor-pack: GLB + IFC + VGV summary"],
+    "Commercial building": ["leasing-core: GLB + storefront views", "fitout-pack: zones + circulation + tenant notes"],
+    "Interior staging": ["staging-core: room scenes + finish schedule", "sales-pack: renders + tour hotspots"],
+    "Renovation/as-built": ["reconstruction-core: photo anchors + measured model", "approval-pack: existing/new deltas + issue list"],
+    "Mixed-use development": ["urban-core: podium/tower massing + public realm", "investor-pack: GLB + area mix + phasing"],
+    "Real-estate sales tour": ["tour-core: GLB + camera path + hotspots", "broker-pack: listing copy + renders + share link"],
   }[projectType];
+}
+
+function mediaPlanFor(asset: MediaAsset): string {
+  return {
+    Prompt: `Prompt "${asset.name}" seeds the architectural program, style, buyer profile and deliverable scope.`,
+    "PNG/JPEG": `Image "${asset.name}" goes to vision extraction for facade/style, visible dimensions and missing-view checks.`,
+    "Floor plan PDF": `Plan "${asset.name}" goes to room extraction, wall/opening detection, area assumptions and BIM level setup.`,
+    "Video walkthrough": `Video "${asset.name}" goes to keyframe sampling, room sequence mapping and camera path reconstruction.`,
+    "Drone footage": `Drone asset "${asset.name}" goes to site context, access, massing envelope and terrain/lot assumptions.`,
+    "Reference images": `Reference set "${asset.name}" drives style, materials, lighting, staging and render direction.`,
+    "Existing listing": `Listing media "${asset.name}" becomes a sales upgrade job with tour, staged rooms and broker-ready copy.`,
+  }[asset.kind];
 }
 
 export function buildBriefProposal(form: BriefFormState, analysis: BriefAnalysis): BriefProposal {
@@ -232,20 +257,24 @@ function getDimensionScore(dimensions: string) {
 
 export function createDefaultBriefForm(exportTargets: ExportTarget[]): BriefFormState {
   const preferredExports = exportTargets
-    .filter((target) => target.format === "STEP" || target.format === "STL")
+    .filter((target) => target.format === "IFC" || target.format === "GLB")
     .map((target) => target.format);
 
   return {
-    projectName: "Cantilever bracket pilot",
-    projectType: "Mechanical part",
-    dimensions: "220 x 80 x 40 mm",
+    projectName: "Casa térrea premium em lote urbano",
+    projectType: "Single-family house",
+    dimensions: "Lote 12 x 30 m · 180 m² construídos · 3 suítes",
     priority: "Standard",
-    sizeBand: "Desktop",
+    sizeBand: "House lot",
     timeline: "Standard (2-4 weeks)",
-    useCase: "Prototype",
+    useCase: "Sales launch",
     budgetBand: "$10k-$25k",
-    notes: "Need a fast pilot with validation and export handoff.",
+    notes: "Gerar casa contemporânea com sala integrada, garagem para 2 carros, área gourmet, fachada premium, interiores mobiliados, tour 3D e pacote IFC/GLB para venda.",
     selectedExports: preferredExports.length > 0 ? preferredExports : [exportTargets[0]?.format ?? "STEP"],
+    mediaAssets: [
+      { kind: "Prompt", name: "construction brief", detail: "Texto inicial com dimensoes, programa, estilo e objetivo comercial." },
+      { kind: "Reference images", name: "fachadas contemporâneas", detail: "Usar como direção visual para materiais, volumetria e renders." },
+    ],
   };
 }
 
@@ -258,6 +287,7 @@ export function analyzeBrief(form: BriefFormState): BriefAnalysis {
   const budgetScore = scoreMap.budgetBand[form.budgetBand];
   const dimensionScore = getDimensionScore(form.dimensions);
   const exportScore = Math.max(1, form.selectedExports.length);
+  const mediaScore = Math.min(4, Math.max(1, form.mediaAssets.length + (form.mediaAssets.some((asset) => asset.kind === "Floor plan PDF" || asset.kind === "PNG/JPEG") ? 1 : 0)));
   const noteLength = form.notes.trim().length;
   const clarityBonus = noteLength >= 80 ? 0 : noteLength >= 35 ? 1 : 2;
 
@@ -270,15 +300,18 @@ export function analyzeBrief(form: BriefFormState): BriefAnalysis {
     budgetScore +
     dimensionScore +
     exportScore +
+    mediaScore +
     clarityBonus;
 
   const effortHours = 8 + totalScore * 3;
   const blockers: string[] = [];
 
   if (!form.selectedExports.length) blockers.push("Select at least one export target.");
-  if (noteLength < 35) blockers.push("Add acceptance criteria or tolerance details.");
+  if (!form.mediaAssets.length) blockers.push("Add at least one prompt, image, video, plan, drone, or listing-media input.");
+  if (noteLength < 35) blockers.push("Add property program, lot context, style, buyer persona, approval, or sales goals.");
   if (form.budgetBand === "< $10k" && totalScore > 12) blockers.push("The current budget band may be tight for this scope.");
-  if (form.projectType === "MEP system" && form.useCase !== "Construction coordination") blockers.push("MEP work usually needs coordination context for a strong proposal.");
+  if ((form.useCase === "Approval package" || form.useCase === "BIM handoff") && !form.selectedExports.includes("IFC")) blockers.push("Approval or BIM handoff should include IFC.");
+  if ((form.projectType === "Renovation/as-built" || form.mediaAssets.some((asset) => asset.kind === "Video walkthrough" || asset.kind === "Drone footage")) && !form.mediaAssets.some((asset) => asset.kind === "Floor plan PDF" || asset.kind === "PNG/JPEG")) blockers.push("Reconstruction quality improves with at least one plan or still image for scale confirmation.");
 
   const scopeLabel =
     totalScore <= 10
@@ -324,6 +357,7 @@ export function analyzeBrief(form: BriefFormState): BriefAnalysis {
     estimatedPriceUsd: { low: price.low, high: price.high },
     marginRisk,
     riskPosture,
+    mediaPlan: form.mediaAssets.map(mediaPlanFor),
     exportPresets: exportPresets(form.projectType),
     recommendedSector: sectorMap[form.projectType],
     recommendedPackage,
@@ -346,16 +380,20 @@ export function buildBriefPreview(form: BriefFormState, analysis: BriefAnalysis,
     `- Timeline: ${form.timeline}`,
     `- Primary use: ${form.useCase}`,
     `- Budget band: ${form.budgetBand}`,
+    `- Media inputs: ${form.mediaAssets.map((asset) => `${asset.kind}: ${asset.name}`).join(" | ") || "TBD"}`,
     `- Export targets: ${selectedExportTargets.map((target) => target.format).join(" + ") || "TBD"}`,
     "",
     "## Scoped summary",
-    `Build a ${form.projectType.toLowerCase()} for ${dimensions}. The brief is marked ${form.priority.toLowerCase()} priority, so the first pass should focus on ${getFocusText(form.projectType)}. Deliver ${getDeliveryText(form.projectType)} and keep the handoff narrow enough to review in one pass.`,
+    `Generate a ${form.projectType.toLowerCase()} for ${dimensions}. The brief is marked ${form.priority.toLowerCase()} priority, so the first pass should focus on ${getFocusText(form.projectType)}. Deliver ${getDeliveryText(form.projectType)} and keep the output reviewable as a BIM, tour, approval, or sales package.`,
     "",
     "## Commercial recommendation",
     `- Recommended sector: ${analysis.recommendedSector}`,
     `- Recommended package: ${analysis.recommendedPackage}`,
     `- Next step: ${analysis.nextStep}`,
     `- Surreal 3D direction: ${analysis.surrealDirection}`,
+    "",
+    "## Multimodal generation plan",
+    ...(analysis.mediaPlan.length ? analysis.mediaPlan.map((item) => `- ${item}`) : ["- No media inputs supplied yet. Start with prompt-only generation and request visual references before release."]),
     "",
     "## Scope summary",
     `- Scope tier: ${analysis.scopeLabel}`,
@@ -390,39 +428,36 @@ export function createBriefSubmission(form: BriefFormState, exportTargets: Expor
 
 function getFocusText(projectType: ProjectType) {
   return {
-    "Mechanical part": "mounting interfaces, clearance, and stress hotspots",
-    "Architecture/BIM module": "IFC metadata, placement logic, and reuse rules",
-    Fixture: "datum control, repeatability, and clamping behavior",
-    Enclosure: "wall thickness, access points, and assembly constraints",
-    "Custom assembly": "interfaces, tolerance stack-up, and cross-team handoff rules",
-    "Structural frame": "load paths, connection logic, and staged release assumptions",
-    "MEP system": "routing logic, clash posture, and field-install constraints",
-    "Civil/infrastructure package": "connection geometry, revision control, and contractor handoff clarity",
+    "Single-family house": "lot placement, room program, facade, interiors, GLB tour and IFC handoff",
+    "Multi-family building": "massing, unit mix, levels, parking, area schedule and investor feasibility",
+    "Commercial building": "leasable area, storefront rhythm, service zones, circulation and tenant-ready visuals",
+    "Interior staging": "room composition, finishes, furniture, lighting and buyer-persona variants",
+    "Renovation/as-built": "photo/video reconstruction, existing-new deltas, scale recovery and approval gaps",
+    "Mixed-use development": "podium/tower split, public realm, area mix, phasing and investor story",
+    "Real-estate sales tour": "camera path, hotspots, listing narrative, renders and shareable sales package",
   }[projectType];
 }
 
 function getDeliveryText(projectType: ProjectType) {
   return {
-    "Mechanical part": "STEP + STL",
-    "Architecture/BIM module": "IFC + GLB",
-    Fixture: "STEP + setup notes",
-    Enclosure: "STEP + GLB",
-    "Custom assembly": "STEP + review package",
-    "Structural frame": "STEP + review package",
-    "MEP system": "IFC + GLB + coordination notes",
-    "Civil/infrastructure package": "STEP + IFC + issue matrix",
+    "Single-family house": "GLB tour + IFC + render pack + listing copy",
+    "Multi-family building": "IFC + GLB + area schedule + investor summary",
+    "Commercial building": "GLB leasing tour + fit-out zones + storefront views",
+    "Interior staging": "room GLB scenes + renders + finish schedule",
+    "Renovation/as-built": "reconstructed model + photo anchors + delta report",
+    "Mixed-use development": "urban massing GLB + area mix + phasing package",
+    "Real-estate sales tour": "interactive GLB tour + hotspots + broker pack",
   }[projectType];
 }
 
 function getRiskText(projectType: ProjectType) {
   return {
-    "Mechanical part": "clearance and rib spacing",
-    "Architecture/BIM module": "property mapping and assembly context",
-    Fixture: "repeatability and service access",
-    Enclosure: "fit, ingress, and draft angles",
-    "Custom assembly": "coordination gaps between components",
-    "Structural frame": "connection assumptions and staged load transfer",
-    "MEP system": "routing conflicts and field-install access",
-    "Civil/infrastructure package": "revision drift between geometry, comments, and procurement notes",
+    "Single-family house": "missing lot constraints, room area mismatch, facade/reference ambiguity",
+    "Multi-family building": "zoning, parking, unit mix, FAR/GFA and approval assumptions",
+    "Commercial building": "tenant requirements, circulation, storefront constraints and fit-out uncertainty",
+    "Interior staging": "style drift, furniture scale, lighting realism and illustrative finish disclaimers",
+    "Renovation/as-built": "scale recovery, incomplete media, hidden conditions and approval deltas",
+    "Mixed-use development": "program mix, public realm, access, parking and investor assumptions",
+    "Real-estate sales tour": "media fidelity, hotspot accuracy, listing claims and visual disclaimers",
   }[projectType];
 }

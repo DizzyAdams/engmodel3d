@@ -8,6 +8,7 @@ import {
   budgetOptions,
   createBriefSubmission,
   createDefaultBriefForm,
+  mediaKindOptions,
   priorityOptions,
   projectTypeOptions,
   sizeBandOptions,
@@ -18,6 +19,7 @@ import {
   type BriefFormState,
   type BudgetBand,
   type ExportTarget,
+  type MediaKind,
   type Priority,
   type ProjectType,
   type SizeBand,
@@ -60,6 +62,53 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
 
       return { ...current, selectedExports };
     });
+  }
+
+  function addMediaAsset() {
+    setForm((current) => ({
+      ...current,
+      mediaAssets: [
+        ...current.mediaAssets,
+        { kind: "PNG/JPEG", name: "new-reference.jpg", detail: "Describe what this media should control in the generated model." },
+      ],
+    }));
+  }
+
+  function updateMediaAsset(index: number, key: "kind" | "name" | "detail", value: string) {
+    setForm((current) => ({
+      ...current,
+      mediaAssets: current.mediaAssets.map((asset, assetIndex) =>
+        assetIndex === index ? { ...asset, [key]: key === "kind" ? (value as MediaKind) : value } : asset,
+      ),
+    }));
+  }
+
+  function removeMediaAsset(index: number) {
+    setForm((current) => ({
+      ...current,
+      mediaAssets: current.mediaAssets.filter((_, assetIndex) => assetIndex !== index),
+    }));
+  }
+
+  function addSelectedFiles(files: FileList | null) {
+    if (!files?.length) return;
+    const mediaAssets = Array.from(files).map((file) => {
+      const lower = file.name.toLowerCase();
+      const kind: MediaKind =
+        file.type.startsWith("video/")
+          ? "Video walkthrough"
+          : lower.endsWith(".pdf")
+            ? "Floor plan PDF"
+            : file.type.startsWith("image/")
+              ? "PNG/JPEG"
+              : "Reference images";
+      return {
+        kind,
+        name: file.name,
+        detail: `${Math.round(file.size / 1024)} KB · ${file.type || "unknown type"} · local metadata captured for generation planning.`,
+      };
+    });
+    setForm((current) => ({ ...current, mediaAssets: [...current.mediaAssets, ...mediaAssets] }));
   }
 
   function downloadTextFile(content: string, filename: string) {
@@ -129,10 +178,10 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
       <div className="panel__header">
         <div>
           <p className="section-label">Brief intake</p>
-          <h3>Generate a scoped handoff preview from a real commercial engineering intake</h3>
+          <h3>Generate a construction model brief from prompt, images, plans, videos, drone, or listing media</h3>
           <p className="section-subtitle">
-            Capture project type, dimensions, priority, and delivery posture, then turn the result into a buyer-facing scope,
-            package recommendation, surreal 3D direction, and backend-saved brief record.
+            Capture the lot, program, media references, BIM/tour outputs, approval needs, and sales posture, then turn the result
+            into a governed 3D real-estate generation plan.
           </p>
         </div>
         <div className="status-pill status-pill--soft">{analysis.scopeLabel}</div>
@@ -147,7 +196,7 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
                 className="brief-intake__input"
                 value={form.projectName}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => updateField("projectName", event.target.value)}
-                placeholder="Cantilever bracket pilot"
+                placeholder="Casa térrea premium em lote urbano"
                 required
                 aria-required="true"
               />
@@ -189,7 +238,7 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
                 className="brief-intake__input"
                 value={form.dimensions}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => updateField("dimensions", event.target.value)}
-                placeholder="320 x 180 x 24 mm"
+                placeholder="Lote 12 x 30 m · 180 m² · 3 suítes"
               />
             </label>
 
@@ -254,6 +303,56 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
             </label>
 
             <fieldset className="brief-intake__field brief-intake__field--full brief-intake__fieldset">
+              <legend>Multimodal inputs</legend>
+              <div className="brief-intake__media-actions">
+                <label className="button button--ghost brief-intake__file-button">
+                  Add local files
+                  <input
+                    accept="image/png,image/jpeg,video/*,application/pdf"
+                    multiple
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => addSelectedFiles(event.target.files)}
+                    type="file"
+                  />
+                </label>
+                <button className="button button--ghost" type="button" onClick={addMediaAsset}>
+                  Add manual reference
+                </button>
+              </div>
+              <div className="brief-intake__media-list">
+                {form.mediaAssets.map((asset, index) => (
+                  <article className="brief-intake__media-item" key={`${asset.name}-${index}`}>
+                    <select
+                      className="brief-intake__input brief-intake__select"
+                      value={asset.kind}
+                      onChange={(event: ChangeEvent<HTMLSelectElement>) => updateMediaAsset(index, "kind", event.target.value)}
+                    >
+                      {mediaKindOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      className="brief-intake__input"
+                      value={asset.name}
+                      onChange={(event: ChangeEvent<HTMLInputElement>) => updateMediaAsset(index, "name", event.target.value)}
+                      placeholder="plant-baixa.pdf"
+                    />
+                    <input
+                      className="brief-intake__input"
+                      value={asset.detail}
+                      onChange={(event: ChangeEvent<HTMLInputElement>) => updateMediaAsset(index, "detail", event.target.value)}
+                      placeholder="What should this input control?"
+                    />
+                    <button className="button button--ghost" type="button" onClick={() => removeMediaAsset(index)}>
+                      Remove
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset className="brief-intake__field brief-intake__field--full brief-intake__fieldset">
               <legend>Export targets</legend>
               <div className="brief-intake__toggles">
                 {exportTargets.map((target) => {
@@ -283,7 +382,7 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
                 className="brief-intake__input brief-intake__textarea"
                 value={form.notes}
                 onChange={(event: ChangeEvent<HTMLTextAreaElement>) => updateField("notes", event.target.value)}
-                placeholder="Add tolerances, acceptance criteria, production context, procurement notes, coordination constraints, or stakeholder comments."
+                placeholder="Add dimensions, rooms, floors, style, client profile, approval requirements, BIM needs, tour shots, or interior references."
               />
             </label>
           </div>
@@ -350,6 +449,7 @@ export function BriefIntakePanel({ exportTargets }: BriefIntakePanelProps) {
             <ul className="brief-intake__list">
               <li>{analysis.nextStep}</li>
               <li>{analysis.riskPosture}</li>
+              {analysis.mediaPlan.map((item) => <li key={item}>{item}</li>)}
               {analysis.exportPresets.map((preset) => <li key={preset}>{preset}</li>)}
               <li>{analysis.surrealDirection}</li>
               {analysis.blockers.length === 0 ? <li key="ready">The brief is complete enough to move to a discovery call or scoped proposal.</li> : null}

@@ -341,8 +341,8 @@ export function EngineeringWorkbench({ project, id }: EngineeringWorkbenchProps)
             </button>
           </div>
           <p className="workbench-export__note">
-            The JSON export is canonical. STEP, STL, and GLB are listed in the manifest as placeholders because
-            browser-only builds cannot produce true geometry files.
+            The JSON export is canonical. The manifest marks STL and GLB as live-mesh outputs, while STEP remains
+            pending until a CAD kernel or server-side STEP exporter is connected.
           </p>
         </div>
       </div>

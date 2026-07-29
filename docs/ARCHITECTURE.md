@@ -65,6 +65,14 @@ Responsável por mapear projetos open source, licenças e lacunas.
 
 Responsável por regras geométricas, exportação e automação.
 
+### Agente de validação CAD
+
+Responsável por replay em kernel CAD, checagens topológicas, normalização de unidades e smoke tests de formatos.
+
+### Agente de marketplace
+
+Responsável por taxonomia global de listagem, metadados localizados, postura de licença e empacotamento para distribuição.
+
 ### Agente de UX
 
 Responsável por fluxo de briefing, revisão e confiança do usuário.
@@ -76,6 +84,10 @@ Responsável por API, jobs assíncronos, filas e observabilidade.
 ### Agente de QA
 
 Responsável por casos de teste, regressão geométrica e formatos.
+
+### Agente de compliance
+
+Responsável por gates de release, linhagem, auditoria e restrições regulatórias/licenciamento para modelos distribuídos.
 
 ## Primeira Stack Recomendada
 
@@ -94,4 +106,3 @@ Responsável por casos de teste, regressão geométrica e formatos.
 - latência de geração
 - dependência de kernels externos
 - complexidade de integração entre CAD, BIM e web
-

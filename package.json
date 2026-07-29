@@ -7,6 +7,7 @@
     "build": "tsc -p tsconfig.json",
     "check": "tsc -p tsconfig.json --noEmit",
     "start": "node dist/src/runtime/local-server.js",
+    "verify": "node dist/src/server/__tests__/model-catalog.verify.js",
     "vercel-build": "npm run build && node dist/src/runtime/export-static.js"
   },
   "devDependencies": {

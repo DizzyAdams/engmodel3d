@@ -1,0 +1,33 @@
+[
+  {
+    "id": "brief-1785198759106-uu376f",
+    "createdAt": "2026-07-28T00:32:39.106Z",
+    "form": {
+      "projectName": "MEP Coordination Pilot",
+      "projectType": "MEP system",
+      "dimensions": "12 risers / 4 shafts / 2 plant rooms",
+      "priority": "High rigor",
+      "sizeBand": "Room-scale",
+      "timeline": "Pilot (1-2 months)",
+      "useCase": "Construction coordination",
+      "budgetBand": "$25k-$50k",
+      "notes": "Need clash-free coordination package, field-install constraints, approval checkpoints, and IFC plus GLB handoff for contractor review.",
+      "selectedExports": [
+        "IFC",
+        "GLB"
+      ]
+    },
+    "analysis": {
+      "scopeLabel": "Multi-workstream engagement",
+      "effortHours": 83,
+      "readiness": 98,
+      "blockers": [],
+      "nextStep": "Propose a phased rollout with governance and portfolio reporting.",
+      "exportPack": "IFC + GLB",
+      "recommendedSector": "MEP coordination and prefabrication",
+      "recommendedPackage": "Enterprise Rollout",
+      "surrealDirection": "Surreal MEP routing composition with luminous service lines, clash-free sweeps, and hyper-legible coordination layers."
+    },
+    "preview": "# Project Brief: MEP Coordination Pilot\n\n## Intake details\n- Project type: MEP system\n- Dimensions: 12 risers / 4 shafts / 2 plant rooms\n- Priority: High rigor\n- Size band: Room-scale\n- Timeline: Pilot (1-2 months)\n- Primary use: Construction coordination\n- Budget band: $25k-$50k\n- Export targets: IFC + GLB\n\n## Scoped summary\nBuild a mep system for 12 risers / 4 shafts / 2 plant rooms. The brief is marked high rigor priority, so the first pass should focus on routing logic, clash posture, and field-install constraints. Deliver IFC + GLB + coordination notes and keep the handoff narrow enough to review in one pass.\n\n## Commercial recommendation\n- Recommended sector: MEP coordination and prefabrication\n- Recommended package: Enterprise Rollout\n- Next step: Propose a phased rollout with governance and portfolio reporting.\n- Surreal 3D direction: Surreal MEP routing composition with luminous service lines, clash-free sweeps, and hyper-legible coordination layers.\n\n## Scope summary\n- Scope tier: Multi-workstream engagement\n- Estimated effort: 83 hours\n- Readiness: 98%\n- Export pack: IFC + GLB\n- Primary risk: routing conflicts and field-install access\n\n## Notes\nNeed clash-free coordination package, field-install constraints, approval checkpoints, and IFC plus GLB handoff for contractor review.\n\n## Delivery assumptions\n- Human review remains required before release.\n- Export readiness is validated against the selected file targets.\n- Brief will be revised once tolerances and acceptance criteria are confirmed."
+  }
+]
