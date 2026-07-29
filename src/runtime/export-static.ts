@@ -54,6 +54,7 @@ async function main() {
   const routes: Record<string, string> = {
     "/": site.dashboard(data),
     "/projects/casa-contemporanea": site.project(getProjectById("casa-contemporanea")!),
+    "/projects/torre-residencial": site.project(getProjectById("torre-residencial")!),
     "/projects/torre-comercial": site.project(getProjectById("torre-comercial")!),
     "/projects/loja-esquina": site.project(getProjectById("loja-esquina")!),
     "/projects/apartamento-decorado": site.project(getProjectById("apartamento-decorado")!),
