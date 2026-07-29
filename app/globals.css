@@ -2649,3 +2649,199 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ========================================
+   UX IMPROVEMENTS - Market Leading Quality
+   ======================================== */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Advanced animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(124, 243, 255, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(124, 243, 255, 0.4); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Animation utilities */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--panel) 0%,
+    var(--panel-2) 50%,
+    var(--panel) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-text {
+  height: 16px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.skeleton-title {
+  height: 28px;
+  width: 60%;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+/* Accessibility enhancements */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 12px 16px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Remove focus for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: rgba(255, 255, 255, 0.4);
+    --muted: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print styles */
+@media print {
+  .nav,
+  .actions,
+  .stage {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .panel {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Performance optimizations */
+.card,
+.btn,
+.panel {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Mobile touch improvements */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    border-color: var(--border);
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(124, 243, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Smooth image rendering */
+img,
+canvas {
+  image-rendering: high-quality;
+}
+
+/* Performance: reduce repaints */
+.stage canvas {
+  contain: layout style paint;
+}
+
+.card {
+  contain: layout style;
+}
