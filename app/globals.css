@@ -2562,6 +2562,39 @@ body {
   gap: 12px;
 }
 
+.catalog-card__enterprise,
+.catalog-card__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.catalog-card__enterprise span,
+.catalog-card__proof span {
+  border: 1px solid rgba(124, 243, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(124, 243, 255, 0.055);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+  padding: 6px 9px;
+}
+
+.catalog-card__buyer {
+  margin: 0;
+  border-left: 2px solid rgba(124, 243, 255, 0.5);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+  padding-left: 10px;
+}
+
+.catalog-card__proof span {
+  border-color: rgba(120, 244, 185, 0.16);
+  background: rgba(120, 244, 185, 0.065);
+  color: rgba(213, 255, 237, 0.86);
+}
+
 .catalog-card__score {
   color: var(--success);
   font-weight: 700;
@@ -2592,6 +2625,8 @@ body {
 @media (max-width: 720px) {
   .catalog-card__top,
   .catalog-card__meta,
+  .catalog-card__enterprise,
+  .catalog-card__proof,
   .catalog-card__footer {
     flex-direction: column;
     align-items: flex-start;

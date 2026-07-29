@@ -1,6 +1,7 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, rm, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { getDashboardData, getProjectById } from "../server/mock-data.js";
+import { catalogListings } from "../server/model-catalog.js";
 import { SprintPlanner } from "../core/sprint-plan.js";
 import * as site from "./site-renderer.js";
 
@@ -48,6 +49,7 @@ async function main() {
   const data = getDashboardData();
   const planner = new SprintPlanner();
   const sprints = planner.createBacklog();
+  await rm(resolve(outDir, "catalog"), { recursive: true, force: true });
 
   const routes: Record<string, string> = {
     "/": site.dashboard(data),
@@ -55,7 +57,7 @@ async function main() {
     "/projects/torre-comercial": site.project(getProjectById("torre-comercial")!),
     "/projects/loja-esquina": site.project(getProjectById("loja-esquina")!),
     "/projects/apartamento-decorado": site.project(getProjectById("apartamento-decorado")!),
-    "/catalog": site.catalog(data),
+    "/catalog": site.catalogFromListings(catalogListings),
     "/briefs": site.briefs([]),
     "/sprints": site.sprints(data, sprints),
     "/mission-control": site.mission(data),
@@ -66,22 +68,8 @@ async function main() {
   };
   for (const [route, content] of Object.entries(routes)) await writeRoute(route, content);
 
-  const listings: Array<{ id: string; name: string; category: string; signal: string; price: string; license: string; formats: string; delivery: string; tags: string[]; launchPackages?: Array<{ startupPhase: string; packageName: string; fullDeliverables: string; launchPrice: string; eligibilityRequirement: string }>; integrationProof?: Array<{ type: string; experienceId: string; location: string; status: string }> }> = (await import("../server/model-catalog.js")).catalogListings;
-  for (const item of listings) {
-    const detail = site.catalogDetail({
-      id: item.id,
-      name: item.name,
-      category: item.category,
-      signal: item.signal,
-      price: item.price,
-      license: item.license,
-      formats: item.formats,
-      delivery: item.delivery,
-      tags: item.tags,
-      launchPackages: item.launchPackages,
-      integrationProof: item.integrationProof,
-    });
-    await writeRoute(`/catalog/${item.id}`, detail);
+  for (const item of catalogListings) {
+    await writeRoute(`/catalog/${item.slug}`, site.catalogDetail(item));
   }
 }
 

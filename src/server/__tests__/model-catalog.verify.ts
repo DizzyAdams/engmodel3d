@@ -17,6 +17,19 @@ const FILTERS = [
   { filter: "bim", expected: 3 },
 ];
 
+const REQUIRED_LIST_FIELDS: Array<keyof CatalogListing> = [
+  "buyer",
+  "useCase",
+  "lod",
+  "units",
+  "tolerance",
+  "coordinateSystem",
+  "sourceInputs",
+  "validationChecks",
+  "complianceSignals",
+  "deliveryAssets",
+];
+
 let failed = false;
 
 for (const id of EXPECTED_IDS) {
@@ -46,8 +59,48 @@ if (catalogListings.length !== EXPECTED_IDS.length) {
   failed = true;
 }
 
+const ids = new Set<string>();
+const slugs = new Set<string>();
+for (const item of catalogListings) {
+  if (ids.has(item.id)) {
+    console.log("fail duplicate id", item.id);
+    failed = true;
+  }
+  ids.add(item.id);
+
+  if (slugs.has(item.slug)) {
+    console.log("fail duplicate slug", item.slug);
+    failed = true;
+  }
+  slugs.add(item.slug);
+
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug)) {
+    console.log("fail invalid slug", item.id, item.slug);
+    failed = true;
+  }
+
+  for (const field of REQUIRED_LIST_FIELDS) {
+    const value = item[field];
+    const valid = Array.isArray(value) ? value.length >= 3 : typeof value === "string" && value.trim().length >= 8;
+    if (!valid) {
+      console.log("fail enterprise field", item.id, field);
+      failed = true;
+    }
+  }
+
+  if (!/(GLB|GLTF|IFC|OBJ|STL|USDZ|PDF)/.test(item.formats)) {
+    console.log("fail format coverage", item.id, item.formats);
+    failed = true;
+  }
+
+  if (!item.lod.includes("LOD")) {
+    console.log("fail lod", item.id, item.lod);
+    failed = true;
+  }
+}
+
 if (!failed) {
-  console.log("ok catalog listings=%s filtered=%s", catalogListings.length, FILTERS[1].expected);
+  console.log("ok catalog listings=%s filtered=%s validated_slugs=%s enterprise_fields=%s", catalogListings.length, FILTERS[1].expected, slugs.size, REQUIRED_LIST_FIELDS.length);
   process.exit(0);
 } else {
   console.log("verify failed");

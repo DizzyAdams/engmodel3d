@@ -118,7 +118,7 @@ export function CatalogListingDetail({ tag = "all", initialId }: { tag?: Filter;
                   <h4 className="mt-1 text-base font-semibold">{related.name}</h4>
                   <p className="mt-2 text-sm text-white/80">{related.signal}</p>
                   <div className="mt-3">
-                    <a className="text-sm underline underline-offset-4" href={`/catalog/${related.id}`}>
+                    <a className="text-sm underline underline-offset-4" href={`/catalog/${related.slug}`}>
                       Abrir pacote
                     </a>
                   </div>
@@ -159,7 +159,7 @@ export function CatalogListingDetail({ tag = "all", initialId }: { tag?: Filter;
               ))}
             </div>
             <div className="mt-4">
-              <a className="text-sm underline underline-offset-4" href={`/catalog/${item.id}`}>
+              <a className="text-sm underline underline-offset-4" href={`/catalog/${item.slug}`}>
                 Abrir pacote
               </a>
             </div>

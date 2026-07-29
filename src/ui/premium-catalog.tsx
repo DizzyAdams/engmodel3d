@@ -85,16 +85,27 @@ export function PremiumCatalog() {
               <span>{item.price}</span>
               <span>{item.license}</span>
             </div>
+            <div className="catalog-card__enterprise">
+              <span>{item.lod}</span>
+              <span>{item.units}</span>
+              <span>{item.tolerance}</span>
+            </div>
+            <p className="catalog-card__buyer">{item.buyer}</p>
+            <div className="catalog-card__proof">
+              {item.validationChecks.slice(0, 3).map((check) => (
+                <span key={check}>{check}</span>
+              ))}
+            </div>
             <div className="catalog-card__footer">
               <span className="catalog-card__formats">{item.formats}</span>
               <span className="catalog-card__delivery">{item.delivery}</span>
             </div>
             <div className="catalog-card__actions">
-              <a className="button button--primary" href={`/projects/${item.slug}`}>
-                Open in project
+              <a className="button button--primary" href={`/catalog/${item.slug}`}>
+                View validation matrix
               </a>
-              <a className="button button--ghost" href={`/catalog/${item.slug}`}>
-                View package
+              <a className="button button--ghost" href="/briefs">
+                Start governed brief
               </a>
             </div>
           </article>
